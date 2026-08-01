@@ -126,8 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollWheelZoom: false
     }).setView([12.9719, 77.6412], 15);
 
-    // Light-themed tiles to match Fyn website aesthetic
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    // Dark-themed tiles to match Fyn website aesthetic
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
         subdomains: 'abcd',
         maxZoom: 20
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const marker = L.marker([12.9719, 77.6412]).addTo(map);
     marker.bindPopup(`
         <div style="font-family: 'Inter', sans-serif; color: #0f172a;">
-            <strong style="color: #1e3a8a;">FYN Engineers Pvt. Ltd.</strong><br>
+            <strong style="color: #38bdf8;">FYN Engineers Pvt. Ltd.</strong><br>
             No. 42, 100 Feet Road, Indiranagar<br>
             Bangalore - 560038
         </div>
