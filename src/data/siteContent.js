@@ -39,7 +39,7 @@ export const siteContent = {
   // 3. Hero Section Data
   hero: {
     badge: "Integrated Engineering • Solar • Water • Backup Power",
-    headline: "Engineering Solutions Designed",
+    headline: "FYN Engineers Pvt. Ltd.",
     headlineEmphasis: "For Your Needs",
     subheadline: "We custom-design, supply, install, and service commercial water purification, solar rooftop energy grids, and high-reliability industrial electrical systems with mandatory site inspections.",
     ctaPrimary: "Request Consultation",

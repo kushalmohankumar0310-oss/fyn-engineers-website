@@ -1,15 +1,590 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FYN Engineers Pvt. Ltd. | Integrated Water & Energy Solutions</title>
-    <meta name="description" content="FYN Engineers Pvt. Ltd. provides commercial water treatment, rooftop solar power, and industrial power backup solutions with mandatory site inspections across India." />
-    <script type="module" crossorigin src="./assets/index-3jFHfjJ-.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BOG82sMd.css">
-  </head>
-  <body class="bg-white text-slate-900 antialiased">
-    <div id="root"></div>
-  </body>
+    <meta name="description" content="FYN Engineers Pvt. Ltd. custom-designs, supplies, installs, and services commercial water treatment, rooftop solar power, and industrial power backup solutions across India.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    
+    <!-- Custom Styles -->
+  <link rel="stylesheet" crossorigin href="./assets/index-CRvEximM.css">
+</head>
+<body>
+
+    <!-- 1. NAVBAR / HEADER -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo-container">
+                <div class="logo-icon">🌱</div>
+                <div class="logo-text">
+                    <span>FYN <span class="accent-text">ENGINEERS</span></span>
+                    <span class="logo-tagline">FOR YOUR NEEDS</span>
+                </div>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">☰</button>
+
+            <nav class="nav-links" id="nav-links">
+                <a href="#home" class="nav-item">Home</a>
+                <a href="#about" class="nav-item">About Us</a>
+                <a href="#verticals" class="nav-item">Business Verticals</a>
+                <a href="#process" class="nav-item">Our Process</a>
+                <a href="#why-us" class="nav-item">Why Choose Us</a>
+                <a href="#industries" class="nav-item">Industries</a>
+                <a href="#projects" class="nav-item">Projects</a>
+                <a href="#contact" class="btn-cta">Request a Quote</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION (#home) -->
+    <section id="home" class="hero-section">
+        <div class="container hero-container">
+            <div class="hero-badge">
+                🛡️ Integrated Engineering • Solar • Water • Backup Power
+            </div>
+            
+            <h1>FYN Engineers Pvt. Ltd. <br><span style="color: var(--color-emerald);">For Your Needs</span></h1>
+            
+            <p class="hero-subtitle">
+                We custom-design, supply, install, and service commercial water purification, solar rooftop energy grids, and high-reliability industrial electrical systems with mandatory site inspections.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#contact" class="btn-cta">Request Consultation →</a>
+                <a href="#verticals" class="btn-secondary">Explore Verticals</a>
+            </div>
+
+            <div class="hero-features-grid">
+                <div class="feature-card">
+                    <div class="card-icon">💧</div>
+                    <h3>Clean Water Infrastructure</h3>
+                    <p>FYN Aqua Solutions: Industrial RO, commercial softeners, heat pumps & WTP systems.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon">☀️</div>
+                    <h3>Renewable Solar Energy</h3>
+                    <p>FYN Solar Power: On-grid & off-grid rooftop solar, solar pumps & street lighting.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Electrical Reliability</h3>
+                    <p>Power Backup: Online UPS, LFP storage, voltage stabilizers & AMF panels.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. ABOUT US SECTION (#about) -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-badge">Who We Are</span>
+                <h2>Engineering Excellence Driven by Site Precision</h2>
+                <div class="header-bar"></div>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        <strong>FYN Engineers Pvt. Ltd.</strong> is a premier multi-vertical engineering firm delivering end-to-end water treatment, solar photovoltaic power, and electrical infrastructure projects across India.
+                    </p>
+                    <p>
+                        Unlike off-the-shelf sellers, our certified engineers conduct physical site inspections to measure solar irradiance tilt angles, water mineral TDS levels, and electrical surge profiles before engineering custom blueprints.
+                    </p>
+                    <div class="highlight-quote">
+                        "Our mission is to empower commercial enterprises, industries, and institutions with sustainable, cost-effective engineering systems backed by lifetime service care."
+                    </div>
+                </div>
+
+                <div>
+                    <div class="vision-box">
+                        <h3>👁️ Our Vision</h3>
+                        <p>
+                            To become India's most trusted engineering solutions provider, setting the benchmark in site-precision design, clean energy integration, and transparent OEM compliance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="val-icon">🧭</div>
+                    <h4>Site Precision</h4>
+                    <p>Every blueprint is custom-crafted according to physical site conditions.</p>
+                </div>
+                <div class="value-card">
+                    <div class="val-icon">📜</div>
+                    <h4>OEM Compliance</h4>
+                    <p>Direct tier-1 manufacturer sourcing under strict compliance licensing.</p>
+                </div>
+                <div class="value-card">
+                    <div class="val-icon">🌱</div>
+                    <h4>Sustainability First</h4>
+                    <p>Optimized solar generation and zero-water-waste engineering.</p>
+                </div>
+                <div class="value-card">
+                    <div class="val-icon">⏱️</div>
+                    <h4>Client-Centric AMC</h4>
+                    <p>Free warranty service followed by transparent low-fee annual maintenance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. BUSINESS VERTICALS (#verticals) -->
+    <section id="verticals" class="verticals-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-badge">Specialized Verticals</span>
+                <h2>Integrated Engineering Business Verticals</h2>
+                <p>Custom-tailored solutions across three core utility domains</p>
+                <div class="header-bar"></div>
+            </div>
+
+            <div class="verticals-grid">
+                <!-- FYN Aqua -->
+                <div class="vertical-card cyan">
+                    <div>
+                        <div class="v-head">
+                            <span class="v-icon">💧</span>
+                            <span class="v-tag">FYN Aqua</span>
+                        </div>
+                        <h3>FYN Aqua</h3>
+                        <p class="v-sub">Advanced Water & Thermal Systems</p>
+                        <p class="v-desc">High-performance commercial & industrial water treatment, purification, and solar thermal heating.</p>
+                        <p class="v-list-title">Key Offerings</p>
+                        <ul class="v-list">
+                            <li>Air Source Heat Pumps & Thermal Systems</li>
+                            <li>Industrial RO & Automatic Water Softeners</li>
+                            <li>Water Treatment Plants (WTP & ETP)</li>
+                            <li>Hydro-Pneumatic Pressure Booster Pumps</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="btn-cta" style="margin-top: 24px; text-align: center;">Inquire For FYN Aqua →</a>
+                </div>
+
+                <!-- FYN Solar -->
+                <div class="vertical-card amber">
+                    <div>
+                        <div class="v-head">
+                            <span class="v-icon">☀️</span>
+                            <span class="v-tag">FYN Solar</span>
+                        </div>
+                        <h3>FYN Solar</h3>
+                        <p class="v-sub">Renewable Photovoltaic Energy</p>
+                        <p class="v-desc">Turnkey rooftop and ground-mounted solar PV systems for massive electricity savings.</p>
+                        <p class="v-list-title">Key Offerings</p>
+                        <ul class="v-list">
+                            <li>Commercial & Residential Solar Rooftops</li>
+                            <li>Bifacial & Mono-PERC Panel Grids</li>
+                            <li>Solar Water Pumping & Ag Systems</li>
+                            <li>Standalone Solar Street Lighting</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="btn-cta" style="margin-top: 24px; text-align: center;">Inquire For FYN Solar →</a>
+                </div>
+
+                <!-- Electrical Solutions -->
+                <div class="vertical-card emerald">
+                    <div>
+                        <div class="v-head">
+                            <span class="v-icon">⚡</span>
+                            <span class="v-tag">Electrical</span>
+                        </div>
+                        <h3>Electrical Solutions</h3>
+                        <p class="v-sub">Power Quality & Uninterrupted Backup</p>
+                        <p class="v-desc">Heavy-duty power protection, voltage stabilization, and battery storage modules.</p>
+                        <p class="v-list-title">Key Offerings</p>
+                        <ul class="v-list">
+                            <li>Industrial Online UPS (1 - 500 kVA)</li>
+                            <li>Lithium Iron Phosphate (LFP) Batteries</li>
+                            <li>Automatic Servo Voltage Stabilizers</li>
+                            <li>AMF Control Panel Consultancy</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="btn-cta" style="margin-top: 24px; text-align: center;">Inquire Electrical →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ENGINEERING PROCESS (#process) -->
+    <section id="process" class="process-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-badge">How We Work</span>
+                <h2>The 6-Step Engineering Workflow</h2>
+                <p>From initial site visit to lifetime after-sales care</p>
+                <div class="header-bar"></div>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-card">
+                    <span class="p-step">01</span>
+                    <div class="p-icon">🔍</div>
+                    <h3>Consultation & Site Audit</h3>
+                    <p>On-site analysis of water TDS, solar sun-path, and peak power loads.</p>
+                </div>
+                <div class="process-card">
+                    <span class="p-step">02</span>
+                    <div class="p-icon">📐</div>
+                    <h3>Engineering Design</h3>
+                    <p>Custom CAD drafting and structural hydraulic & electrical modeling.</p>
+                </div>
+                <div class="process-card">
+                    <span class="p-step">03</span>
+                    <div class="p-icon">📦</div>
+                    <h3>OEM Product Sourcing</h3>
+                    <p>Tier-1 component selection under strict FYN quality compliance.</p>
+                </div>
+                <div class="process-card">
+                    <span class="p-step">04</span>
+                    <div class="p-icon">⚙️</div>
+                    <h3>Turnkey Installation</h3>
+                    <p>Precision mounting, electrical cabling, and civil integration by certified staff.</p>
+                </div>
+                <div class="process-card">
+                    <span class="p-step">05</span>
+                    <div class="p-icon">✅</div>
+                    <h3>Testing & Commissioning</h3>
+                    <p>Rigorous load testing, pressure checks, and grid synchronization.</p>
+                </div>
+                <div class="process-card">
+                    <span class="p-step">06</span>
+                    <div class="p-icon">🎧</div>
+                    <h3>After-Sales Support</h3>
+                    <p>100% free warranty servicing and transparent AMC maintenance contracts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. WHY CHOOSE US & INDUSTRIES (#why-us, #industries) -->
+    <section id="why-us" class="why-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-badge">Why Partner With Us</span>
+                <h2>Engineering Integrity That Sets Us Apart</h2>
+                <div class="header-bar"></div>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="val-icon">📍</div>
+                    <h4>Physical Site Audits</h4>
+                    <p>We never guess parameters. Every project starts with real-world site measurements.</p>
+                </div>
+                <div class="value-card">
+                    <div class="val-icon">📜</div>
+                    <h4>Tier-1 OEM Partnerships</h4>
+                    <p>Branded under FYN with direct manufacturer warranties and compliance assurance.</p>
+                </div>
+                <div class="value-card">
+                    <div class="val-icon">🛡️</div>
+                    <h4>Zero-Cost Warranty Service</h4>
+                    <p>Free component repair and maintenance while under active warranty.</p>
+                </div>
+                <div class="value-card">
+                    <div class="val-icon">🏗️</div>
+                    <h4>Turnkey Guarantee</h4>
+                    <p>Single point of accountability from civil design to final regulatory approvals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="industries" class="industries-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-badge">Sectors We Empower</span>
+                <h2>Industries Served</h2>
+                <p>Custom utility solutions for commercial, industrial, and institutional sectors</p>
+                <div class="header-bar"></div>
+            </div>
+
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <span class="ind-icon">💊</span>
+                    <div class="ind-info">
+                        <h4>Pharmaceutical Plants</h4>
+                        <span>Industrial</span>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <span class="ind-icon">🏭</span>
+                    <div class="ind-info">
+                        <h4>Manufacturing Facilities</h4>
+                        <span>Industrial</span>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <span class="ind-icon">🥗</span>
+                    <div class="ind-info">
+                        <h4>Food & Beverage Processing</h4>
+                        <span>Industrial</span>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <span class="ind-icon">🧪</span>
+                    <div class="ind-info">
+                        <h4>Chemical Processing</h4>
+                        <span>Industrial</span>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <span class="ind-icon">🏨</span>
+                    <div class="ind-info">
+                        <h4>Hotels & Hospitality</h4>
+                        <span>Commercial</span>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <span class="ind-icon">🏢</span>
+                    <div class="ind-info">
+                        <h4>Commercial Office Parks</h4>
+                        <span>Commercial</span>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <span class="ind-icon">🏥</span>
+                    <div class="ind-info">
+                        <h4>Hospitals & Healthcare</h4>
+                        <span>Healthcare & Institutional</span>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <span class="ind-icon">🎓</span>
+                    <div class="ind-info">
+                        <h4>Educational Institutions</h4>
+                        <span>Healthcare & Institutional</span>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <span class="ind-icon">🏡</span>
+                    <div class="ind-info">
+                        <h4>Residential Complexes</h4>
+                        <span>Commercial</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. PROJECTS & GALLERY (#projects) -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-badge">Track Record</span>
+                <h2>Featured Engineering Projects</h2>
+                <p>Proven turnkey installations delivering high efficiency</p>
+                <div class="header-bar"></div>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div>
+                        <span class="proj-tag">✓ Completed</span>
+                        <h3 style="margin-top: 12px; margin-bottom: 6px;">500 kW Industrial Rooftop Solar Grid</h3>
+                        <p style="font-size: 0.85rem; color: var(--color-emerald); font-weight: bold;">📍 Noida SEZ Industrial Area</p>
+                        <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-top: 10px;">Mono-PERC panel array reducing factory grid power draw by 65%.</p>
+                    </div>
+                    <div style="border-top: 1px solid var(--color-border); padding-top: 12px; margin-top: 20px; font-weight: bold;">
+                        500 kW Output
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <span class="proj-tag">✓ Completed</span>
+                        <h3 style="margin-top: 12px; margin-bottom: 6px;">50,000 LPD Water Softening Plant</h3>
+                        <p style="font-size: 0.85rem; color: var(--color-emerald); font-weight: bold;">📍 Baddi Pharma Complex</p>
+                        <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-top: 10px;">Raw borewell water TDS reduction from 1400 PPM to USP process grade.</p>
+                    </div>
+                    <div style="border-top: 1px solid var(--color-border); padding-top: 12px; margin-top: 20px; font-weight: bold;">
+                        50,000 LPD Capacity
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <span class="proj-tag">✓ Completed</span>
+                        <h3 style="margin-top: 12px; margin-bottom: 6px;">200 kVA Online UPS & LFP Storage</h3>
+                        <p style="font-size: 0.85rem; color: var(--color-emerald); font-weight: bold;">📍 Gurugram Data Center</p>
+                        <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-top: 10px;">Zero-millisecond switchover industrial backup with dual AMF panel sync.</p>
+                    </div>
+                    <div style="border-top: 1px solid var(--color-border); padding-top: 12px; margin-top: 20px; font-weight: bold;">
+                        200 kVA / 4h Backup
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. CUSTOM EXTRA SECTION -->
+    <section class="custom-section">
+        <div class="container text-center">
+            <span class="section-badge" style="background: rgba(52, 211, 153, 0.2); color: #34d399; border-color: rgba(52, 211, 153, 0.4);">Eco Commitment</span>
+            <h2>Our Green Energy Guarantee</h2>
+            <p style="max-width: 750px; margin: 16px auto; color: #cbd5e1;">
+                FYN Engineers Pvt. Ltd. is committed to helping businesses achieve carbon neutrality. Through optimized solar panel tilt angles and high-COP heat pumps, our installations offset over 12,000 metric tons of CO2 annually across India.
+            </p>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-val">12,000+</div>
+                    <div class="metric-lbl">Tons CO2 Offset</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-val">50M+</div>
+                    <div class="metric-lbl">Liters Recycled</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-val">35%</div>
+                    <div class="metric-lbl">Average Energy Savings</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. CONTACT & FOOTER (#contact) -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-badge">Get In Touch</span>
+                <h2>Request an Engineering Consultation</h2>
+                <p>Speak directly with our engineering team for site visits, project estimates, or AMC support.</p>
+                <div class="header-bar"></div>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-box">
+                    <h3 style="color: #ffffff; margin-bottom: 12px;">FYN Engineers Pvt. Ltd.</h3>
+                    <p style="font-size: 0.9rem; color: #cbd5e1; margin-bottom: 24px;">Integrated Water & Energy Solutions | Design • Supply • Install • Service</p>
+
+                    <div style="font-size: 0.9rem; line-height: 1.8;">
+                        <p>📍 <strong>Address:</strong> Plot No. 42, Sector 63, Commercial Industrial Area, Noida, UP 201301</p>
+                        <p>📞 <strong>Phone:</strong> +91 98765 43210 / +91 120 4567 890</p>
+                        <p>✉️ <strong>Email:</strong> info@fynengineers.com</p>
+                        <p>⏰ <strong>Working Hours:</strong> Mon – Sat: 9:00 AM – 7:00 PM IST (24/7 AMC)</p>
+                    </div>
+
+                    <div class="map-wrapper">
+                        <iframe
+                            title="FYN Engineers Location Map"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14008.112423377755!2d77.37525355!3d28.6289297!2m3!1f0!1f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce55000000001%3A0x6b30693a20726d50!2sSector%2063%2C%20Noida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                            width="100%"
+                            height="100%"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="contact-form-panel">
+                    <h3 style="margin-bottom: 20px;">Send Us Your Inquiry</h3>
+                    
+                    <div id="form-success" style="display: none; background: #d1fae5; color: #047857; padding: 16px; border-radius: 8px; margin-bottom: 20px; font-weight: bold;">
+                        ✓ Consultation Request Submitted! Our team will contact you shortly.
+                    </div>
+
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" required placeholder="e.g. Rahul Sharma">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" required placeholder="+91 98765 43210">
+                        </div>
+                        <div class="form-group">
+                            <label>Work Email Address *</label>
+                            <input type="email" required placeholder="name@company.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Service Vertical *</label>
+                            <select>
+                                <option>FYN Aqua (Water Solutions)</option>
+                                <option>FYN Solar (Photovoltaic Energy)</option>
+                                <option>Electrical Solutions (Power Backup)</option>
+                                <option>Turnkey Engineering Design</option>
+                                <option>AMC & Service Support</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Project Details *</label>
+                            <textarea rows="4" required placeholder="Describe your site location, capacity requirements..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-cta" style="width: 100%;">Request Quote & Consultation →</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/919876543210?text=Hello%20FYN%20Engineers!%20I%20would%20like%20to%20inquire%20about%20your%20engineering%20solutions." target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        💬
+    </a>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 style="color: #ffffff; margin-bottom: 8px;">FYN Engineers Pvt. Ltd.</h3>
+                    <p style="font-size: 0.85rem; color: #94a3b8;">Integrated Water & Energy Solutions</p>
+                    <p style="font-size: 0.8rem; color: #64748b; margin-top: 12px;">Engineering Solutions Designed For Your Needs</p>
+                </div>
+
+                <div>
+                    <h4 style="color: #ffffff; margin-bottom: 12px;">Navigation</h4>
+                    <ul style="font-size: 0.85rem; line-height: 2;">
+                        <li><a href="#home" style="color: #94a3b8;">Home</a></li>
+                        <li><a href="#about" style="color: #94a3b8;">About Us</a></li>
+                        <li><a href="#verticals" style="color: #94a3b8;">Business Verticals</a></li>
+                        <li><a href="#process" style="color: #94a3b8;">Our Process</a></li>
+                        <li><a href="#contact" style="color: #94a3b8;">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style="color: #ffffff; margin-bottom: 12px;">Verticals</h4>
+                    <ul style="font-size: 0.85rem; line-height: 2; color: #94a3b8;">
+                        <li>FYN Aqua (Water)</li>
+                        <li>FYN Solar (Energy)</li>
+                        <li>Electrical Solutions</li>
+                        <li>AMC & Servicing</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style="color: #ffffff; margin-bottom: 12px;">Headquarters</h4>
+                    <p style="font-size: 0.85rem; color: #94a3b8;">Plot No. 42, Sector 63, Noida, UP 201301</p>
+                    <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 6px;">Ph: +91 98765 43210</p>
+                    <p style="font-size: 0.85rem; color: #94a3b8;">Email: info@fynengineers.com</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 FYN Engineers Pvt. Ltd. All rights reserved.</p>
+                <p>Designed with Corporate Green Energy Aesthetic</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="siteContent.js"></script>
+    <script src="app.js"></script>
+</body>
 </html>
