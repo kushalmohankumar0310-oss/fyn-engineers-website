@@ -107,7 +107,7 @@ ul {
     display: inline-block;
     padding: 5px 16px;
     background: var(--color-emerald-light);
-    border: 1px solid rgba(5, 150, 105, 0.3);
+    border: 1px solid rgba(30, 58, 138, 0.25);
     color: var(--color-emerald-dark);
     font-size: 0.8rem;
     font-weight: 800;
@@ -298,7 +298,7 @@ ul {
 .hero-section {
     position: relative;
     padding: 130px 0 90px 0;
-    background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
+    background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
     overflow: hidden;
 }
 .hero-container {
@@ -312,7 +312,7 @@ ul {
     gap: 8px;
     padding: 6px 18px;
     background: var(--color-emerald-light);
-    border: 1px solid rgba(5, 150, 105, 0.3);
+    border: 1px solid rgba(30, 58, 138, 0.25);
     color: var(--color-emerald-dark);
     font-size: 0.85rem;
     font-weight: 800;
