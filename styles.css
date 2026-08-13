@@ -7,8 +7,8 @@
     /* Color Palette */
     --color-bg-light: #f8fafc;
     --color-bg-white: #ffffff;
-    --color-navy: #0f172a;
-    --color-navy-light: #1e293b;
+    --color-navy: #052622;
+    --color-navy-light: #0a3d37;
     
     --color-emerald: #08544c;       /* Navy Blue 900 */
     --color-emerald-dark: #06423c;  /* Navy Blue 700 */
@@ -145,7 +145,7 @@ ul {
 .btn-cta:hover {
     background: var(--color-emerald-dark);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(30, 58, 138, 0.35);
+    box-shadow: 0 8px 24px rgba(8, 84, 76, 0.35);
 }
 
 .btn-secondary {
@@ -211,7 +211,7 @@ ul {
     justify-content: center;
     width: 48px;
     height: 48px;
-    background-color: rgba(30, 58, 138, 0.08); /* Light navy glass tint */
+    background-color: rgba(8, 84, 76, 0.08); /* Light navy glass tint */
     border-radius: 10px;
     color: var(--color-navy);
     flex-shrink: 0;
