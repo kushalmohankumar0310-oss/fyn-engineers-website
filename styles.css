@@ -10,14 +10,14 @@
     --color-navy: #0f172a;
     --color-navy-light: #1e293b;
     
-    --color-emerald: #059669;
-    --color-emerald-dark: #047857;
-    --color-emerald-light: #d1fae5;
+    --color-emerald: #1e3a8a;       /* Navy Blue 900 */
+    --color-emerald-dark: #1d4ed8;  /* Navy Blue 700 */
+    --color-emerald-light: rgba(30, 58, 138, 0.07); /* Light navy glass tint */
     
     --color-cyan: #0284c7;
     --color-cyan-light: #e0f2fe;
     
-    --color-amber: #f59e0b;
+    --color-amber: #d97706;
     --color-amber-light: #fef3c7;
     
     --color-text-dark: #0f172a;
@@ -35,9 +35,9 @@
     --radius-full: 9999px;
 
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 20px -2px rgba(15, 23, 42, 0.08);
-    --shadow-lg: 0 10px 30px -4px rgba(5, 150, 105, 0.15);
-    --shadow-xl: 0 20px 35px -6px rgba(15, 23, 42, 0.15);
+    --shadow-md: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+    --shadow-lg: 0 10px 30px -4px rgba(30, 58, 138, 0.12);
+    --shadow-xl: 0 20px 35px -6px rgba(15, 23, 42, 0.1);
 }
 
 html {
@@ -137,7 +137,7 @@ ul {
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: 0.95rem;
-    box-shadow: 0 4px 16px rgba(5, 150, 105, 0.3);
+    box-shadow: 0 4px 16px rgba(30, 58, 138, 0.25);
     transition: all 0.3s ease;
     cursor: pointer;
     border: none;
@@ -145,7 +145,7 @@ ul {
 .btn-cta:hover {
     background: var(--color-emerald-dark);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(5, 150, 105, 0.4);
+    box-shadow: 0 8px 24px rgba(30, 58, 138, 0.35);
 }
 
 .btn-secondary {
@@ -195,13 +195,63 @@ ul {
     width: 40px;
     height: 40px;
     border-radius: 12px;
-    background: linear-gradient(135deg, var(--color-emerald), #10b981);
+    background: linear-gradient(135deg, var(--color-navy), var(--color-cyan));
     color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.3rem;
-    box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3);
+    box-shadow: 0 4px 10px rgba(30, 58, 138, 0.25);
+}
+
+/* Custom Icon Wrapper matching the user's design reference */
+.icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: rgba(30, 58, 138, 0.08); /* Light navy glass tint */
+    border-radius: 10px;
+    color: var(--color-navy);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    margin-bottom: 12px; /* Default for top layout */
+}
+
+.icon-wrapper svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--color-navy);
+    stroke-width: 2.2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: all 0.3s ease;
+}
+
+/* Hover active state card transitions */
+.feature-card:hover .icon-wrapper,
+.value-card:hover .icon-wrapper,
+.process-card:hover .icon-wrapper,
+.industry-card:hover .icon-wrapper,
+.vertical-card:hover .icon-wrapper {
+    background-color: var(--color-navy);
+    color: #ffffff;
+}
+
+.feature-card:hover .icon-wrapper svg,
+.value-card:hover .icon-wrapper svg,
+.process-card:hover .icon-wrapper svg,
+.industry-card:hover .icon-wrapper svg,
+.vertical-card:hover .icon-wrapper svg {
+    stroke: #ffffff;
+}
+
+/* Horizontal card alignment overrides */
+.industry-card .icon-wrapper,
+.v-head .icon-wrapper {
+    margin-bottom: 0;
 }
 .logo-text {
     font-family: var(--font-heading);
@@ -572,7 +622,7 @@ ul {
     font-family: var(--font-heading);
     font-weight: 800;
     font-size: 2.2rem;
-    color: #34d399;
+    color: #38bdf8; /* Modern Light Cyan Blue */
 }
 .metric-lbl {
     font-size: 0.8rem;
