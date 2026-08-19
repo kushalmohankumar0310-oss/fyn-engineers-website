@@ -10,8 +10,8 @@
     --color-primary-light: rgba(9, 9, 11, 0.07);
 
     /* Color Palette */
-    --color-bg-light: #f8fafc;
-    --color-bg-white: #ffffff;
+    --color-bg-light: #f1f1f3;
+    --color-bg-white: #f7f7f9;
     --color-navy: #09090b;
     --color-navy-light: #27272a;
     
@@ -179,7 +179,7 @@ ul {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(247, 247, 249, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--color-border);
     z-index: 1000;
@@ -303,7 +303,7 @@ ul {
 .hero-section {
     position: relative;
     padding: 130px 0 90px 0;
-    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    background: linear-gradient(180deg, #f1f1f3 0%, #f7f7f9 100%);
     overflow: hidden;
 }
 .hero-container {
