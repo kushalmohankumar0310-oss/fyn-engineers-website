@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FYN Energy - Smart Solar & Power Solutions</title>
-    <link rel="stylesheet" href="styles.css?v=4.5">
+    <title>FYN Energy - Smart Solar & Power Products Catalog</title>
+    <link rel="stylesheet" href="styles.css?v=4.6">
     <style>
         :root {
-            /* Override to pure Energy Green color scheme */
             --color-primary: #16a34a;
             --color-primary-dark: #15803d;
             --color-primary-light: rgba(22, 163, 74, 0.07);
@@ -26,9 +25,33 @@
         .back-btn:hover {
             color: var(--color-primary);
         }
-        .product-grid-section {
-            padding: 70px 0;
+        .product-card-simple {
             background: var(--color-bg-white);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+        .product-card-simple:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-primary);
+        }
+        .types-badge-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .type-badge {
+            font-size: 0.8rem;
+            font-weight: 700;
+            background: var(--color-primary-light);
+            color: var(--color-primary-dark);
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            border: 1px solid rgba(22, 163, 74, 0.2);
         }
     </style>
 </head>
@@ -53,145 +76,80 @@
     <section class="hero-section" style="padding-top: 145px; padding-bottom: 60px;">
         <div class="container hero-container" style="text-align: center;">
             <div class="hero-badge" style="background: rgba(22, 163, 74, 0.1); color: #15803d; border-color: rgba(22, 163, 74, 0.25);">
-                FYN Energy Solutions
+                FYN Energy Range
             </div>
-            <h1 style="font-size: 2.8rem; margin-bottom: 15px;">Smart Solar & Green Energy Solutions</h1>
-            <p class="hero-subtitle" style="font-size: 1.15rem; color: var(--color-text-body); max-width: 800px; margin: 0 auto 30px auto; line-height: 1.6;">
-                Powering a Sustainable Tomorrow with Smart Solar Solutions designed for site conditions, energy consumption, and client requirements.
+            <h1 style="font-size: 2.8rem; margin-bottom: 15px;">Smart Solar & Power Product Catalog</h1>
+            <p class="hero-subtitle" style="font-size: 1.1rem; color: var(--color-text-body); max-width: 800px; margin: 0 auto 30px auto; line-height: 1.6;">
+                A concise directory of our high-performance solar rooftop, solar pumping, and electrical power solutions.
             </p>
-            <a href="index.html#contact" class="btn-cta">Inquire For Solar Estimates →</a>
+            <a href="index.html#contact" class="btn-cta">Request Solar Consultation & Quote →</a>
         </div>
     </section>
 
-    <!-- ROOFTOP SOLAR SYSTEMS -->
-    <section class="product-grid-section">
+    <!-- SIMPLIFIED PRODUCTS CATALOG -->
+    <section class="about-section" style="background: var(--color-bg-white); padding: 70px 0;">
         <div class="container">
-            <div class="section-header text-center">
-                <span class="section-badge">Solar Rooftop Systems</span>
-                <h2>Our Rooftop Solar Options</h2>
-                <p>On-Grid, Off-Grid, and Hybrid power system installations</p>
-                <div class="header-bar"></div>
-            </div>
-
-            <div class="verticals-grid" style="margin-top: 40px;">
-                <!-- On-Grid -->
-                <div class="vertical-card emerald" style="padding: 30px;">
-                    <div>
-                        <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; color: var(--color-navy);">On-Grid Solar Rooftop System</h3>
-                        <p style="font-size: 0.92rem; color: var(--color-text-body); line-height: 1.6; margin-bottom: 16px;">
-                            Solar panels generate electricity during the day to power building loads. Excess generated energy is exported back to the utility grid through net metering.
-                        </p>
-                        <ul style="font-size: 0.88rem; line-height: 1.7; color: var(--color-text-muted); list-style-type: check; margin-left: 15px;">
-                            <li>Maximum electricity bill savings</li>
-                            <li>No battery bank maintenance required</li>
-                            <li>Lower installation cost compared to battery systems</li>
-                            <li>Ideal for areas with reliable grid power</li>
-                            <li>Fastest return on investment</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Off-Grid -->
-                <div class="vertical-card emerald" style="padding: 30px;">
-                    <div>
-                        <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; color: var(--color-navy);">Off-Grid Solar Rooftop System</h3>
-                        <p style="font-size: 0.92rem; color: var(--color-text-body); line-height: 1.6; margin-bottom: 16px;">
-                            Solar panels charge a high-durability battery bank. The stored energy provides power during the night or during grid outages.
-                        </p>
-                        <ul style="font-size: 0.88rem; line-height: 1.7; color: var(--color-text-muted); list-style-type: check; margin-left: 15px;">
-                            <li>Complete electricity independence</li>
-                            <li>Reliable standby power backup</li>
-                            <li>Perfect for remote locations without grid connectivity</li>
-                            <li>Ideal for rural homes, farmhouses, and remote offices</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Hybrid -->
-                <div class="vertical-card emerald" style="grid-column: span 1; padding: 30px;">
-                    <div>
-                        <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; color: var(--color-navy);">Hybrid Solar Rooftop System</h3>
-                        <p style="font-size: 0.92rem; color: var(--color-text-body); line-height: 1.6; margin-bottom: 16px;">
-                            Combining the best of On-Grid and Off-Grid. Integrates solar panels, battery banks, and the utility grid for optimal savings and continuous power.
-                        </p>
-                        <ul style="font-size: 0.88rem; line-height: 1.7; color: var(--color-text-muted); list-style-type: check; margin-left: 15px;">
-                            <li>Reduces energy bills while securing power backup</li>
-                            <li>Provides automatic backup during grid failure</li>
-                            <li>Intelligent power routing and energy management</li>
-                            <li>Recommended for hospitals, hotels, and offices</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SOLAR PUMPING SYSTEMS -->
-    <section class="about-section" style="background: var(--color-bg-light); padding: 70px 0;">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-badge">Solar Pumping</span>
-                <h2>Solar Pumping Systems</h2>
-                <p>Efficient solar-powered water pumping solutions for agriculture and supply</p>
-                <div class="header-bar"></div>
-            </div>
-
-            <div class="about-grid" style="align-items: center; margin-top: 40px;">
-                <div class="about-text">
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: var(--color-text-body);">
-                        FYN Energy offers efficient solar-powered water pumping solutions for agriculture, drinking water supply, and industrial applications. The system features automatic operation using solar photovoltaic power.
+            <div class="projects-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+                
+                <!-- Product 1: Solar Rooftop Systems -->
+                <div class="product-card-simple">
+                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Solar Rooftop Systems</h3>
+                    <p style="font-size: 0.95rem; color: var(--color-text-body); line-height: 1.6;">
+                        High-efficiency solar utility panels designed to generate clean energy, offset carbon footprints, and dramatically reduce monthly grid power costs.
                     </p>
-                    <div style="margin-top: 20px;">
-                        <h4 style="font-weight: 700; margin-bottom: 8px;">Product Features</h4>
-                        <ul style="font-size: 0.95rem; line-height: 1.6; color: var(--color-text-body); list-style-type: disc; margin-left: 20px;">
-                            <li>Available in AC and DC pump configurations</li>
-                            <li>Compatible with borewell, open well, and surface pumps</li>
-                            <li>Automatic operation with minimal human intervention</li>
-                            <li>Designed for local water conditions and pumping requirements</li>
-                        </ul>
+                    <div style="margin-top: 12px; font-size: 0.8rem; font-weight: bold; color: var(--color-text-muted);">Available Models / Types:</div>
+                    <div class="types-badge-grid">
+                        <span class="type-badge">On-Grid Solar System</span>
+                        <span class="type-badge">Off-Grid Solar System</span>
+                        <span class="type-badge">Hybrid Solar System</span>
                     </div>
                 </div>
 
-                <div class="working-principle-box" style="background: var(--color-bg-white);">
-                    <h3 style="font-weight: bold; margin-bottom: 15px;">Major Benefits & Value</h3>
-                    <ul style="font-size: 0.95rem; line-height: 1.8; color: var(--color-text-body); list-style-type: circle; margin-left: 20px;">
-                        <li><strong>Eliminates diesel fuel expenses</strong></li>
-                        <li>Reduces dependence on utility grid power</li>
-                        <li>Reliable daytime irrigation and supply</li>
-                        <li>Lower irrigation costs and improved water availability</li>
-                        <li>Reduced operating expenses for farmers and institutions</li>
-                    </ul>
+                <!-- Product 2: Solar Pumping Systems -->
+                <div class="product-card-simple">
+                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Solar Pumping Systems</h3>
+                    <p style="font-size: 0.95rem; color: var(--color-text-body); line-height: 1.6;">
+                        Efficient solar-powered water pumping solutions engineered for borewell, open well, and surface irrigation setups.
+                    </p>
+                    <div style="margin-top: 12px; font-size: 0.8rem; font-weight: bold; color: var(--color-text-muted);">Available Configurations:</div>
+                    <div class="types-badge-grid">
+                        <span class="type-badge">AC Pump Setup</span>
+                        <span class="type-badge">DC Pump Setup</span>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- SOLAR STREET LIGHTS -->
-    <section class="why-section" style="background: var(--color-bg-white); padding: 70px 0;">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-badge">Solar Lighting</span>
-                <h2>Solar Street Lighting Systems</h2>
-                <p>High-efficiency LED solar street lighting solutions for public and commercial setups</p>
-                <div class="header-bar"></div>
-            </div>
+                <!-- Product 3: Solar Street Lighting Systems -->
+                <div class="product-card-simple">
+                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Solar Street Lighting Systems</h3>
+                    <p style="font-size: 0.95rem; color: var(--color-text-body); line-height: 1.6;">
+                        High-efficiency LED street lights featuring integrated solar panel, built-in battery bank, and automated dusk-to-dawn sensors.
+                    </p>
+                </div>
 
-            <div class="values-grid" style="margin-top: 40px;">
-                <div class="value-card">
-                    <div class="icon-wrapper"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></div>
-                    <h4>High-Brightness LED</h4>
-                    <p>Equipped with high-efficiency LED luminaires for optimal visibility and coverage.</p>
+                <!-- Product 4: UPS Systems -->
+                <div class="product-card-simple">
+                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">UPS Systems</h3>
+                    <p style="font-size: 0.95rem; color: var(--color-text-body); line-height: 1.6;">
+                        High-reliability online UPS power backup solutions providing zero-millisecond switchover to protect critical electrical machinery.
+                    </p>
                 </div>
-                <div class="value-card">
-                    <div class="icon-wrapper"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-                    <h4>Integrated System</h4>
-                    <p>Combines solar panel, LED driver, and battery storage inside a compact weather-resistant body.</p>
+
+                <!-- Product 5: Voltage Stabilizers -->
+                <div class="product-card-simple">
+                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Voltage Stabilizers</h3>
+                    <p style="font-size: 0.95rem; color: var(--color-text-body); line-height: 1.6;">
+                        Automatic servo voltage stabilizers delivering active grid correction to safeguard heavy-duty machinery from voltage fluctuations.
+                    </p>
                 </div>
-                <div class="value-card">
-                    <div class="icon-wrapper"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-                    <h4>Dusk-to-Dawn Operation</h4>
-                    <p>Automatic night sensor turns the light on at dusk and switches off/charges at dawn.</p>
+
+                <!-- Product 6: Electrical Engineering Services -->
+                <div class="product-card-simple">
+                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Electrical Engineering Services</h3>
+                    <p style="font-size: 0.95rem; color: var(--color-text-body); line-height: 1.6;">
+                        Customized planning, consulting, design, and integration for commercial and industrial electrical infrastructure.
+                    </p>
                 </div>
+
             </div>
         </div>
     </section>
