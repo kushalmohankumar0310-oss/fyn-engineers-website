@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FYN Aqua - Complete Water Solutions Product Range</title>
-    <link rel="stylesheet" href="styles.css?v=4.6">
+    <title>FYN Aqua - Complete Water Solutions & Survey</title>
+    <link rel="stylesheet" href="styles.css?v=4.7">
     <style>
         :root {
             --color-primary: #0ea5e9;
@@ -26,11 +26,76 @@
         .back-btn:hover {
             color: var(--color-primary);
         }
+        
+        /* Survey CSS */
+        .survey-container {
+            background: var(--color-bg-white);
+            border: 2px solid var(--color-primary);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+            margin-top: 30px;
+        }
+        .survey-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--color-navy);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .survey-question {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--color-text-dark);
+            margin-bottom: 16px;
+        }
+        .survey-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .survey-option-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            background: var(--color-bg-light);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 0.92rem;
+            transition: all 0.2s ease;
+        }
+        .survey-option-label:hover {
+            border-color: var(--color-primary);
+            background: rgba(14, 165, 233, 0.04);
+        }
+        .survey-option-label input {
+            accent-color: var(--color-primary);
+        }
+        .survey-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .survey-result {
+            display: none;
+            text-align: center;
+            animation: fadeIn 0.4s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
         .product-card-simple {
             background: var(--color-bg-white);
             border: 1px solid var(--color-border);
             border-radius: var(--radius-lg);
-            padding: 30px;
+            padding: 24px;
             box-shadow: var(--shadow-sm);
             transition: all 0.3s ease;
         }
@@ -74,79 +139,164 @@
     </header>
 
     <!-- PRODUCT HERO -->
-    <section class="hero-section" style="padding-top: 145px; padding-bottom: 60px;">
+    <section class="hero-section" style="padding-top: 145px; padding-bottom: 50px;">
         <div class="container hero-container" style="text-align: center;">
             <div class="hero-badge" style="background: rgba(14, 165, 233, 0.1); color: #0284c7; border-color: rgba(14, 165, 233, 0.25);">
                 FYN Aqua Range
             </div>
             <h1 style="font-size: 2.8rem; margin-bottom: 15px;">Water Solutions Product Catalog</h1>
-            <p class="hero-subtitle" style="font-size: 1.1rem; color: var(--color-text-body); max-width: 800px; margin: 0 auto 30px auto; line-height: 1.6;">
-                A concise directory of our complete water management, filtration, and water heating solutions.
+            <p class="hero-subtitle" style="font-size: 1.1rem; color: var(--color-text-body); max-width: 800px; margin: 0 auto; line-height: 1.6;">
+                Determine your optimal heating configuration using our quick survey below, or browse our standard water treatment systems.
             </p>
-            <a href="index.html#contact" class="btn-cta">Request Consultation & Quote →</a>
         </div>
     </section>
 
-    <!-- SIMPLIFIED PRODUCTS CATALOG -->
-    <section class="about-section" style="background: var(--color-bg-white); padding: 70px 0;">
+    <!-- SURVEY & TOP PRODUCT -->
+    <section class="about-section" style="background: var(--color-bg-white); padding: 50px 0;">
         <div class="container">
-            <div class="projects-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+            <div class="about-grid" style="align-items: start; gap: 40px;">
                 
-                <!-- Product 1: Heat Pumps -->
-                <div class="product-card-simple">
-                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Air Source Heat Pump Water Heating System</h3>
-                    <p style="font-size: 0.95rem; color: var(--color-text-body); line-height: 1.6;">
-                        High-efficiency system that extracts heat energy from the surrounding air to deliver reliable hot water while significantly reducing operating costs.
+                <!-- Main Product Detail -->
+                <div>
+                    <h2 style="font-size: 2rem; font-weight: 800; color: var(--color-navy); margin-bottom: 15px;">Air Source Heat Pump Water Heaters</h2>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: var(--color-text-body);">
+                        FYN Aqua's Air Source Heat Pump Water Heating System extracts approximately 75% of its heat energy from the ambient surroundings, using only 25% from electricity. 
                     </p>
-                    <div style="margin-top: 12px; font-size: 0.8rem; font-weight: bold; color: var(--color-text-muted);">Available Models / Types:</div>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: var(--color-text-body); margin-top: 15px;">
+                        This provides a massive Coefficient of Performance (COP) of 3.5 to 4.0, achieving 60%–70% lower operating costs compared to conventional electric heaters, diesel boilers, and firewood boilers.
+                    </p>
+                    
+                    <div style="margin-top: 24px; font-size: 0.85rem; font-weight: bold; color: var(--color-text-muted);">Available Models / Types:</div>
                     <div class="types-badge-grid">
-                        <span class="type-badge">Residential Model</span>
-                        <span class="type-badge">Commercial Model</span>
-                        <span class="type-badge">Industrial Model</span>
-                        <span class="type-badge">Hybrid Model</span>
+                        <span class="type-badge">Residential Model (Type 1)</span>
+                        <span class="type-badge">Commercial Model (Type 2)</span>
+                        <span class="type-badge">Industrial Model (Type 3)</span>
+                        <span class="type-badge">Hybrid Model (Type 4)</span>
                     </div>
                 </div>
 
+                <!-- Interactive Survey -->
+                <div class="survey-container">
+                    <div id="survey-wizard">
+                        <div class="survey-title">
+                            <span style="font-size: 1.5rem;">🧭</span> Find Your Suitable Heat Pump Model
+                        </div>
+                        <p style="font-size: 0.82rem; color: var(--color-text-muted); margin-bottom: 20px;">Answer 4 quick questions for an instant recommendation.</p>
+
+                        <!-- Question 1 -->
+                        <div class="survey-step" id="step-1">
+                            <div class="survey-question">1. What is the main application area?</div>
+                            <div class="survey-options">
+                                <label class="survey-option-label"><input type="radio" name="q1" value="residential" checked> Private Home / Villa / Apartment</label>
+                                <label class="survey-option-label"><input type="radio" name="q1" value="commercial"> Hotel / Hospital / Hostel / PG</label>
+                                <label class="survey-option-label"><input type="radio" name="q1" value="industrial"> Factory / Manufacturing Plant</label>
+                                <label class="survey-option-label"><input type="radio" name="q1" value="hybrid"> Integrating with an existing boiler system</label>
+                            </div>
+                        </div>
+
+                        <!-- Question 2 -->
+                        <div class="survey-step" id="step-2" style="display: none;">
+                            <div class="survey-question">2. What is your average daily hot water requirement?</div>
+                            <div class="survey-options">
+                                <label class="survey-option-label"><input type="radio" name="q2" value="low" checked> Less than 500 liters</label>
+                                <label class="survey-option-label"><input type="radio" name="q2" value="medium"> 500 to 5,000 liters</label>
+                                <label class="survey-option-label"><input type="radio" name="q2" value="high"> More than 5,000 liters</label>
+                            </div>
+                        </div>
+
+                        <!-- Question 3 -->
+                        <div class="survey-step" id="step-3" style="display: none;">
+                            <div class="survey-question">3. Do you have an existing backup system (boiler or geysers) you want to keep?</div>
+                            <div class="survey-options">
+                                <label class="survey-option-label"><input type="radio" name="q3" value="no" checked> No, I want a completely new standalone system</label>
+                                <label class="survey-option-label"><input type="radio" name="q3" value="yes"> Yes, I want a hybrid integration to reduce costs</label>
+                            </div>
+                        </div>
+
+                        <!-- Question 4 -->
+                        <div class="survey-step" id="step-4" style="display: none;">
+                            <div class="survey-question">4. Do you need microprocessor-based unattended automation?</div>
+                            <div class="survey-options">
+                                <label class="survey-option-label"><input type="radio" name="q4" value="standard" checked> Standard controls are sufficient</label>
+                                <label class="survey-option-label"><input type="radio" name="q4" value="advanced"> Yes, fully automatic control is required</label>
+                            </div>
+                        </div>
+
+                        <div class="survey-actions">
+                            <button id="prev-btn" class="btn-secondary" style="padding: 8px 16px; font-size: 0.85rem; display: none;">Back</button>
+                            <span id="step-indicator" style="font-size: 0.8rem; color: var(--color-text-muted);">Step 1 of 4</span>
+                            <button id="next-btn" class="btn-cta" style="padding: 10px 20px; font-size: 0.85rem;">Next →</button>
+                        </div>
+                    </div>
+
+                    <!-- Result Panel -->
+                    <div id="survey-result-panel" class="survey-result">
+                        <span style="font-size: 3rem;">🎉</span>
+                        <h3 style="font-size: 1.3rem; margin: 15px 0 10px 0; font-weight: bold; color: var(--color-navy);">Recommended For You:</h3>
+                        <div id="recommended-model" style="font-size: 1.4rem; font-weight: 800; color: var(--color-primary); margin-bottom: 15px;">Residential Model (Type 1)</div>
+                        <p id="model-explanation" style="font-size: 0.92rem; color: var(--color-text-body); line-height: 1.6; margin-bottom: 24px;">
+                            Based on your inputs, this system matches your requirements perfectly for cost efficiency and simple installation.
+                        </p>
+                        <div style="display: flex; gap: 10px;">
+                            <button id="restart-btn" class="btn-secondary" style="flex: 1; padding: 10px;">Restart Survey</button>
+                            <a href="index.html#contact" class="btn-cta" style="flex: 1.5; padding: 12px; text-align: center;">Inquire About This Model</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- OTHER WATER PRODUCTS -->
+    <section class="about-section" style="background: var(--color-bg-light); padding: 70px 0;">
+        <div class="container">
+            <div class="section-header text-center" style="margin-bottom: 40px;">
+                <span class="section-badge">Other Complete Water Solutions</span>
+                <h2>Our Water Treatment Products</h2>
+                <div class="header-bar"></div>
+            </div>
+
+            <div class="projects-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
                 <!-- Product 2: Drinking Water (RO) -->
                 <div class="product-card-simple">
-                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Drinking Water (RO) Systems</h3>
-                    <p style="font-size: 0.95rem; color: var(--color-text-body); line-height: 1.6;">
-                        Reverse Osmosis systems designed to filter out minerals, dissolved solids, and impurities to deliver high-quality, pure drinking water.
+                    <h3 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Drinking Water (RO) Systems</h3>
+                    <p style="font-size: 0.92rem; color: var(--color-text-body); line-height: 1.6;">
+                        Reverse Osmosis filtration systems designed to eliminate minerals, dissolved solids, and organic impurities, ensuring pure drinking water.
                     </p>
                 </div>
 
                 <!-- Product 3: Water Softeners -->
                 <div class="product-card-simple">
-                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Water Softeners</h3>
-                    <p style="font-size: 0.95rem; color: var(--color-text-body); line-height: 1.6;">
-                        Hard water treatment systems engineered to eliminate scale-forming calcium and magnesium, protecting pipes and machinery.
+                    <h3 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Water Softeners</h3>
+                    <p style="font-size: 0.92rem; color: var(--color-text-body); line-height: 1.6;">
+                        Ion-exchange softening solutions engineered to remove scale-forming calcium and magnesium, protecting boiler circuits and pipes.
                     </p>
                 </div>
 
                 <!-- Product 4: Water Treatment Systems -->
                 <div class="product-card-simple">
-                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Water Treatment Systems</h3>
-                    <p style="font-size: 0.95rem; color: var(--color-text-body); line-height: 1.6;">
-                        Comprehensive filtration, recycling, and treatment infrastructure tailored for residential, commercial, industrial, and institutional setups.
+                    <h3 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Water Treatment Systems</h3>
+                    <p style="font-size: 0.92rem; color: var(--color-text-body); line-height: 1.6;">
+                        Complete purification utilities customized to optimize water recycling and distribution loops for industrial and commercial sectors.
                     </p>
                 </div>
 
                 <!-- Product 5: Pressure Pumps -->
                 <div class="product-card-simple">
-                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Pressure Pumps</h3>
-                    <p style="font-size: 0.95rem; color: var(--color-text-body); line-height: 1.6;">
-                        Hydro-pneumatic booster pumps that maintain a consistent, high-reliability water pressure across multi-story buildings and distribution pipes.
+                    <h3 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Pressure Pumps</h3>
+                    <p style="font-size: 0.92rem; color: var(--color-text-body); line-height: 1.6;">
+                        High-efficiency pressure pumps configured in hydro-pneumatic networks to ensure constant head and discharge volume across all outlets.
                     </p>
                 </div>
 
                 <!-- Product 6: Hot Water Solutions -->
                 <div class="product-card-simple">
-                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Hot Water Solutions</h3>
-                    <p style="font-size: 0.95rem; color: var(--color-text-body); line-height: 1.6;">
-                        Customized central thermal utilities delivering stable hot water lines for high-demand industrial and commercial establishments.
+                    <h3 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Hot Water Solutions</h3>
+                    <p style="font-size: 0.92rem; color: var(--color-text-body); line-height: 1.6;">
+                        Central thermal lines delivering stable flow rates and target temperatures for commercial office parks, hospitals, and hotels.
                     </p>
                 </div>
-
             </div>
         </div>
     </section>
@@ -163,5 +313,82 @@
         </div>
     </footer>
 
+    <!-- WIZARD SCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let currentStep = 1;
+            const totalSteps = 4;
+            
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const stepIndicator = document.getElementById('step-indicator');
+            const wizard = document.getElementById('survey-wizard');
+            const resultPanel = document.getElementById('survey-result-panel');
+            const recommendedModel = document.getElementById('recommended-model');
+            const modelExplanation = document.getElementById('model-explanation');
+            const restartBtn = document.getElementById('restart-btn');
+
+            function showStep(step) {
+                document.querySelectorAll('.survey-step').forEach(el => el.style.display = 'none');
+                document.getElementById('step-' + step).style.display = 'block';
+                
+                stepIndicator.textContent = 'Step ' + step + ' of ' + totalSteps;
+                prevBtn.style.display = step === 1 ? 'none' : 'block';
+                nextBtn.textContent = step === totalSteps ? 'Get Recommendation' : 'Next →';
+            }
+
+            nextBtn.addEventListener('click', () => {
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    showStep(currentStep);
+                } else {
+                    calculateResult();
+                }
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (currentStep > 1) {
+                    currentStep--;
+                    showStep(currentStep);
+                }
+            });
+
+            restartBtn.addEventListener('click', () => {
+                currentStep = 1;
+                wizard.style.display = 'block';
+                resultPanel.style.display = 'none';
+                showStep(1);
+            });
+
+            function calculateResult() {
+                const q1 = document.querySelector('input[name="q1"]:checked').value;
+                const q2 = document.querySelector('input[name="q2"]:checked').value;
+                const q3 = document.querySelector('input[name="q3"]:checked').value;
+                
+                let model = "";
+                let desc = "";
+
+                if (q3 === 'yes' || q1 === 'hybrid') {
+                    model = "Hybrid Model (Type 4)";
+                    desc = "Your requirement integrates perfectly with existing hot water boilers or solar panels to reduce energy costs by up to 70% with active backup loops.";
+                } else if (q1 === 'industrial' || q2 === 'high') {
+                    model = "Industrial Model (Type 3)";
+                    desc = "Your high-capacity demands require a heavy-duty industrial heat pump configured to operate continuously under factory conditions.";
+                } else if (q1 === 'commercial' || q2 === 'medium') {
+                    model = "Commercial Model (Type 2)";
+                    desc = "A high-efficiency commercial unit designed for central hot water loops in hotels, resorts, hostels, and hospitals.";
+                } else {
+                    model = "Residential Model (Type 1)";
+                    desc = "A compact, whisper-quiet system customized for single-family homes, villas, or residential flats.";
+                }
+
+                recommendedModel.textContent = model;
+                modelExplanation.textContent = desc;
+                
+                wizard.style.display = 'none';
+                resultPanel.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>

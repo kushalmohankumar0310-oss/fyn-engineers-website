@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FYN Energy - Smart Solar & Power Products Catalog</title>
-    <link rel="stylesheet" href="styles.css?v=4.6">
+    <title>FYN Energy - Smart Solar & Survey</title>
+    <link rel="stylesheet" href="styles.css?v=4.7">
     <style>
         :root {
             --color-primary: #16a34a;
@@ -25,11 +25,76 @@
         .back-btn:hover {
             color: var(--color-primary);
         }
+        
+        /* Survey CSS */
+        .survey-container {
+            background: var(--color-bg-white);
+            border: 2px solid var(--color-primary);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+            margin-top: 30px;
+        }
+        .survey-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--color-navy);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .survey-question {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--color-text-dark);
+            margin-bottom: 16px;
+        }
+        .survey-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .survey-option-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            background: var(--color-bg-light);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 0.92rem;
+            transition: all 0.2s ease;
+        }
+        .survey-option-label:hover {
+            border-color: var(--color-primary);
+            background: rgba(22, 163, 74, 0.04);
+        }
+        .survey-option-label input {
+            accent-color: var(--color-primary);
+        }
+        .survey-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .survey-result {
+            display: none;
+            text-align: center;
+            animation: fadeIn 0.4s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .product-card-simple {
             background: var(--color-bg-white);
             border: 1px solid var(--color-border);
             border-radius: var(--radius-lg);
-            padding: 30px;
+            padding: 24px;
             box-shadow: var(--shadow-sm);
             transition: all 0.3s ease;
         }
@@ -73,31 +138,34 @@
     </header>
 
     <!-- PRODUCT HERO -->
-    <section class="hero-section" style="padding-top: 145px; padding-bottom: 60px;">
+    <section class="hero-section" style="padding-top: 145px; padding-bottom: 50px;">
         <div class="container hero-container" style="text-align: center;">
             <div class="hero-badge" style="background: rgba(22, 163, 74, 0.1); color: #15803d; border-color: rgba(22, 163, 74, 0.25);">
                 FYN Energy Range
             </div>
-            <h1 style="font-size: 2.8rem; margin-bottom: 15px;">Smart Solar & Power Product Catalog</h1>
-            <p class="hero-subtitle" style="font-size: 1.1rem; color: var(--color-text-body); max-width: 800px; margin: 0 auto 30px auto; line-height: 1.6;">
-                A concise directory of our high-performance solar rooftop, solar pumping, and electrical power solutions.
+            <h1 style="font-size: 2.8rem; margin-bottom: 15px;">Solar & Power Products Catalog</h1>
+            <p class="hero-subtitle" style="font-size: 1.1rem; color: var(--color-text-body); max-width: 800px; margin: 0 auto; line-height: 1.6;">
+                Use our dynamic survey tool to calculate your optimal rooftop solar configuration, or explore our electrical services below.
             </p>
-            <a href="index.html#contact" class="btn-cta">Request Solar Consultation & Quote →</a>
         </div>
     </section>
 
-    <!-- SIMPLIFIED PRODUCTS CATALOG -->
-    <section class="about-section" style="background: var(--color-bg-white); padding: 70px 0;">
+    <!-- SURVEY & TOP PRODUCT -->
+    <section class="about-section" style="background: var(--color-bg-white); padding: 50px 0;">
         <div class="container">
-            <div class="projects-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+            <div class="about-grid" style="align-items: start; gap: 40px;">
                 
-                <!-- Product 1: Solar Rooftop Systems -->
-                <div class="product-card-simple">
-                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Solar Rooftop Systems</h3>
-                    <p style="font-size: 0.95rem; color: var(--color-text-body); line-height: 1.6;">
-                        High-efficiency solar utility panels designed to generate clean energy, offset carbon footprints, and dramatically reduce monthly grid power costs.
+                <!-- Main Product Detail -->
+                <div>
+                    <h2 style="font-size: 2rem; font-weight: 800; color: var(--color-navy); margin-bottom: 15px;">Solar Rooftop Systems</h2>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: var(--color-text-body);">
+                        FYN Energy's high-efficiency Solar Rooftop Systems help residential, commercial, and industrial facilities substantially reduce electricity expenses while protecting the environment.
                     </p>
-                    <div style="margin-top: 12px; font-size: 0.8rem; font-weight: bold; color: var(--color-text-muted);">Available Models / Types:</div>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: var(--color-text-body); margin-top: 15px;">
+                        Each setup is custom-tailored based on local solar sun-path angles, area availability, monthly grid billing history, and site-specific load requirements.
+                    </p>
+                    
+                    <div style="margin-top: 24px; font-size: 0.85rem; font-weight: bold; color: var(--color-text-muted);">Available Configuration Types:</div>
                     <div class="types-badge-grid">
                         <span class="type-badge">On-Grid Solar System</span>
                         <span class="type-badge">Off-Grid Solar System</span>
@@ -105,51 +173,131 @@
                     </div>
                 </div>
 
-                <!-- Product 2: Solar Pumping Systems -->
+                <!-- Interactive Survey -->
+                <div class="survey-container">
+                    <div id="survey-wizard">
+                        <div class="survey-title">
+                            <span style="font-size: 1.5rem;">☀️</span> Find Your Suitable Solar Setup
+                        </div>
+                        <p style="font-size: 0.82rem; color: var(--color-text-muted); margin-bottom: 20px;">Answer 4 quick questions for an instant recommendation.</p>
+
+                        <!-- Question 1 -->
+                        <div class="survey-step" id="step-1">
+                            <div class="survey-question">1. How reliable is the grid power in your area?</div>
+                            <div class="survey-options">
+                                <label class="survey-option-label"><input type="radio" name="q1" value="reliable" checked> Very reliable (rarely any power cuts)</label>
+                                <label class="survey-option-label"><input type="radio" name="q1" value="unreliable"> Highly unreliable (frequent power cuts)</label>
+                                <label class="survey-option-label"><input type="radio" name="q1" value="moderate"> Moderately reliable (occasional power cuts)</label>
+                            </div>
+                        </div>
+
+                        <!-- Question 2 -->
+                        <div class="survey-step" id="step-2" style="display: none;">
+                            <div class="survey-question">2. What is your primary goal for installing solar?</div>
+                            <div class="survey-options">
+                                <label class="survey-option-label"><input type="radio" name="q2" value="savings" checked> Maximize bill savings & fastest ROI</label>
+                                <label class="survey-option-label"><input type="radio" name="q2" value="independence"> Complete independence from utility grid</label>
+                                <label class="survey-option-label"><input type="radio" name="q2" value="backup"> Reduce bills + secure power backup</label>
+                            </div>
+                        </div>
+
+                        <!-- Question 3 -->
+                        <div class="survey-step" id="step-3" style="display: none;">
+                            <div class="survey-question">3. Do you want to avoid battery bank maintenance costs?</div>
+                            <div class="survey-options">
+                                <label class="survey-option-label"><input type="radio" name="q3" value="yes" checked> Yes, I want a system with no batteries</label>
+                                <label class="survey-option-label"><input type="radio" name="q3" value="no"> No, I need batteries for power backup</label>
+                            </div>
+                        </div>
+
+                        <!-- Question 4 -->
+                        <div class="survey-step" id="step-4" style="display: none;">
+                            <div class="survey-question">4. What type of facility is this solar system for?</div>
+                            <div class="survey-options">
+                                <label class="survey-option-label"><input type="radio" name="q4" value="residential" checked> Residential Home or Private Villa</label>
+                                <label class="survey-option-label"><input type="radio" name="q4" value="commercial"> Hotel, Hospital, Office, or Industry</label>
+                            </div>
+                        </div>
+
+                        <div class="survey-actions">
+                            <button id="prev-btn" class="btn-secondary" style="padding: 8px 16px; font-size: 0.85rem; display: none;">Back</button>
+                            <span id="step-indicator" style="font-size: 0.8rem; color: var(--color-text-muted);">Step 1 of 4</span>
+                            <button id="next-btn" class="btn-cta" style="padding: 10px 20px; font-size: 0.85rem;">Next →</button>
+                        </div>
+                    </div>
+
+                    <!-- Result Panel -->
+                    <div id="survey-result-panel" class="survey-result">
+                        <span style="font-size: 3rem;">🎉</span>
+                        <h3 style="font-size: 1.3rem; margin: 15px 0 10px 0; font-weight: bold; color: var(--color-navy);">Recommended For You:</h3>
+                        <div id="recommended-model" style="font-size: 1.4rem; font-weight: 800; color: var(--color-primary); margin-bottom: 15px;">On-Grid Solar System</div>
+                        <p id="model-explanation" style="font-size: 0.92rem; color: var(--color-text-body); line-height: 1.6; margin-bottom: 24px;">
+                            Based on your inputs, this system matches your requirements perfectly for cost efficiency and simple installation.
+                        </p>
+                        <div style="display: flex; gap: 10px;">
+                            <button id="restart-btn" class="btn-secondary" style="flex: 1; padding: 10px;">Restart Survey</button>
+                            <a href="index.html#contact" class="btn-cta" style="flex: 1.5; padding: 12px; text-align: center;">Inquire About This Setup</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- OTHER SOLAR & POWER PRODUCTS -->
+    <section class="about-section" style="background: var(--color-bg-light); padding: 70px 0;">
+        <div class="container">
+            <div class="section-header text-center" style="margin-bottom: 40px;">
+                <span class="section-badge">Other Smart Solar & Power Solutions</span>
+                <h2>Our Power Products</h2>
+                <div class="header-bar"></div>
+            </div>
+
+            <div class="projects-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+                <!-- Product 2: Solar Pumping -->
                 <div class="product-card-simple">
-                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Solar Pumping Systems</h3>
-                    <p style="font-size: 0.95rem; color: var(--color-text-body); line-height: 1.6;">
-                        Efficient solar-powered water pumping solutions engineered for borewell, open well, and surface irrigation setups.
+                    <h3 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Solar Pumping Systems</h3>
+                    <p style="font-size: 0.92rem; color: var(--color-text-body); line-height: 1.6;">
+                        Efficient solar-powered water pumping solutions engineered for agriculture, drinking water supply, and community distribution networks.
                     </p>
-                    <div style="margin-top: 12px; font-size: 0.8rem; font-weight: bold; color: var(--color-text-muted);">Available Configurations:</div>
                     <div class="types-badge-grid">
                         <span class="type-badge">AC Pump Setup</span>
                         <span class="type-badge">DC Pump Setup</span>
                     </div>
                 </div>
 
-                <!-- Product 3: Solar Street Lighting Systems -->
+                <!-- Product 3: Solar Street Lighting -->
                 <div class="product-card-simple">
-                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Solar Street Lighting Systems</h3>
-                    <p style="font-size: 0.95rem; color: var(--color-text-body); line-height: 1.6;">
-                        High-efficiency LED street lights featuring integrated solar panel, built-in battery bank, and automated dusk-to-dawn sensors.
+                    <h3 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Solar Street Lighting Systems</h3>
+                    <p style="font-size: 0.92rem; color: var(--color-text-body); line-height: 1.6;">
+                        High-efficiency LED solar street lights featuring integrated solar panel, built-in battery, and automated dusk-to-dawn sensors.
                     </p>
                 </div>
 
                 <!-- Product 4: UPS Systems -->
                 <div class="product-card-simple">
-                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">UPS Systems</h3>
-                    <p style="font-size: 0.95rem; color: var(--color-text-body); line-height: 1.6;">
-                        High-reliability online UPS power backup solutions providing zero-millisecond switchover to protect critical electrical machinery.
+                    <h3 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">UPS Systems</h3>
+                    <p style="font-size: 0.92rem; color: var(--color-text-body); line-height: 1.6;">
+                        High-reliability online UPS systems designed to provide zero-millisecond power backup for critical commercial and industrial loads.
                     </p>
                 </div>
 
                 <!-- Product 5: Voltage Stabilizers -->
                 <div class="product-card-simple">
-                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Voltage Stabilizers</h3>
-                    <p style="font-size: 0.95rem; color: var(--color-text-body); line-height: 1.6;">
-                        Automatic servo voltage stabilizers delivering active grid correction to safeguard heavy-duty machinery from voltage fluctuations.
+                    <h3 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Voltage Stabilizers</h3>
+                    <p style="font-size: 0.92rem; color: var(--color-text-body); line-height: 1.6;">
+                        Automatic servo voltage stabilizers providing active grid correction to safeguard heavy-duty machinery from voltage fluctuations.
                     </p>
                 </div>
 
                 <!-- Product 6: Electrical Engineering Services -->
                 <div class="product-card-simple">
-                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Electrical Engineering Services</h3>
-                    <p style="font-size: 0.95rem; color: var(--color-text-body); line-height: 1.6;">
+                    <h3 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 8px; color: var(--color-navy);">Electrical Engineering Services</h3>
+                    <p style="font-size: 0.92rem; color: var(--color-text-body); line-height: 1.6;">
                         Customized planning, consulting, design, and integration for commercial and industrial electrical infrastructure.
                     </p>
                 </div>
-
             </div>
         </div>
     </section>
@@ -166,5 +314,80 @@
         </div>
     </footer>
 
+    <!-- WIZARD SCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let currentStep = 1;
+            const totalSteps = 4;
+            
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const stepIndicator = document.getElementById('step-indicator');
+            const wizard = document.getElementById('survey-wizard');
+            const resultPanel = document.getElementById('survey-result-panel');
+            const recommendedModel = document.getElementById('recommended-model');
+            const modelExplanation = document.getElementById('model-explanation');
+            const restartBtn = document.getElementById('restart-btn');
+
+            function showStep(step) {
+                document.querySelectorAll('.survey-step').forEach(el => el.style.display = 'none');
+                document.getElementById('step-' + step).style.display = 'block';
+                
+                stepIndicator.textContent = 'Step ' + step + ' of ' + totalSteps;
+                prevBtn.style.display = step === 1 ? 'none' : 'block';
+                nextBtn.textContent = step === totalSteps ? 'Get Recommendation' : 'Next →';
+            }
+
+            nextBtn.addEventListener('click', () => {
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    showStep(currentStep);
+                } else {
+                    calculateResult();
+                }
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (currentStep > 1) {
+                    currentStep--;
+                    showStep(currentStep);
+                }
+            });
+
+            restartBtn.addEventListener('click', () => {
+                currentStep = 1;
+                wizard.style.display = 'block';
+                resultPanel.style.display = 'none';
+                showStep(1);
+            });
+
+            function calculateResult() {
+                const q1 = document.querySelector('input[name="q1"]:checked').value;
+                const q2 = document.querySelector('input[name="q2"]:checked').value;
+                const q3 = document.querySelector('input[name="q3"]:checked').value;
+                const q4 = document.querySelector('input[name="q4"]:checked').value;
+                
+                let model = "";
+                let desc = "";
+
+                if (q3 === 'yes') {
+                    model = "On-Grid Solar System";
+                    desc = "Your priority is maximizing electricity bill savings with the fastest return on investment. This system operates without batteries, requiring zero battery replacement costs.";
+                } else if (q1 === 'unreliable' || q2 === 'independence') {
+                    model = "Off-Grid Solar System";
+                    desc = "To secure complete energy independence or support remote offices and farmhouses with frequent grid outages, this battery-backed standalone setup is ideal.";
+                } else {
+                    model = "Hybrid Solar System";
+                    desc = "Perfect for critical operations (hospitals, hotels, corporate offices). Provides automated intelligent power routing to balance grid export savings with active battery backup.";
+                }
+
+                recommendedModel.textContent = model;
+                modelExplanation.textContent = desc;
+                
+                wizard.style.display = 'none';
+                resultPanel.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
