@@ -64,7 +64,7 @@ export default function Hero() {
             >
               <div className="flex flex-col gap-3 mb-4">
                 <div className="h-10 flex items-center">
-                  <img src={card.logo} alt={card.title} className="h-10 object-contain" />
+                  <img src={card.logo} alt={card.title} className="h-14 object-contain" />
                 </div>
                 <div className="mt-2">
                   <h3 className="font-heading font-bold text-lg text-slate-900">{card.title}</h3>
