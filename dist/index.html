@@ -14,8 +14,54 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="./favicon.svg">
     
-    <!-- Custom Styles -->
-  <link rel="stylesheet" crossorigin href="./assets/index-CRvEximM.css">
+    <!-- Custom Styles -->
+    
+    <!-- Embedded Icon Styling to Override Caches -->
+    <style>
+        .icon-wrapper {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 48px !important;
+            height: 48px !important;
+            background-color: rgba(25, 153, 66, 0.08) !important;
+            border-radius: 10px !important;
+            color: #199942 !important;
+            flex-shrink: 0 !important;
+            transition: all 0.3s ease !important;
+            margin-bottom: 12px;
+        }
+        .icon-wrapper svg {
+            width: 22px !important;
+            height: 22px !important;
+            stroke: #199942 !important;
+            stroke-width: 2.2 !important;
+            fill: none !important;
+            stroke-linecap: round !important;
+            stroke-linejoin: round !important;
+            transition: all 0.3s ease !important;
+        }
+        .feature-card:hover .icon-wrapper,
+        .value-card:hover .icon-wrapper,
+        .process-card:hover .icon-wrapper,
+        .industry-card:hover .icon-wrapper,
+        .vertical-card:hover .icon-wrapper {
+            background-color: #199942 !important;
+            color: #ffffff !important;
+        }
+        .feature-card:hover .icon-wrapper svg,
+        .value-card:hover .icon-wrapper svg,
+        .process-card:hover .icon-wrapper svg,
+        .industry-card:hover .icon-wrapper svg,
+        .vertical-card:hover .icon-wrapper svg {
+            stroke: #ffffff !important;
+        }
+        .industry-card .icon-wrapper,
+        .v-head .icon-wrapper {
+            margin-bottom: 0 !important;
+        }
+    </style>
+  <link rel="stylesheet" crossorigin href="./assets/index-B_Y0z7TC.css">
 </head>
 <body>
 
@@ -23,7 +69,11 @@
     <header class="navbar">
         <div class="container nav-container">
             <a href="#home" class="logo-container">
-                <div class="logo-icon">🌱</div>
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
                 <div class="logo-text">
                     <span>FYN <span class="accent-text">ENGINEERS</span></span>
                     <span class="logo-tagline">FOR YOUR NEEDS</span>
@@ -49,7 +99,9 @@
     <section id="home" class="hero-section">
         <div class="container hero-container">
             <div class="hero-badge">
-                 Integrated Engineering • Solar • Water • Backup Power
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; display: inline-block; vertical-align: middle;">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>Integrated Engineering • Solar • Water • Backup Power
             </div>
             
             <h1>FYN Engineers Pvt. Ltd. <br><span style="color: var(--color-emerald);">For Your Needs</span></h1>
@@ -65,19 +117,31 @@
 
             <div class="hero-features-grid">
                 <div class="feature-card">
-                    <div class="card-icon">💧</div>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-13-7-13S5 10.7 5 15a7 7 0 0 0 7 7z"/>
+                        </svg>
+                    </div>
                     <h3>Clean Water Infrastructure</h3>
                     <p>FYN Aqua Solutions: Industrial RO, commercial softeners, heat pumps & WTP systems.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="card-icon">☀️</div>
-                    <h3>Renewable Solar Energy</h3>
-                    <p>FYN Solar Power: On-grid & off-grid rooftop solar, solar pumps & street lighting.</p>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                        </svg>
+                    </div>
+                    <h3>Solar & Power Backup</h3>
+                    <p>FYN Energy: On-grid & off-grid rooftop solar, industrial UPS, LFP storage & stabilizers.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="card-icon">⚡</div>
-                    <h3>Electrical Reliability</h3>
-                    <p>Power Backup: Online UPS, LFP storage, voltage stabilizers & AMF panels.</p>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>Turnkey Design & Support</h3>
+                    <p>Site-precision CAD blueprints, direct OEM compliance & lifetime AMC maintenance.</p>
                 </div>
             </div>
         </div>
@@ -107,7 +171,12 @@
 
                 <div>
                     <div class="vision-box">
-                        <h3> Our Vision</h3>
+                        <h3>
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; vertical-align: middle;">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg> Our Vision
+                        </h3>
                         <p>
                             To become India's most trusted engineering solutions provider, setting the benchmark in site-precision design, clean energy integration, and transparent OEM compliance.
                         </p>
@@ -117,22 +186,45 @@
 
             <div class="values-grid">
                 <div class="value-card">
-                    <div class="val-icon"></div>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+                        </svg>
+                    </div>
                     <h4>Site Precision</h4>
                     <p>Every blueprint is custom-crafted according to physical site conditions.</p>
                 </div>
                 <div class="value-card">
-                    <div class="val-icon"></div>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                    </div>
                     <h4>OEM Compliance</h4>
                     <p>Direct tier-1 manufacturer sourcing under strict compliance licensing.</p>
                 </div>
                 <div class="value-card">
-                    <div class="val-icon"></div>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 22c0-5.5 4.5-10 10-10h10v10H2z"/>
+                            <path d="M12 2A10 10 0 0 0 2 12h10V2z"/>
+                        </svg>
+                    </div>
                     <h4>Sustainability First</h4>
                     <p>Optimized solar generation and zero-water-waste engineering.</p>
                 </div>
                 <div class="value-card">
-                    <div class="val-icon"></div>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
                     <h4>Client-Centric AMC</h4>
                     <p>Free warranty service followed by transparent low-fee annual maintenance.</p>
                 </div>
@@ -146,7 +238,7 @@
             <div class="section-header text-center">
                 <span class="section-badge">Specialized Verticals</span>
                 <h2>Integrated Engineering Business Verticals</h2>
-                <p>Custom-tailored solutions across three core utility domains</p>
+                <p>Custom-tailored solutions across two core utility domains</p>
                 <div class="header-bar"></div>
             </div>
 
@@ -155,7 +247,11 @@
                 <div class="vertical-card cyan">
                     <div>
                         <div class="v-head">
-                            <span class="v-icon"></span>
+                            <div class="icon-wrapper">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="var(--color-cyan)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-13-7-13S5 10.7 5 15a7 7 0 0 0 7 7z"/>
+                                </svg>
+                            </div>
                             <span class="v-tag">FYN Aqua</span>
                         </div>
                         <h3>FYN Aqua</h3>
@@ -172,46 +268,29 @@
                     <a href="#contact" class="btn-cta" style="margin-top: 24px; text-align: center;">Inquire For FYN Aqua →</a>
                 </div>
 
-                <!-- FYN Solar -->
-                <div class="vertical-card amber">
-                    <div>
-                        <div class="v-head">
-                            <span class="v-icon"></span>
-                            <span class="v-tag">FYN Solar</span>
-                        </div>
-                        <h3>FYN Solar</h3>
-                        <p class="v-sub">Renewable Photovoltaic Energy</p>
-                        <p class="v-desc">Turnkey rooftop and ground-mounted solar PV systems for massive electricity savings.</p>
-                        <p class="v-list-title">Key Offerings</p>
-                        <ul class="v-list">
-                            <li>Commercial & Residential Solar Rooftops</li>
-                            <li>Bifacial & Mono-PERC Panel Grids</li>
-                            <li>Solar Water Pumping & Ag Systems</li>
-                            <li>Standalone Solar Street Lighting</li>
-                        </ul>
-                    </div>
-                    <a href="#contact" class="btn-cta" style="margin-top: 24px; text-align: center;">Inquire For FYN Solar →</a>
-                </div>
-
-                <!-- Electrical Solutions -->
+                <!-- FYN Energy -->
                 <div class="vertical-card emerald">
                     <div>
                         <div class="v-head">
-                            <span class="v-icon">⚡</span>
-                            <span class="v-tag">Electrical</span>
+                            <div class="icon-wrapper">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="var(--color-emerald)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                                </svg>
+                            </div>
+                            <span class="v-tag">FYN Energy</span>
                         </div>
-                        <h3>Electrical Solutions</h3>
-                        <p class="v-sub">Power Quality & Uninterrupted Backup</p>
-                        <p class="v-desc">Heavy-duty power protection, voltage stabilization, and battery storage modules.</p>
+                        <h3>FYN Energy</h3>
+                        <p class="v-sub">Solar Power & Electrical Backup Solutions</p>
+                        <p class="v-desc">Turnkey solar rooftop grids, industrial UPS systems, LFP battery storage, and automatic voltage stabilizers.</p>
                         <p class="v-list-title">Key Offerings</p>
                         <ul class="v-list">
-                            <li>Industrial Online UPS (1 - 500 kVA)</li>
-                            <li>Lithium Iron Phosphate (LFP) Batteries</li>
-                            <li>Automatic Servo Voltage Stabilizers</li>
-                            <li>AMF Control Panel Consultancy</li>
+                            <li>Commercial & Industrial Solar Rooftops (On/Off Grid)</li>
+                            <li>Industrial Online UPS Systems (1 kVA - 500 kVA)</li>
+                            <li>Lithium Iron Phosphate (LFP) Battery Storage Banks</li>
+                            <li>Automatic Servo Stabilizers & AMF Control Panel Consultancy</li>
                         </ul>
                     </div>
-                    <a href="#contact" class="btn-cta" style="margin-top: 24px; text-align: center;">Inquire Electrical →</a>
+                    <a href="#contact" class="btn-cta" style="margin-top: 24px; text-align: center;">Inquire For FYN Energy →</a>
                 </div>
             </div>
         </div>
@@ -230,37 +309,72 @@
             <div class="process-grid">
                 <div class="process-card">
                     <span class="p-step">01</span>
-                    <div class="p-icon"></div>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"/>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                        </svg>
+                    </div>
                     <h3>Consultation & Site Audit</h3>
                     <p>On-site analysis of water TDS, solar sun-path, and peak power loads.</p>
                 </div>
                 <div class="process-card">
                     <span class="p-step">02</span>
-                    <div class="p-icon"></div>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 3v18h18L5 3z"/>
+                            <line x1="8" y1="18" x2="8" y2="17"/>
+                            <line x1="11" y1="18" x2="11" y2="15"/>
+                            <line x1="14" y1="18" x2="14" y2="13"/>
+                            <line x1="17" y1="18" x2="17" y2="11"/>
+                            <line x1="20" y1="18" x2="20" y2="9"/>
+                        </svg>
+                    </div>
                     <h3>Engineering Design</h3>
                     <p>Custom CAD drafting and structural hydraulic & electrical modeling.</p>
                 </div>
                 <div class="process-card">
                     <span class="p-step">03</span>
-                    <div class="p-icon"></div>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="21 8 21 21 3 21 3 8"/>
+                            <rect x="1" y="3" width="22" height="5"/>
+                            <line x1="10" y1="12" x2="14" y2="12"/>
+                        </svg>
+                    </div>
                     <h3>OEM Product Sourcing</h3>
                     <p>Tier-1 component selection under strict FYN quality compliance.</p>
                 </div>
                 <div class="process-card">
                     <span class="p-step">04</span>
-                    <div class="p-icon"></div>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                        </svg>
+                    </div>
                     <h3>Turnkey Installation</h3>
                     <p>Precision mounting, electrical cabling, and civil integration by certified staff.</p>
                 </div>
                 <div class="process-card">
                     <span class="p-step">05</span>
-                    <div class="p-icon">✅</div>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </div>
                     <h3>Testing & Commissioning</h3>
                     <p>Rigorous load testing, pressure checks, and grid synchronization.</p>
                 </div>
                 <div class="process-card">
                     <span class="p-step">06</span>
-                    <div class="p-icon">🎧</div>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+                            <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+                        </svg>
+                    </div>
                     <h3>After-Sales Support</h3>
                     <p>100% free warranty servicing and transparent AMC maintenance contracts.</p>
                 </div>
@@ -279,22 +393,47 @@
 
             <div class="values-grid">
                 <div class="value-card">
-                    <div class="val-icon"></div>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
                     <h4>Physical Site Audits</h4>
                     <p>We never guess parameters. Every project starts with real-world site measurements.</p>
                 </div>
                 <div class="value-card">
-                    <div class="val-icon"></div>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                    </div>
                     <h4>Tier-1 OEM Partnerships</h4>
                     <p>Branded under FYN with direct manufacturer warranties and compliance assurance.</p>
                 </div>
                 <div class="value-card">
-                    <div class="val-icon"></div>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
                     <h4>Zero-Cost Warranty Service</h4>
                     <p>Free component repair and maintenance while under active warranty.</p>
                 </div>
                 <div class="value-card">
-                    <div class="val-icon"></div>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="9" y1="3" x2="9" y2="21"/>
+                            <line x1="15" y1="3" x2="15" y2="21"/>
+                            <line x1="3" y1="9" x2="21" y2="9"/>
+                            <line x1="3" y1="15" x2="21" y2="15"/>
+                        </svg>
+                    </div>
                     <h4>Turnkey Guarantee</h4>
                     <p>Single point of accountability from civil design to final regulatory approvals.</p>
                 </div>
@@ -313,63 +452,117 @@
 
             <div class="industries-grid">
                 <div class="industry-card">
-                    <span class="ind-icon"></span>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2a5 5 0 0 0-5 5v10a5 5 0 0 0 10 0V7a5 5 0 0 0-5-5z"/>
+                            <line x1="7" y1="12" x2="17" y2="12"/>
+                        </svg>
+                    </div>
                     <div class="ind-info">
                         <h4>Pharmaceutical Plants</h4>
                         <span>Industrial</span>
                     </div>
                 </div>
                 <div class="industry-card">
-                    <span class="ind-icon"></span>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 22V12l6 4V12l6 4V12l8 5v5H2z"/>
+                            <line x1="18" y1="8" x2="18" y2="12"/>
+                            <line x1="20" y1="6" x2="20" y2="12"/>
+                        </svg>
+                    </div>
                     <div class="ind-info">
                         <h4>Manufacturing Facilities</h4>
                         <span>Industrial</span>
                     </div>
                 </div>
                 <div class="industry-card">
-                    <span class="ind-icon"></span>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 1.5 5.5-2.2 9.8A7 7 0 0 1 11 20z"/>
+                            <path d="M9 22v-6"/>
+                        </svg>
+                    </div>
                     <div class="ind-info">
                         <h4>Food & Beverage Processing</h4>
                         <span>Industrial</span>
                     </div>
                 </div>
                 <div class="industry-card">
-                    <span class="ind-icon"></span>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 3h12M9 3v4L4 18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2L15 7V3"/>
+                            <line x1="6" y1="14" x2="18" y2="14"/>
+                        </svg>
+                    </div>
                     <div class="ind-info">
                         <h4>Chemical Processing</h4>
                         <span>Industrial</span>
                     </div>
                 </div>
                 <div class="industry-card">
-                    <span class="ind-icon"></span>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 21V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v16H3z"/>
+                            <path d="M9 21v-4a2 2 0 0 1 4 0v4"/>
+                            <line x1="7" y1="7" x2="9" y2="7"/>
+                            <line x1="15" y1="7" x2="17" y2="7"/>
+                            <line x1="7" y1="11" x2="9" y2="11"/>
+                            <line x1="15" y1="11" x2="17" y2="11"/>
+                        </svg>
+                    </div>
                     <div class="ind-info">
                         <h4>Hotels & Hospitality</h4>
                         <span>Commercial</span>
                     </div>
                 </div>
                 <div class="industry-card">
-                    <span class="ind-icon"></span>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
+                            <line x1="9" y1="22" x2="9" y2="16"/>
+                            <line x1="15" y1="22" x2="15" y2="16"/>
+                            <line x1="9" y1="16" x2="15" y2="16"/>
+                            <path d="M8 6h2v2H8zm6 0h2v2h-2zm-6 4h2v2H8zm6 0h2v2h-2z"/>
+                        </svg>
+                    </div>
                     <div class="ind-info">
                         <h4>Commercial Office Parks</h4>
                         <span>Commercial</span>
                     </div>
                 </div>
                 <div class="industry-card">
-                    <span class="ind-icon"></span>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2z"/>
+                            <line x1="12" y1="7" x2="12" y2="17"/>
+                            <line x1="7" y1="12" x2="17" y2="12"/>
+                        </svg>
+                    </div>
                     <div class="ind-info">
                         <h4>Hospitals & Healthcare</h4>
                         <span>Healthcare & Institutional</span>
                     </div>
                 </div>
                 <div class="industry-card">
-                    <span class="ind-icon"></span>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/>
+                            <path d="M6 12v5c0 2 2.7 3.5 6 3.5s6-1.5 6-3.5v-5"/>
+                        </svg>
+                    </div>
                     <div class="ind-info">
                         <h4>Educational Institutions</h4>
                         <span>Healthcare & Institutional</span>
                     </div>
                 </div>
                 <div class="industry-card">
-                    <span class="ind-icon"></span>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </div>
                     <div class="ind-info">
                         <h4>Residential Complexes</h4>
                         <span>Commercial</span>
@@ -394,7 +587,12 @@
                     <div>
                         <span class="proj-tag">✓ Completed</span>
                         <h3 style="margin-top: 12px; margin-bottom: 6px;">500 kW Industrial Rooftop Solar Grid</h3>
-                        <p style="font-size: 0.85rem; color: var(--color-emerald); font-weight: bold;">📍 Noida SEZ Industrial Area</p>
+                        <p style="font-size: 0.85rem; color: var(--color-emerald); font-weight: bold;">
+                            <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 4px;">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg> Noida SEZ Industrial Area
+                        </p>
                         <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-top: 10px;">Mono-PERC panel array reducing factory grid power draw by 65%.</p>
                     </div>
                     <div style="border-top: 1px solid var(--color-border); padding-top: 12px; margin-top: 20px; font-weight: bold;">
@@ -406,7 +604,12 @@
                     <div>
                         <span class="proj-tag">✓ Completed</span>
                         <h3 style="margin-top: 12px; margin-bottom: 6px;">50,000 LPD Water Softening Plant</h3>
-                        <p style="font-size: 0.85rem; color: var(--color-emerald); font-weight: bold;">📍 Baddi Pharma Complex</p>
+                        <p style="font-size: 0.85rem; color: var(--color-emerald); font-weight: bold;">
+                            <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 4px;">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg> Baddi Pharma Complex
+                        </p>
                         <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-top: 10px;">Raw borewell water TDS reduction from 1400 PPM to USP process grade.</p>
                     </div>
                     <div style="border-top: 1px solid var(--color-border); padding-top: 12px; margin-top: 20px; font-weight: bold;">
@@ -418,7 +621,12 @@
                     <div>
                         <span class="proj-tag">✓ Completed</span>
                         <h3 style="margin-top: 12px; margin-bottom: 6px;">200 kVA Online UPS & LFP Storage</h3>
-                        <p style="font-size: 0.85rem; color: var(--color-emerald); font-weight: bold;">📍 Gurugram Data Center</p>
+                        <p style="font-size: 0.85rem; color: var(--color-emerald); font-weight: bold;">
+                            <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 4px;">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg> Gurugram Data Center
+                        </p>
                         <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-top: 10px;">Zero-millisecond switchover industrial backup with dual AMF panel sync.</p>
                     </div>
                     <div style="border-top: 1px solid var(--color-border); padding-top: 12px; margin-top: 20px; font-weight: bold;">
@@ -432,7 +640,7 @@
     <!-- 8. CUSTOM EXTRA SECTION -->
     <section class="custom-section">
         <div class="container text-center">
-            <span class="section-badge" style="background: rgba(52, 211, 153, 0.2); color: #34d399; border-color: rgba(52, 211, 153, 0.4);">Eco Commitment</span>
+            <span class="section-badge" style="background: rgba(25, 153, 66, 0.12); color: #199942; border-color: rgba(25, 153, 66, 0.25);">Eco Commitment</span>
             <h2>Our Green Energy Guarantee</h2>
             <p style="max-width: 750px; margin: 16px auto; color: #cbd5e1;">
                 FYN Engineers Pvt. Ltd. is committed to helping businesses achieve carbon neutrality. Through optimized solar panel tilt angles and high-COP heat pumps, our installations offset over 12,000 metric tons of CO2 annually across India.
@@ -471,10 +679,23 @@
                     <p style="font-size: 0.9rem; color: #cbd5e1; margin-bottom: 24px;">Integrated Water & Energy Solutions | Design • Supply • Install • Service</p>
 
                     <div style="font-size: 0.9rem; line-height: 1.8;">
-                        <p>📍 <strong>Address:</strong> Plot No. 42, Sector 63, Commercial Industrial Area, Noida, UP 201301</p>
-                        <p>📞 <strong>Phone:</strong> +91 98765 43210 / +91 120 4567 890</p>
-                        <p>✉️ <strong>Email:</strong> info@fynengineers.com</p>
-                        <p>⏰ <strong>Working Hours:</strong> Mon – Sat: 9:00 AM – 7:00 PM IST (24/7 AMC)</p>
+                        <p>
+                            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 6px;">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg> <strong>Address:</strong> Plot No. 42, Sector 63, Commercial Industrial Area, Noida, UP 201301
+                        </p>
+                        <p><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 6px;">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg> <strong>Phone:</strong> +91 98765 43210 / +91 120 4567 890</p>
+                        <p><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 6px;">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg> <strong>Email:</strong> info@fynengineers.com</p>
+                        <p><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 6px;">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg> <strong>Working Hours:</strong> Mon – Sat: 9:00 AM – 7:00 PM IST (24/7 AMC)</p>
                     </div>
 
                     <div class="map-wrapper">
@@ -514,8 +735,7 @@
                             <label>Service Vertical *</label>
                             <select>
                                 <option>FYN Aqua (Water Solutions)</option>
-                                <option>FYN Solar (Photovoltaic Energy)</option>
-                                <option>Electrical Solutions (Power Backup)</option>
+                                <option>FYN Energy (Solar & Power Backup)</option>
                                 <option>Turnkey Engineering Design</option>
                                 <option>AMC & Service Support</option>
                             </select>
@@ -534,7 +754,9 @@
 
     <!-- FLOATING WHATSAPP BUTTON -->
     <a href="https://wa.me/919876543210?text=Hello%20FYN%20Engineers!%20I%20would%20like%20to%20inquire%20about%20your%20engineering%20solutions." target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
-        💬
+        <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+        </svg>
     </a>
 
     <!-- FOOTER -->
@@ -561,10 +783,9 @@
                 <div>
                     <h4 style="color: #ffffff; margin-bottom: 12px;">Verticals</h4>
                     <ul style="font-size: 0.85rem; line-height: 2; color: #94a3b8;">
-                        <li>FYN Aqua (Water)</li>
-                        <li>FYN Solar (Energy)</li>
-                        <li>Electrical Solutions</li>
-                        <li>AMC & Servicing</li>
+                        <li>FYN Aqua (Water Solutions)</li>
+                        <li>FYN Energy (Solar & Power Backup)</li>
+                        <li>AMC & Servicing Support</li>
                     </ul>
                 </div>
 

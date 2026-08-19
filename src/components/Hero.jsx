@@ -10,6 +10,7 @@ export default function Hero() {
       case 'Droplets': return <Droplets className="w-6 h-6 text-sky-500" />;
       case 'Sun': return <Sun className="w-6 h-6 text-amber-500" />;
       case 'Zap': return <Zap className="w-6 h-6 text-emerald-500" />;
+      case 'ShieldCheck': return <ShieldCheck className="w-6 h-6 text-sky-500" />;
       default: return <Zap className="w-6 h-6 text-emerald-500" />;
     }
   };

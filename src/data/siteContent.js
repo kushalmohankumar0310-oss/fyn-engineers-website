@@ -54,20 +54,20 @@ export const siteContent = {
         accent: "cyan"
       },
       {
-        id: "solar",
-        title: "Renewable Solar Energy",
-        subtitle: "FYN Solar Power",
-        desc: "On-grid & off-grid rooftop solar, solar pumps & street lighting.",
-        icon: "Sun",
-        accent: "amber"
-      },
-      {
-        id: "power",
-        title: "Electrical Reliability",
-        subtitle: "Power Backup Systems",
-        desc: "Online UPS, LFP storage, voltage stabilizers & AMF panels.",
+        id: "energy",
+        title: "Solar & Power Backup",
+        subtitle: "FYN Energy",
+        desc: "On-grid & off-grid rooftop solar, industrial UPS, LFP storage & stabilizers.",
         icon: "Zap",
         accent: "emerald"
+      },
+      {
+        id: "design",
+        title: "Turnkey Design & Support",
+        subtitle: "Site-Precision Engineering",
+        desc: "Site-precision CAD blueprints, direct OEM compliance & lifetime AMC maintenance.",
+        icon: "ShieldCheck",
+        accent: "cyan"
       }
     ]
   },
@@ -145,31 +145,17 @@ export const siteContent = {
         ]
       },
       {
-        id: "solar",
-        name: "FYN Solar",
-        tagline: "Renewable Photovoltaic Energy",
-        accentColor: "amber",
-        icon: "Sun",
-        summary: "Turnkey rooftop and ground-mounted solar PV systems for massive electricity savings.",
-        offerings: [
-          "Residential & Commercial Rooftop Solar Grids (On-Grid / Off-Grid)",
-          "Bifacial & Mono-PERC High Efficiency Panel Arrays",
-          "Solar Water Pumping & Agricultural Systems",
-          "Standalone Solar Street Lighting Infrastructure"
-        ]
-      },
-      {
-        id: "electrical",
-        name: "Electrical Solutions",
-        tagline: "Power Quality & Uninterrupted Backup",
+        id: "energy",
+        name: "FYN Energy",
+        tagline: "Solar Power & Electrical Backup Solutions",
         accentColor: "emerald",
         icon: "Zap",
-        summary: "Heavy-duty power protection, voltage stabilization, and battery storage modules.",
+        summary: "Turnkey solar rooftop grids, industrial UPS systems, LFP battery storage, and automatic voltage stabilizers.",
         offerings: [
+          "Commercial & Industrial Solar Rooftops (On-Grid / Off-Grid)",
           "Industrial Online UPS Systems (1 kVA - 500 kVA)",
-          "Lithium Iron Phosphate (LFP) Battery Banks",
-          "Automatic Servo Voltage Stabilizers",
-          "Power Distribution & AMF Control Panel Consultancy"
+          "Lithium Iron Phosphate (LFP) Battery Storage Banks",
+          "Automatic Servo Stabilizers & AMF Control Panel Consultancy"
         ]
       }
     ]

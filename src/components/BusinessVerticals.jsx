@@ -52,8 +52,8 @@ export default function BusinessVerticals() {
           <div className="w-16 h-1 bg-emerald-600 mx-auto rounded-full"></div>
         </div>
 
-        {/* 3 Business Verticals Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* 2 Business Verticals Cards Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 max-w-5xl mx-auto gap-8">
           {verticals.items.map((vert) => {
             const style = getVerticalHeader(vert.accentColor, vert.icon);
             return (
