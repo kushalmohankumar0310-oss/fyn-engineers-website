@@ -62,18 +62,11 @@ export default function BusinessVerticals() {
                 className={`rounded-3xl bg-white border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden ${style.accent}`}
               >
                 <div className="p-8 space-y-6">
-                  {/* Card Icon & Badges */}
-                  <div className="flex items-center justify-between">
-                    <div className="p-3 rounded-2xl bg-slate-50 border border-slate-100">
-                      {style.icon}
-                    </div>
-                    <span className={`text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider ${style.bg}`}>
-                      {vert.name}
-                    </span>
+                  <div className="h-14 flex items-center mb-2">
+                    <img src={vert.logo} alt={vert.name} className="h-14 object-contain" />
                   </div>
 
                   <div>
-                    <h3 className="font-heading font-extrabold text-2xl text-slate-900">{vert.name}</h3>
                     <p className="text-xs font-bold text-slate-500 tracking-wide uppercase mt-1">{vert.tagline}</p>
                   </div>
 

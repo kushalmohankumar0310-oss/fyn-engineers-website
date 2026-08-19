@@ -62,12 +62,11 @@ export default function Hero() {
               key={card.id}
               className="group p-6 rounded-2xl bg-white border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
             >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 group-hover:scale-110 transition-transform">
-                  {getIcon(card.icon)}
+              <div className="flex flex-col gap-3 mb-4">
+                <div className="h-10 flex items-center">
+                  <img src={card.logo} alt={card.title} className="h-10 object-contain" />
                 </div>
-                <div>
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">{card.subtitle}</span>
+                <div className="mt-2">
                   <h3 className="font-heading font-bold text-lg text-slate-900">{card.title}</h3>
                 </div>
               </div>

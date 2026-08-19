@@ -50,7 +50,7 @@ export const siteContent = {
         title: "Clean Water Infrastructure",
         subtitle: "FYN Aqua Solutions",
         desc: "Industrial RO, commercial softeners, heat pumps & WTP systems.",
-        icon: "Droplets",
+        logo: "logo-aqua.png",
         accent: "cyan"
       },
       {
@@ -58,7 +58,7 @@ export const siteContent = {
         title: "Solar & Power Backup",
         subtitle: "FYN Energy",
         desc: "On-grid & off-grid rooftop solar, industrial UPS, LFP storage & stabilizers.",
-        icon: "Zap",
+        logo: "logo-energy.png",
         accent: "emerald"
       }
     ]
@@ -127,7 +127,7 @@ export const siteContent = {
         name: "FYN Aqua",
         tagline: "Advanced Water & Thermal Systems",
         accentColor: "cyan",
-        icon: "Droplets",
+        logo: "logo-aqua.png",
         summary: "High-performance commercial & industrial water treatment, purification, and solar thermal heating.",
         offerings: [
           "Air Source Heat Pumps & Centralized Thermal Systems",
@@ -141,7 +141,7 @@ export const siteContent = {
         name: "FYN Energy",
         tagline: "Solar Power & Electrical Backup Solutions",
         accentColor: "emerald",
-        icon: "Zap",
+        logo: "logo-energy.png",
         summary: "Turnkey solar rooftop grids, industrial UPS systems, LFP battery storage, and automatic voltage stabilizers.",
         offerings: [
           "Commercial & Industrial Solar Rooftops (On-Grid / Off-Grid)",
@@ -269,7 +269,7 @@ export const siteContent = {
         vertical: "Water Solutions",
         desc: "Raw borewell water TDS reduction from 1400 PPM to USP process grade.",
         metric: "50,000 LPD Capacity",
-        icon: "Droplets"
+        logo: "logo-aqua.png"
       },
       {
         id: 3,
@@ -279,7 +279,7 @@ export const siteContent = {
         vertical: "Electrical Solutions",
         desc: "Zero-millisecond switchover industrial backup with dual AMF panel sync.",
         metric: "200 kVA / 4h Backup",
-        icon: "Zap"
+        logo: "logo-energy.png"
       },
       {
         id: 4,
