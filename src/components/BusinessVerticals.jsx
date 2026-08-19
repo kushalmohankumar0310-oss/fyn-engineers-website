@@ -62,8 +62,8 @@ export default function BusinessVerticals() {
                 className={`rounded-3xl bg-white border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden ${style.accent}`}
               >
                 <div className="p-8 space-y-6">
-                  <div className="h-20 flex items-center mb-2">
-                    <img src={vert.logo} alt={vert.name} className="h-20 object-contain" />
+                  <div className="h-16 flex items-center mb-2">
+                    <img src={vert.logo} alt={vert.name} className="h-16 object-contain" />
                   </div>
 
                   <div>
