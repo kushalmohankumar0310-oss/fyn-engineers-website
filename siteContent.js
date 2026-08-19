@@ -59,14 +59,6 @@ const siteContent = {
         desc: "On-grid & off-grid rooftop solar, industrial UPS, LFP storage & stabilizers.",
         icon: "⚡",
         badgeColor: "emerald"
-      },
-      {
-        id: "design",
-        title: "Turnkey Design & Support",
-        subtitle: "Site-Precision Engineering",
-        desc: "Site-precision CAD blueprints, direct OEM compliance & lifetime AMC maintenance.",
-        icon: "📐",
-        badgeColor: "cyan"
       }
     ]
   },

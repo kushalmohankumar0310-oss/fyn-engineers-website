@@ -55,8 +55,8 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* 3 Quick Feature Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 sm:mt-20">
+        {/* 2 Quick Feature Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto gap-6 mt-16 sm:mt-20">
           {hero.quickFeatureCards.map((card) => (
             <div
               key={card.id}
