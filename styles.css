@@ -47,7 +47,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 85px;
+    scroll-padding-top: 100px;
     font-size: 16px;
 }
 
@@ -189,7 +189,7 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 90px;
+    height: 100px;
 }
 .logo-container {
     display: flex;
@@ -309,7 +309,7 @@ ul {
 /* HERO SECTION */
 .hero-section {
     position: relative;
-    padding: 130px 0 90px 0;
+    padding: 145px 0 90px 0;
     background: linear-gradient(180deg, #e6e6ea 0%, #f0f0f3 100%);
     overflow: hidden;
 }
