@@ -5,22 +5,22 @@
 
 :root {
     /* Global Brand Neutrals */
-    --color-primary: #1f2022;
-    --color-primary-dark: #2f3033;
-    --color-primary-light: rgba(31, 32, 34, 0.07);
+    --color-primary: #1e293b;
+    --color-primary-dark: #0f172a;
+    --color-primary-light: rgba(30, 41, 59, 0.07);
 
     /* Color Palette */
     --color-bg-light: #e6e6ea;
     --color-bg-white: #f0f0f3;
-    --color-navy: #1f2022;
-    --color-navy-light: #3e3f42;
+    --color-navy: #0f172a;
+    --color-navy-light: #334155;
     
-    --color-emerald: #65a30d;       /* Navy Blue 900 */
-    --color-emerald-dark: #4d7c0f;  /* Navy Blue 700 */
-    --color-emerald-light: rgba(101, 163, 13, 0.08); /* Light navy glass tint */
+    --color-emerald: #16a34a;       /* Energy Green */
+    --color-emerald-dark: #15803d;  /* Energy Green Dark */
+    --color-emerald-light: rgba(22, 163, 74, 0.07);
     
-    --color-cyan: #0891b2;
-    --color-cyan-light: rgba(8, 145, 178, 0.08);
+    --color-cyan: #0ea5e9;          /* Sky Blue */
+    --color-cyan-light: rgba(14, 165, 233, 0.08);
     
     --color-amber: #d97706;
     --color-amber-light: #fef3c7;
