@@ -5,22 +5,22 @@
 
 :root {
     /* Global Brand Neutrals */
-    --color-primary: #27272a;
-    --color-primary-dark: #52525b;
-    --color-primary-light: rgba(39, 39, 42, 0.07);
+    --color-primary: #292524;
+    --color-primary-dark: #44403c;
+    --color-primary-light: rgba(41, 37, 36, 0.07);
 
     /* Color Palette */
     --color-bg-light: #f8fafc;
     --color-bg-white: #ffffff;
-    --color-navy: #27272a;
-    --color-navy-light: #52525b;
+    --color-navy: #292524;
+    --color-navy-light: #57534e;
     
-    --color-emerald: #10b981;       /* Navy Blue 900 */
-    --color-emerald-dark: #059669;  /* Navy Blue 700 */
-    --color-emerald-light: rgba(16, 185, 129, 0.07); /* Light navy glass tint */
+    --color-emerald: #d97706;       /* Navy Blue 900 */
+    --color-emerald-dark: #b45309;  /* Navy Blue 700 */
+    --color-emerald-light: rgba(217, 119, 6, 0.08); /* Light navy glass tint */
     
-    --color-cyan: #0d9488;
-    --color-cyan-light: rgba(13, 148, 136, 0.08);
+    --color-cyan: #1d4ed8;
+    --color-cyan-light: rgba(29, 78, 216, 0.08);
     
     --color-amber: #d97706;
     --color-amber-light: #fef3c7;
@@ -142,7 +142,7 @@ ul {
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: 0.95rem;
-    box-shadow: 0 4px 16px rgba(39, 39, 42, 0.2);
+    box-shadow: 0 4px 16px rgba(41, 37, 36, 0.15);
     transition: all 0.3s ease;
     cursor: pointer;
     border: none;
@@ -150,7 +150,7 @@ ul {
 .btn-cta:hover {
     background: var(--color-primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(39, 39, 42, 0.3);
+    box-shadow: 0 8px 24px rgba(41, 37, 36, 0.25);
 }
 
 .btn-secondary {
@@ -206,7 +206,7 @@ ul {
     align-items: center;
     justify-content: center;
     font-size: 1.3rem;
-    box-shadow: 0 4px 10px rgba(39, 39, 42, 0.2);
+    box-shadow: 0 4px 10px rgba(41, 37, 36, 0.15);
 }
 
 /* Custom Icon Wrapper matching the user's design reference */
@@ -303,7 +303,7 @@ ul {
 .hero-section {
     position: relative;
     padding: 130px 0 90px 0;
-    background: linear-gradient(180deg, #f1f5f9 0%, #ffffff 100%);
+    background: linear-gradient(180deg, #fafaf9 0%, #ffffff 100%);
     overflow: hidden;
 }
 .hero-container {
