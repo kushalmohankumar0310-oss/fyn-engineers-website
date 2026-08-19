@@ -5,15 +5,15 @@
 
 :root {
     /* Global Brand Neutrals */
-    --color-primary: #09090b;
-    --color-primary-dark: #27272a;
-    --color-primary-light: rgba(9, 9, 11, 0.07);
+    --color-primary: #1f2022;
+    --color-primary-dark: #2f3033;
+    --color-primary-light: rgba(31, 32, 34, 0.07);
 
     /* Color Palette */
-    --color-bg-light: #f1f1f3;
-    --color-bg-white: #f7f7f9;
-    --color-navy: #09090b;
-    --color-navy-light: #27272a;
+    --color-bg-light: #e6e6ea;
+    --color-bg-white: #f0f0f3;
+    --color-navy: #1f2022;
+    --color-navy-light: #3e3f42;
     
     --color-emerald: #65a30d;       /* Navy Blue 900 */
     --color-emerald-dark: #4d7c0f;  /* Navy Blue 700 */
@@ -142,7 +142,7 @@ ul {
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: 0.95rem;
-    box-shadow: 0 4px 16px rgba(9, 9, 11, 0.15);
+    box-shadow: 0 4px 16px rgba(31, 32, 34, 0.15);
     transition: all 0.3s ease;
     cursor: pointer;
     border: none;
@@ -150,7 +150,7 @@ ul {
 .btn-cta:hover {
     background: var(--color-primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(9, 9, 11, 0.25);
+    box-shadow: 0 8px 24px rgba(31, 32, 34, 0.25);
 }
 
 .btn-secondary {
@@ -179,7 +179,7 @@ ul {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(247, 247, 249, 0.95);
+    background: rgba(240, 240, 243, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--color-border);
     z-index: 1000;
@@ -206,7 +206,7 @@ ul {
     align-items: center;
     justify-content: center;
     font-size: 1.3rem;
-    box-shadow: 0 4px 10px rgba(9, 9, 11, 0.15);
+    box-shadow: 0 4px 10px rgba(31, 32, 34, 0.15);
 }
 
 /* Custom Icon Wrapper matching the user's design reference */
@@ -303,7 +303,7 @@ ul {
 .hero-section {
     position: relative;
     padding: 130px 0 90px 0;
-    background: linear-gradient(180deg, #f1f1f3 0%, #f7f7f9 100%);
+    background: linear-gradient(180deg, #e6e6ea 0%, #f0f0f3 100%);
     overflow: hidden;
 }
 .hero-container {
