@@ -12,15 +12,14 @@ const siteContent = {
     shortName: "FYN Engineers",
     tagline: "Integrated Water & Energy Solutions",
     subTagline: "Design • Supply • Install • Service",
-    coreValue: "Engineering Solutions Designed For Your Needs",
-    established: "2010",
+    slogan: "For Your Needs From Your Nature",
+    brandPromise: "For Your Needs",
+    established: "2020",
     phone: "+91 98765 43210",
     alternatePhone: "+91 120 4567 890",
     email: "info@fynengineers.com",
-    supportEmail: "care@fynengineers.com",
-    address: "Plot No. 42, Sector 63, Commercial Industrial Area, Noida, UP 201301",
-    whatsappNumber: "919876543210",
-    googleMapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14008.112423377755!2d77.37525355!3d28.6289297!2m3!1f0!1f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce55000000001%3A0x6b30693a20726d50!2sSector%2063%2C%20Noida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+    address: "Plot No. 42, Sector 63, Noida, UP 201301",
+    whatsappNumber: "919876543210"
   },
 
   // 2. Navigation Links
@@ -37,26 +36,26 @@ const siteContent = {
 
   // 3. Hero Section
   hero: {
-    badge: "Integrated Engineering • Solar • Water • Backup Power",
+    badge: "Integrated Water, Renewable Energy & Electrical Solutions",
     headline: "FYN Engineers Pvt. Ltd.",
     headlineEmphasis: "For Your Needs",
-    subheadline: "We custom-design, supply, install, and service commercial water purification, solar rooftop energy grids, and high-reliability industrial electrical systems with mandatory site inspections.",
+    subheadline: "Engineering Solutions Designed \"For Your Needs\". We specialize in integrated water, renewable energy, and electrical engineering solutions to deliver reliable, efficient, and sustainable systems.",
     ctaPrimary: "Request Consultation",
     ctaSecondary: "Explore Verticals",
     quickFeatureCards: [
       {
         id: "aqua",
-        title: "Clean Water Infrastructure",
-        subtitle: "FYN Aqua Solutions",
-        desc: "Industrial RO, commercial softeners, heat pumps & WTP systems.",
+        title: "FYN Aqua",
+        subtitle: "Complete Water Solutions",
+        desc: "Comprehensive water management solutions for residential, commercial, industrial, and institutional applications.",
         logo: "logo-aqua.png",
         badgeColor: "cyan"
       },
       {
         id: "energy",
-        title: "Solar & Power Backup",
-        subtitle: "FYN Energy",
-        desc: "On-grid & off-grid rooftop solar, industrial UPS, LFP storage & stabilizers.",
+        title: "FYN Energy",
+        subtitle: "Rooftop Solar & Power Solutions",
+        desc: "Helping customers reduce electricity costs while contributing to a cleaner environment through high-performance solar solutions.",
         logo: "logo-energy.png",
         badgeColor: "emerald"
       }
@@ -65,88 +64,91 @@ const siteContent = {
 
   // 4. About Us
   about: {
-    sectionBadge: "Who We Are",
-    title: "Engineering Excellence Driven by Site Precision",
-    description1: "FYN Engineers Pvt. Ltd. is a premier multi-vertical engineering firm delivering end-to-end water treatment, solar photovoltaic power, and electrical infrastructure projects across India.",
-    description2: "Unlike off-the-shelf sellers, our certified engineers conduct physical site inspections to measure solar irradiance tilt angles, water mineral TDS levels, and electrical surge profiles before engineering custom blueprints.",
-    quote: "Our mission is to empower commercial enterprises, industries, and institutions with sustainable, cost-effective engineering systems backed by lifetime service care.",
-    vision: "To become India's most trusted engineering solutions provider, setting the benchmark in site-precision design, clean energy integration, and transparent OEM compliance.",
+    sectionBadge: "About FYN Engineers",
+    title: "Engineering Solutions Designed \"For Your Needs\"",
+    description1: "FYN Engineers Pvt. Ltd. is a professionally managed engineering solutions company specializing in integrated water, renewable energy, and electrical engineering solutions. Our name, FYN, stands for \"For Your Needs,\" reflecting our commitment to understanding every customer's unique requirements and delivering reliable, efficient, and sustainable solutions.",
+    description2: "We believe engineering is more than supplying products—it's about designing the right solution, executing projects professionally, and providing dependable after-sales support throughout the system's lifecycle. With a customer-first approach, technical expertise, and commitment to quality, we help residential, commercial, industrial, and institutional clients optimize water usage, improve energy efficiency, and build sustainable infrastructure.",
+    vision: "To become India's most trusted engineering company for integrated water and renewable energy solutions through innovation, quality, and exceptional customer service.",
+    mission: [
+      "Provide reliable and sustainable engineering solutions.",
+      "Deliver professional design, supply, installation, and after-sales support.",
+      "Build long-term customer relationships based on trust.",
+      "Promote clean energy and efficient water management."
+    ],
     coreValues: [
       {
-        title: "Site Precision",
-        desc: "Every blueprint is custom-crafted according to physical site conditions.",
-        icon: "🧭"
+        title: "Integrity",
+        desc: "We conduct our business with honesty, transparency, and ethical practices. Trust is the foundation of relationship.",
+        icon: "⚖️"
       },
       {
-        title: "OEM Compliance",
-        desc: "Direct tier-1 manufacturer sourcing under strict compliance licensing.",
-        icon: "📜"
+        title: "Innovation",
+        desc: "We embrace new technologies, ideas, and engineering practices to deliver smarter, more efficient, and future-ready solutions.",
+        icon: "💡"
       },
       {
-        title: "Sustainability First",
-        desc: "Optimized solar generation and zero-water-waste engineering.",
+        title: "Customer First",
+        desc: "We begin by understanding our customers' needs. Designed with customer-focused approach for value, reliability, performance.",
+        icon: "🤝"
+      },
+      {
+        title: "Quality",
+        desc: "We are committed to quality in products, design, installation, execution, and service for long-lasting solutions.",
+        icon: "⭐"
+      },
+      {
+        title: "Sustainability",
+        desc: "We promote responsible use of energy and water through sustainable technologies and eco-friendly solutions.",
         icon: "🌱"
       },
       {
-        title: "Client-Centric AMC",
-        desc: "Free warranty service followed by transparent low-fee annual maintenance.",
-        icon: "⏱️"
-      }
-    ],
-    leadership: [
-      {
-        name: "Ramesh K. Fyn",
-        role: "Managing Director & Founder",
-        bio: "20+ years of industrial power & hydraulic system engineering pioneer.",
-        avatar: "👨‍💼"
-      },
-      {
-        name: "Dr. Ananya Sen",
-        role: "Director of Solar & Clean Energy",
-        bio: "Ph.D. in Photovoltaic Systems & Micro-grid Thermal Integration.",
-        avatar: "👩‍🔬"
-      },
-      {
-        name: "Vikram Malhotra",
-        role: "Director of Operations & Compliance",
-        bio: "Former Procurement Lead specializing in Tier-1 OEM compliance.",
-        avatar: "👨‍💻"
+        title: "Service Excellence",
+        desc: "Responsive, dependable, and professional after-sales service to support customers throughout system lifecycles.",
+        icon: "🛠️"
       }
     ]
   },
 
   // 5. Business Verticals
   verticals: {
-    sectionBadge: "Specialized Verticals",
-    title: "Integrated Engineering Business Verticals",
-    subtitle: "Custom-tailored solutions across three core utility domains",
+    sectionBadge: "Company at a Glance",
+    title: "Our Core Services in Two Different Verticals",
+    subtitle: "Two business verticals: FYN Aqua and FYN Energy",
     items: [
       {
         id: "aqua",
         name: "FYN Aqua",
-        tagline: "Advanced Water & Thermal Systems",
+        tagline: "Complete Water Solutions",
         accent: "cyan",
         logo: "logo-aqua.png",
-        summary: "High-performance commercial & industrial water treatment, purification, and solar thermal heating.",
+        summary: "We deliver comprehensive water management solutions for residential, commercial, industrial, and institutional applications.",
         offerings: [
-          "Air Source Heat Pumps & Centralized Thermal Systems",
-          "Industrial RO & Automatic Water Softeners",
-          "Water Treatment Plants (WTP) & Effluent Treatment (ETP)",
-          "Hydro-Pneumatic Pressure Booster Pumps"
+          "Complete Water Solutions",
+          "Air Source Heat Pumps",
+          "Drinking Water (RO) Systems",
+          "Water Softeners",
+          "Water Treatment Systems",
+          "Pressure Pumps",
+          "Hot Water Solutions"
         ]
       },
       {
         id: "energy",
         name: "FYN Energy",
-        tagline: "Solar Power & Electrical Backup Solutions",
+        tagline: "Rooftop Solar, Electrical & Power Solutions",
         accent: "emerald",
         logo: "logo-energy.png",
-        summary: "Turnkey solar rooftop grids, industrial UPS systems, LFP battery storage, and automatic voltage stabilizers.",
+        summary: "Helping customers reduce electricity costs while contributing to a cleaner environment through high-performance solar solutions.",
         offerings: [
-          "Commercial & Industrial Solar Rooftops (On-Grid / Off-Grid)",
-          "Industrial Online UPS Systems (1 kVA - 500 kVA)",
-          "Lithium Iron Phosphate (LFP) Battery Storage Banks",
-          "Automatic Servo Stabilizers & AMF Control Panel Consultancy"
+          "Residential Solar Rooftop",
+          "Commercial & Industrial Solar Rooftop",
+          "Solar Street Lights",
+          "Solar Water Pumping Systems",
+          "Future Green Energy Solutions",
+          "UPS Systems",
+          "Voltage Stabilizers",
+          "Power Backup Solutions",
+          "Electrical Engineering Services"
         ]
       }
     ]
@@ -154,44 +156,44 @@ const siteContent = {
 
   // 6. 6-Step Workflow Process
   process: {
-    sectionBadge: "How We Work",
-    title: "The 6-Step Engineering Workflow",
-    subtitle: "From initial site visit to lifetime after-sales care",
+    sectionBadge: "Our Engineering Process",
+    title: "Site Survey → Design → Supply → Install → Service",
+    subtitle: "Every project follows a systematic engineering approach to ensure quality, reliability, and long-term performance. We provide complete end-to-end engineering solutions, from consultation and system design to installation, commissioning, and long-term service support.",
     steps: [
       {
         step: "01",
-        title: "Consultation & Site Audit",
-        desc: "On-site analysis of water TDS, solar sun-path, and peak power loads.",
+        title: "Consultation",
+        desc: "Understanding customer requirements and site conditions.",
         icon: "🔍"
       },
       {
         step: "02",
         title: "Engineering Design",
-        desc: "Custom CAD drafting and structural hydraulic & electrical modeling.",
+        desc: "Preparing optimized technical solutions.",
         icon: "📐"
       },
       {
         step: "03",
-        title: "OEM Product Sourcing",
-        desc: "Tier-1 component selection under strict FYN quality compliance.",
+        title: "Product Selection",
+        desc: "Choosing quality products from trusted manufacturers.",
         icon: "📦"
       },
       {
         step: "04",
-        title: "Turnkey Installation",
-        desc: "Precision mounting, electrical cabling, and civil integration by certified staff.",
+        title: "Professional Installation",
+        desc: "Safe and efficient installation by trained engineers.",
         icon: "⚙️"
       },
       {
         step: "05",
         title: "Testing & Commissioning",
-        desc: "Rigorous load testing, pressure checks, and grid synchronization.",
+        desc: "Ensuring optimum performance before handover.",
         icon: "✅"
       },
       {
         step: "06",
         title: "After-Sales Support",
-        desc: "100% free warranty servicing and transparent AMC maintenance contracts.",
+        desc: "Regular maintenance, service support, and customer assistance.",
         icon: "🎧"
       }
     ]
@@ -199,47 +201,58 @@ const siteContent = {
 
   // 7. Why Choose Us & Industries
   whyUs: {
-    sectionBadge: "Why Partner With Us",
-    title: "Engineering Integrity That Sets Us Apart",
+    sectionBadge: "Why Choose FYN?",
+    title: "Solution-led rather than product-led",
     features: [
       {
-        title: "Mandatory Physical Site Audits",
-        desc: "We never guess parameters. Every project starts with real-world site measurements.",
-        icon: "📍"
+        title: "Solution-led Approach",
+        desc: "We begin with the customer's application and objective.",
+        icon: "⚖️"
       },
       {
-        title: "Tier-1 OEM Partnerships",
-        desc: "Branded under FYN with direct manufacturer warranties and compliance assurance.",
-        icon: "📜"
+        title: "Unified Operating Model",
+        desc: "Engineering + execution + service under one operating model.",
+        icon: "📦"
       },
       {
-        title: "Zero-Cost Warranty Servicing",
-        desc: "Free component repair and maintenance while under active warranty.",
-        icon: "🛡️"
+        title: "Site-Specific Sizing",
+        desc: "Sizing and technology selection to improve performance and lifecycle economics.",
+        icon: "📐"
       },
       {
-        title: "Turnkey Project Guarantee",
-        desc: "Single point of accountability from civil design to final regulatory approvals.",
-        icon: "🏗️"
+        title: "Focused Portfolio",
+        desc: "Focused portfolio across water and energy with strong cross-selling potential.",
+        icon: "🔍"
+      },
+      {
+        title: "Customer Relationships",
+        desc: "Relationships built around responsiveness, transparency and long-term support.",
+        icon: "🤝"
+      },
+      {
+        title: "Channel-Friendly Model",
+        desc: "Supported by technical assistance, project execution and after-sales capability.",
+        icon: "🎧"
       }
     ]
   },
 
   industries: {
-    sectionBadge: "Sectors We Empower",
-    title: "Industries Served",
+    sectionBadge: "Industries We Serve",
+    title: "Sectors We Empower",
     subtitle: "Custom utility solutions for commercial, industrial, and institutional sectors",
     categories: ["All", "Industrial", "Commercial", "Healthcare & Institutional"],
     list: [
-      { name: "Pharmaceutical Plants", category: "Industrial", icon: "💊" },
-      { name: "Manufacturing Facilities", category: "Industrial", icon: "🏭" },
-      { name: "Food & Beverage Processing", category: "Industrial", icon: "🥗" },
-      { name: "Chemical Processing", category: "Industrial", icon: "🧪" },
-      { name: "Hotels & Hospitality", category: "Commercial", icon: "🏨" },
-      { name: "Commercial Office Parks", category: "Commercial", icon: "🏢" },
-      { name: "Hospitals & Healthcare", category: "Healthcare & Institutional", icon: "🏥" },
+      { name: "Residential", category: "Commercial", icon: "🏡" },
+      { name: "Commercial Buildings", category: "Commercial", icon: "🏢" },
+      { name: "Hotels & Resorts", category: "Commercial", icon: "🏨" },
+      { name: "Hospitals", category: "Healthcare & Institutional", icon: "🏥" },
       { name: "Educational Institutions", category: "Healthcare & Institutional", icon: "🎓" },
-      { name: "Residential Complexes", category: "Commercial", icon: "🏡" }
+      { name: "Manufacturing Industries", category: "Industrial", icon: "🏭" },
+      { name: "Pharmaceutical Industries", category: "Industrial", icon: "💊" },
+      { name: "Food Processing Units", category: "Industrial", icon: "🥗" },
+      { name: "Warehouses", category: "Industrial", icon: "📦" },
+      { name: "Government Organizations", category: "Healthcare & Institutional", icon: "🏛️" }
     ]
   },
 
@@ -251,70 +264,48 @@ const siteContent = {
     items: [
       {
         id: 1,
-        title: "500 kW Industrial Rooftop Solar Grid",
+        title: "Commercial & Industrial Rooftop Solar",
         category: "Completed",
-        location: "Noida SEZ Industrial Area",
+        location: "Noida Industrial Area",
         vertical: "Solar Energy",
-        desc: "Mono-PERC panel array reducing factory grid power draw by 65%.",
+        desc: "Power rooftop solar grid deployment reducing peak grid power draw by 65%.",
         metric: "500 kW Output",
         icon: "☀️"
       },
       {
         id: 2,
-        title: "50,000 LPD Automated Water Softening Plant",
+        title: "Water Treatment & Softening Plant",
         category: "Completed",
-        location: "Pharma Manufacturing Complex, Baddi",
+        location: "Pharma Manufacturing Facility",
         vertical: "Water Solutions",
-        desc: "Raw borewell water TDS reduction from 1400 PPM to USP process grade.",
+        desc: "Raw borewell water softeners and treatment plant installation.",
         metric: "50,000 LPD Capacity",
         logo: "logo-aqua.png"
       },
       {
         id: 3,
-        title: "200 kVA Online UPS & LFP Battery Storage",
+        title: "UPS Systems & Power Backup Solutions",
         category: "Completed",
-        location: "Gurugram Data Center Facility",
+        location: "Commercial Data Center",
         vertical: "Electrical Solutions",
-        desc: "Zero-millisecond switchover industrial backup with dual AMF panel sync.",
-        metric: "200 kVA / 4h Backup",
+        desc: "Zero-millisecond switchover online UPS backup with automatic AMF sync.",
+        metric: "200 kVA Backup",
         logo: "logo-energy.png"
-      },
-      {
-        id: 4,
-        title: "750 kW Ground-Mounted Solar Micro-Grid",
-        category: "Ongoing",
-        location: "Food Processing Hub, Haridwar",
-        vertical: "Solar Energy",
-        desc: "Bifacial solar panel installation with automated sun-tracking mounts.",
-        metric: "750 kW (Under Execution)",
-        icon: "☀️"
-      }
-    ],
-    testimonials: [
-      {
-        quote: "FYN Engineers conducted an extensive site audit before proposing our 500kW solar grid. Their exact tilt angle sizing boosted our solar yield by 18%!",
-        client: "Sunil Mehta",
-        role: "VP Operations, Apex Manufacturing"
-      },
-      {
-        quote: "Our borewell water TDS was scaling heavy equipment. FYN's custom water softening plant solved our issues overnight, and their service support is stellar.",
-        client: "Dr. Kavita Rao",
-        role: "Plant Head, BioPharma Labs"
       }
     ]
   },
 
-  // 9. Custom Extra Sections Array
+  // 9. Custom Extra Sections
   customSections: [
     {
-      id: "sustainability-commitment",
-      badge: "Eco Commitment",
-      title: "Our Green Energy Guarantee",
-      content: "FYN Engineers Pvt. Ltd. is committed to helping businesses achieve carbon neutrality. Through optimized solar panel tilt angles and high-COP heat pumps, our installations offset over 12,000 metric tons of CO2 annually across India.",
+      id: "brand-promise",
+      badge: "Brand Promise",
+      title: "“For Your Needs”",
+      content: "Every solution we provide is designed around the customer's requirements with a strong commitment to quality, timely execution, and dependable after-sales support. We don't simply supply products—we partner with our customers to create systems that add long-term value through quality, innovation, and dependable service.",
       metrics: [
-        { label: "Annual CO2 Offset", value: "12,000+ Tons" },
-        { label: "Water Recycled", value: "50M+ Liters" },
-        { label: "Energy Savings", value: "35% Average" }
+        { label: "Engineering Excellence", value: "100%" },
+        { label: "After-Sales Lifecycle Support", value: "24/7" },
+        { label: "Customer Relationships", value: "Long-term" }
       ]
     }
   ]
