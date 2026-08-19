@@ -285,10 +285,17 @@ ul {
     font-weight: 600;
     font-size: 0.92rem;
     color: var(--color-text-body);
-    transition: color 0.2s ease;
+    transition: all 0.25s ease;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 4px;
 }
-.nav-item:hover, .nav-item.active {
+.nav-item:hover {
     color: var(--color-primary);
+}
+.nav-item.active {
+    color: var(--color-primary-dark) !important;
+    font-weight: 700;
+    border-bottom: 2px solid var(--color-primary);
 }
 .menu-toggle {
     display: none;

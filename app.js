@@ -37,4 +37,46 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // 3. Scroll Spy Navigation Highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navItems = document.querySelectorAll('.nav-links .nav-item');
+
+    const scrollSpyOptions = {
+        root: null,
+        rootMargin: '-20% 0px -55% 0px',
+        threshold: 0
+    };
+
+    const scrollSpyObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                navItems.forEach(item => {
+                    if (item.getAttribute('href') === `#${id}`) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+            }
+        });
+    }, scrollSpyOptions);
+
+    sections.forEach(section => {
+        scrollSpyObserver.observe(section);
+    });
+
+    // Fallback for bottom of page (Contact section)
+    window.addEventListener('scroll', () => {
+        if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 60) {
+            navItems.forEach(item => {
+                if (item.getAttribute('href') === '#contact') {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+    });
 });
