@@ -179,9 +179,10 @@ ul {
     top: 0;
     left: 0;
     width: 100%;
-    background: url('./navbar-bg.jpg') no-repeat center center;
+    background: linear-gradient(rgba(240, 240, 243, 0.85), rgba(240, 240, 243, 0.85)), url('./navbar-bg.png') no-repeat center center;
     background-size: cover;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-border);
     z-index: 1000;
     transition: all 0.3s ease;
 }
@@ -195,9 +196,6 @@ ul {
     display: flex;
     align-items: center;
     gap: 12px;
-}
-.logo-container img {
-    filter: invert(1) hue-rotate(180deg) brightness(1.2); /* Inverts text to white, retains green/blue/orange icons! */
 }
 .logo-icon {
     width: 40px;
@@ -287,18 +285,18 @@ ul {
 .nav-item {
     font-weight: 600;
     font-size: 0.95rem;
-    color: #cbd5e1; /* Clean light gray-blue for dark background */
+    color: #5b6575; /* Grayish blue as in reference screenshot */
     transition: color 0.2s ease, border-color 0.2s ease;
     border-bottom: 3px solid transparent;
     padding: 6px 0;
     margin: 0 4px;
 }
 .nav-item:hover {
-    color: #ffffff;
+    color: var(--color-navy);
 }
 .nav-item.active {
-    color: #ffffff !important;
-    border-bottom-color: #ffffff !important; /* High-contrast white underline */
+    color: var(--color-navy) !important;
+    border-bottom-color: var(--color-navy) !important;
 }
 .menu-toggle {
     display: none;
@@ -778,11 +776,11 @@ ul {
         flex-direction: column;
         position: absolute;
         top: 75px;
-        left: -20px;
+        left: -20px; /* Offset parent container padding */
         right: -20px;
-        background: #0f172a; /* Dark Slate background */
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-        border-bottom: 2px solid #1e293b;
+        background: var(--color-bg-white);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        border-bottom: 2px solid var(--color-border);
         padding: 20px;
         z-index: 1000;
         gap: 10px;
@@ -804,12 +802,9 @@ ul {
         transition: all 0.2s ease;
     }
     .nav-item:hover, .nav-item.active {
-        background: rgba(255, 255, 255, 0.08);
+        background: var(--color-bg-light);
         border-left-color: var(--color-primary);
-        color: #ffffff !important;
-    }
-    .menu-toggle {
-        color: #ffffff !important; /* Ensure hamburger button is visible against dark background */
+        color: var(--color-primary) !important;
     }
     .nav-links .btn-cta {
         display: block;
