@@ -179,7 +179,7 @@ ul {
     top: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(rgba(240, 240, 243, 0.85), rgba(240, 240, 243, 0.85)), url('./navbar-bg.png') no-repeat center center;
+    background: linear-gradient(rgba(240, 240, 243, 0.35), rgba(240, 240, 243, 0.35)), url('./navbar-bg.png') no-repeat center center;
     background-size: cover;
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--color-border);
