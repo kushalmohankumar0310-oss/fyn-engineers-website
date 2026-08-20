@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (selectedVertical === 'FYN Aqua' || selectedVertical === 'FYN Energy') {
                 btnTriggerCalc.style.display = 'block';
             } else {
-                btnTriggerCalc.style.display = 'none'; // AMC Support shows just success checkmark
+                btnTriggerCalc.style.display = 'none';
             }
 
             setupDownloader();
@@ -154,8 +154,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (selectedVertical === 'FYN Aqua') {
                 aquaWrapper.style.display = 'block';
                 energyWrapper.style.display = 'none';
-                document.getElementById('calc-users').value = 50;
-                recalculateHeatPump();
+                
+                // Keep all fields completely empty first
+                resetCalculatorToBlank();
             } else if (selectedVertical === 'FYN Energy') {
                 aquaWrapper.style.display = 'none';
                 energyWrapper.style.display = 'block';
@@ -168,9 +169,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const calcUsers = document.getElementById('calc-users');
     const calcLiters = document.getElementById('calc-liters');
     const calcExisting = document.getElementById('calc-existing');
+    const calcState = document.getElementById('calc-state');
     const calcRate = document.getElementById('calc-rate');
     const calcRateLabel = document.getElementById('calc-rate-label');
-    const calcSystemCost = document.getElementById('calc-system-cost');
 
     const appMultipliers = {
         hotel: 50,
@@ -184,8 +185,41 @@ document.addEventListener('DOMContentLoaded', () => {
         other: 30
     };
 
+    // Typical average domestic/commercial blended electricity tariff in India by State (₹/kWh)
+    const stateElectricityRates = {
+        "Andhra Pradesh": 7.0,
+        "Arunachal Pradesh": 5.5,
+        "Assam": 7.0,
+        "Bihar": 7.5,
+        "Chhattisgarh": 6.2,
+        "Goa": 5.0,
+        "Gujarat": 6.5,
+        "Haryana": 6.8,
+        "Himachal Pradesh": 5.0,
+        "Jharkhand": 6.5,
+        "Karnataka": 7.5,
+        "Kerala": 6.5,
+        "Madhya Pradesh": 7.3,
+        "Maharashtra": 8.5,
+        "Manipur": 6.0,
+        "Meghalaya": 6.0,
+        "Mizoram": 5.5,
+        "Nagaland": 5.5,
+        "Odisha": 6.0,
+        "Punjab": 6.5,
+        "Rajasthan": 7.5,
+        "Sikkim": 5.0,
+        "Tamil Nadu": 7.0,
+        "Telangana": 7.0,
+        "Tripura": 6.0,
+        "Uttarakhand": 5.5,
+        "Uttar Pradesh": 7.0,
+        "West Bengal": 7.2,
+        "Delhi": 7.0
+    };
+
     const fuelDefaultRates = {
-        electric: 8.0,
+        electric: 8.0, // Used for existing system comparison rate calculation
         diesel: 90.0,
         lpg: 95.0,
         firewood: 10.0
@@ -198,47 +232,67 @@ document.addEventListener('DOMContentLoaded', () => {
         firewood: 'Wood Cost (₹/kg)'
     };
 
-    function recalculateHeatPump() {
-        if (!calcApp || !calcUsers || !calcLiters) return;
-
-        const app = calcApp.value;
-        const users = parseInt(calcUsers.value) || 1;
+    function resetCalculatorToBlank() {
+        calcApp.selectedIndex = 0;
+        calcUsers.value = '';
+        calcLiters.value = '';
+        calcExisting.selectedIndex = 0;
+        calcState.selectedIndex = 0;
+        calcRate.value = '';
+        calcRateLabel.textContent = 'Electricity Cost (₹/kWh)';
         
-        let dailyLiters = parseInt(calcLiters.value);
+        // Show placeholder message and hide calculations
+        document.getElementById('calc-placeholder-msg').style.display = 'block';
+        document.getElementById('calc-outputs-wrapper').style.display = 'none';
+    }
+
+    function recalculateHeatPump() {
+        const app = calcApp.value;
+        const users = parseInt(calcUsers.value);
+        const dailyLiters = parseInt(calcLiters.value);
+        const existingSystem = calcExisting.value;
+        const stateSelected = calcState.value;
+        const rateVal = parseFloat(calcRate.value);
+
+        // Verify if all required fields are filled (non-empty)
+        if (!app || !users || !dailyLiters || !existingSystem || !stateSelected || isNaN(rateVal)) {
+            document.getElementById('calc-placeholder-msg').style.display = 'block';
+            document.getElementById('calc-outputs-wrapper').style.display = 'none';
+            return;
+        }
+
+        // Hide placeholder and display outputs wrapper
+        document.getElementById('calc-placeholder-msg').style.display = 'none';
+        document.getElementById('calc-outputs-wrapper').style.display = 'block';
         
         const recommendedCapacity = Math.round(dailyLiters / 4);
         const hpElectricityUse = Math.round(dailyLiters * 0.01);
-        const elecRate = 8.0;
-        const calcElecCost = parseFloat(calcRate.value) || elecRate;
+        const calcElecCost = rateVal; // Use the manual/auto electricity rate
         const dailyHPCost = hpElectricityUse * calcElecCost;
 
-        const estimatedUnitCost = recommendedCapacity * 800;
-        if (document.activeElement !== calcSystemCost) {
-            calcSystemCost.value = Math.max(80000, Math.round(estimatedUnitCost));
-        }
-        const sysCostInput = parseInt(calcSystemCost.value) || 150000;
+        // Auto-scale system cost estimate dynamically (cap min ₹80k, max ₹10L)
+        const sysCostInput = Math.max(80000, recommendedCapacity * 800);
 
-        const existingSystem = calcExisting.value;
-        const inputCostRate = parseFloat(calcRate.value) || 1.0;
-        
+        // Compare with selected fuel source rate
         let existingEnergyUse = dailyLiters * 0.04;
         let existingCost = 0;
         let existingEnergyLabel = '';
 
+        // For existing systems, determine comparative rate (e.g. if geyser, use selected state's rate; if diesel, use entered rate)
         if (existingSystem === 'electric') {
-            existingCost = existingEnergyUse * inputCostRate;
+            existingCost = existingEnergyUse * calcElecCost;
             existingEnergyLabel = Math.round(existingEnergyUse) + ' kWh';
         } else if (existingSystem === 'diesel') {
             const dieselLitersUsed = existingEnergyUse / 7.0;
-            existingCost = dieselLitersUsed * inputCostRate;
+            existingCost = dieselLitersUsed * rateVal;
             existingEnergyLabel = dieselLitersUsed.toFixed(1) + ' L';
         } else if (existingSystem === 'lpg') {
             const lpgKgUsed = existingEnergyUse / 9.75;
-            existingCost = lpgKgUsed * inputCostRate;
+            existingCost = lpgKgUsed * rateVal;
             existingEnergyLabel = lpgKgUsed.toFixed(1) + ' kg';
         } else if (existingSystem === 'firewood') {
             const woodKgUsed = existingEnergyUse / 2.25;
-            existingCost = woodKgUsed * inputCostRate;
+            existingCost = woodKgUsed * rateVal;
             existingEnergyLabel = Math.round(woodKgUsed) + ' kg';
         }
 
@@ -247,6 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const annualSavings = dailySavings * 365;
         const paybackPeriod = annualSavings > 0 ? (sysCostInput / annualSavings).toFixed(1) : 'N/A';
 
+        // Update UI Outputs
         document.getElementById('output-capacity').textContent = recommendedCapacity + ' L/Hr Capacity';
         document.getElementById('output-consumption').textContent = 'Electricity: ' + hpElectricityUse + ' kWh / day';
         
@@ -256,22 +311,24 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('table-existing-monthly').textContent = '₹' + Math.round(existingCost * 30).toLocaleString('en-IN');
         document.getElementById('table-hp-monthly').textContent = '₹' + Math.round(dailyHPCost * 30).toLocaleString('en-IN');
         
-        // Use shorter notation (e.g. 233.6k) to fit card layout perfectly
         const formatK = (val) => (val >= 1000 ? (val / 1000).toFixed(1) + 'k' : val);
         document.getElementById('table-existing-annual').textContent = '₹' + formatK(Math.round(existingCost * 365));
         document.getElementById('table-hp-annual').textContent = '₹' + formatK(Math.round(dailyHPCost * 365));
 
         document.getElementById('output-annual-savings').textContent = '₹' + Math.round(annualSavings).toLocaleString('en-IN') + ' / Yr';
         document.getElementById('output-payback').textContent = 'Payback: ' + paybackPeriod + ' Years';
+        document.getElementById('output-system-cost-info').textContent = '*(Payback based on auto-calculated Heat Pump system cost: ₹' + Math.round(sysCostInput).toLocaleString('en-IN') + ')';
     }
 
     // Attach Event Listeners to Calculator Controls
     if (calcApp) {
         calcApp.addEventListener('change', () => {
             const app = calcApp.value;
-            const users = parseInt(calcUsers.value) || 1;
-            const litersPerPerson = appMultipliers[app] || 30;
-            calcLiters.value = users * litersPerPerson;
+            const users = parseInt(calcUsers.value) || 0;
+            if (users > 0 && app) {
+                const litersPerPerson = appMultipliers[app] || 30;
+                calcLiters.value = users * litersPerPerson;
+            }
             recalculateHeatPump();
         });
     }
@@ -279,9 +336,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (calcUsers) {
         calcUsers.addEventListener('input', () => {
             const app = calcApp.value;
-            const users = parseInt(calcUsers.value) || 1;
-            const litersPerPerson = appMultipliers[app] || 30;
-            calcLiters.value = users * litersPerPerson;
+            const users = parseInt(calcUsers.value) || 0;
+            if (users > 0 && app) {
+                const litersPerPerson = appMultipliers[app] || 30;
+                calcLiters.value = users * litersPerPerson;
+            }
             recalculateHeatPump();
         });
     }
@@ -293,18 +352,37 @@ document.addEventListener('DOMContentLoaded', () => {
     if (calcExisting) {
         calcExisting.addEventListener('change', () => {
             const sys = calcExisting.value;
+            if (!sys) return;
             calcRateLabel.textContent = fuelLabels[sys];
-            calcRate.value = fuelDefaultRates[sys];
+            
+            // If system is electric, use selected state electricity tariff if chosen
+            if (sys === 'electric' && calcState.value) {
+                calcRate.value = stateElectricityRates[calcState.value];
+            } else {
+                calcRate.value = fuelDefaultRates[sys];
+            }
+            recalculateHeatPump();
+        });
+    }
+
+    if (calcState) {
+        calcState.addEventListener('change', () => {
+            const state = calcState.value;
+            if (state) {
+                const rate = stateElectricityRates[state] || 7.0;
+                // Auto-fill rate input
+                calcRate.value = rate;
+                // If existing system is also electric, trigger label/placeholder sync
+                if (calcExisting.value === 'electric' || !calcExisting.value) {
+                    calcRateLabel.textContent = 'Electricity Cost (₹/kWh)';
+                }
+            }
             recalculateHeatPump();
         });
     }
 
     if (calcRate) {
         calcRate.addEventListener('input', recalculateHeatPump);
-    }
-
-    if (calcSystemCost) {
-        calcSystemCost.addEventListener('input', recalculateHeatPump);
     }
 
     // 5. Scroll Spy Navigation Highlight
@@ -330,7 +408,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         });
-    }, scrollSpyOptions);
+    }, scrollSpyObserver);
 
     sections.forEach(section => {
         if (section.getAttribute('id') !== 'projects') {

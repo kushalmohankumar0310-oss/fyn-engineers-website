@@ -15,7 +15,7 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg">
     
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="styles.css?v=5.6">
+    <link rel="stylesheet" href="styles.css?v=5.7">
     
     <!-- Embedded Icon Styling to Override Caches -->
     <style>
@@ -758,6 +758,7 @@
                                 <div class="form-group" style="margin-bottom: 10px;">
                                     <label style="font-size: 0.8rem; font-weight: 700; color: var(--color-navy);">Application Type</label>
                                     <select id="calc-app" style="padding: 8px; font-size: 0.85rem;">
+                                        <option value="" disabled selected>Select Application Type</option>
                                         <option value="hotel">Hotel / Resort (50 L/person)</option>
                                         <option value="hospital">Hospital (40 L/person)</option>
                                         <option value="hostel">Hostel (35 L/person)</option>
@@ -765,74 +766,115 @@
                                         <option value="restaurant">Restaurant (15 L/person)</option>
                                         <option value="industrial">Industrial Plant (25 L/person)</option>
                                         <option value="commercial">Commercial Building (10 L/person)</option>
-                                        <option value="residential" selected>Residential Home (40 L/person)</option>
+                                        <option value="residential">Residential Home (40 L/person)</option>
                                         <option value="other">Other Application (30 L/person)</option>
                                     </select>
                                 </div>
                                 <div class="form-group" style="margin-bottom: 10px;">
                                     <label style="font-size: 0.8rem; font-weight: 700; color: var(--color-navy);">Number of Users</label>
-                                    <input type="number" id="calc-users" value="50" min="1" style="padding: 8px; font-size: 0.85rem;">
+                                    <input type="number" id="calc-users" placeholder="e.g. 50" min="1" style="padding: 8px; font-size: 0.85rem;">
                                 </div>
                                 <div class="form-group" style="margin-bottom: 10px;">
                                     <label style="font-size: 0.8rem; font-weight: 700; color: var(--color-navy);">Daily Hot Water (Liters)</label>
-                                    <input type="number" id="calc-liters" value="2000" min="10" style="padding: 8px; font-size: 0.85rem;">
+                                    <input type="number" id="calc-liters" placeholder="e.g. 2000" min="10" style="padding: 8px; font-size: 0.85rem;">
                                 </div>
                                 <div class="form-group" style="margin-bottom: 10px;">
                                     <label style="font-size: 0.8rem; font-weight: 700; color: var(--color-navy);">Existing Heating System</label>
                                     <select id="calc-existing" style="padding: 8px; font-size: 0.85rem;">
-                                        <option value="electric" selected>Electric Geyser / Boiler</option>
+                                        <option value="" disabled selected>Select Existing System</option>
+                                        <option value="electric">Electric Geyser / Boiler</option>
                                         <option value="diesel">Diesel Boiler</option>
                                         <option value="lpg">LPG / Gas Boiler</option>
                                         <option value="firewood">Firewood Boiler</option>
                                     </select>
                                 </div>
                                 <div class="form-group" style="margin-bottom: 10px;">
-                                    <label id="calc-rate-label" style="font-size: 0.8rem; font-weight: 700; color: var(--color-navy);">Electricity Cost (₹/kWh)</label>
-                                    <input type="number" id="calc-rate" value="8" min="1" step="0.1" style="padding: 8px; font-size: 0.85rem;">
+                                    <label style="font-size: 0.8rem; font-weight: 700; color: var(--color-navy);">State</label>
+                                    <select id="calc-state" style="padding: 8px; font-size: 0.85rem;">
+                                        <option value="" disabled selected>Select State</option>
+                                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                        <option value="Assam">Assam</option>
+                                        <option value="Bihar">Bihar</option>
+                                        <option value="Chhattisgarh">Chhattisgarh</option>
+                                        <option value="Goa">Goa</option>
+                                        <option value="Gujarat">Gujarat</option>
+                                        <option value="Haryana">Haryana</option>
+                                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                        <option value="Jharkhand">Jharkhand</option>
+                                        <option value="Karnataka">Karnataka</option>
+                                        <option value="Kerala">Kerala</option>
+                                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                        <option value="Maharashtra">Maharashtra</option>
+                                        <option value="Manipur">Manipur</option>
+                                        <option value="Meghalaya">Meghalaya</option>
+                                        <option value="Mizoram">Mizoram</option>
+                                        <option value="Nagaland">Nagaland</option>
+                                        <option value="Odisha">Odisha</option>
+                                        <option value="Punjab">Punjab</option>
+                                        <option value="Rajasthan">Rajasthan</option>
+                                        <option value="Sikkim">Sikkim</option>
+                                        <option value="Tamil Nadu">Tamil Nadu</option>
+                                        <option value="Telangana">Telangana</option>
+                                        <option value="Tripura">Tripura</option>
+                                        <option value="Uttarakhand">Uttarakhand</option>
+                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                        <option value="West Bengal">West Bengal</option>
+                                        <option value="Delhi">Delhi (UT)</option>
+                                    </select>
                                 </div>
                                 <div class="form-group" style="margin-bottom: 0;">
-                                    <label style="font-size: 0.8rem; font-weight: 700; color: var(--color-navy);">Estimated Heat Pump Unit Price (₹)</label>
-                                    <input type="number" id="calc-system-cost" value="200000" min="10000" style="padding: 8px; font-size: 0.85rem;">
+                                    <label id="calc-rate-label" style="font-size: 0.8rem; font-weight: 700; color: var(--color-navy);">Electricity Cost (₹/kWh)</label>
+                                    <input type="number" id="calc-rate" placeholder="Select state or enter manually" min="1" step="0.1" style="padding: 8px; font-size: 0.85rem;">
                                 </div>
                             </div>
 
-                            <div style="background: var(--color-primary-light); padding: 12px; border-radius: var(--radius-sm); border-left: 4px solid var(--color-primary); margin-bottom: 15px;">
-                                <div style="font-size: 0.72rem; font-weight: bold; color: var(--color-primary-dark); text-transform: uppercase;">Recommendation</div>
-                                <div style="font-size: 1rem; font-weight: 800; color: var(--color-navy);" id="output-capacity">500 L/Hr Capacity</div>
-                                <div style="font-size: 0.78rem; color: var(--color-text-body);" id="output-consumption">Electricity: 20 kWh / day</div>
+                            <!-- Placeholder Info Message -->
+                            <div id="calc-placeholder-msg" style="text-align: center; padding: 40px 10px; color: var(--color-text-muted); font-weight: bold; background: #f8fafc; border: 1px dashed var(--color-border); border-radius: 8px; margin-bottom: 15px;">
+                                Please fill in all required inputs above to view estimated savings.
                             </div>
 
-                            <table class="calc-table" style="font-size: 0.78rem; margin-bottom: 15px;">
-                                <thead>
-                                    <tr>
-                                        <th>Metric</th>
-                                        <th>Existing</th>
-                                        <th>Heat Pump</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Daily Cost</td>
-                                        <td id="table-existing-daily">₹640</td>
-                                        <td id="table-hp-daily">₹160</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Monthly Cost</td>
-                                        <td id="table-existing-monthly">₹19,200</td>
-                                        <td id="table-hp-monthly">₹4,800</td>
-                                    </tr>
-                                    <tr style="font-weight: bold;">
-                                        <td>Annual Cost</td>
-                                        <td id="table-existing-annual" style="color: #ef4444;">₹233.6k</td>
-                                        <td id="table-hp-annual" style="color: var(--color-emerald-dark);">₹58.4k</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <!-- Outputs Card Wrapper (Hidden initially) -->
+                            <div id="calc-outputs-wrapper" style="display: none;">
+                                <div style="background: var(--color-primary-light); padding: 12px; border-radius: var(--radius-sm); border-left: 4px solid var(--color-primary); margin-bottom: 15px;">
+                                    <div style="font-size: 0.72rem; font-weight: bold; color: var(--color-primary-dark); text-transform: uppercase;">Recommendation</div>
+                                    <div style="font-size: 1rem; font-weight: 800; color: var(--color-navy);" id="output-capacity">500 L/Hr Capacity</div>
+                                    <div style="font-size: 0.78rem; color: var(--color-text-body);" id="output-consumption">Electricity: 20 kWh / day</div>
+                                </div>
 
-                            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 12px; border-radius: 8px; text-align: center; margin-bottom: 15px;">
-                                <div style="font-size: 0.75rem; font-weight: bold; color: #166534;">Estimated Annual Savings</div>
-                                <div style="font-size: 1.3rem; font-weight: 900; color: #15803d;" id="output-annual-savings">₹175,200 / Yr</div>
-                                <div style="font-size: 0.72rem; color: #166534; font-weight: bold;" id="output-payback">Payback: 1.1 Years</div>
+                                <table class="calc-table" style="font-size: 0.78rem; margin-bottom: 15px;">
+                                    <thead>
+                                        <tr>
+                                            <th>Metric</th>
+                                            <th>Existing</th>
+                                            <th>Heat Pump</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Daily Cost</td>
+                                            <td id="table-existing-daily">₹640</td>
+                                            <td id="table-hp-daily">₹160</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Monthly Cost</td>
+                                            <td id="table-existing-monthly">₹19,200</td>
+                                            <td id="table-hp-monthly">₹4,800</td>
+                                        </tr>
+                                        <tr style="font-weight: bold;">
+                                            <td>Annual Cost</td>
+                                            <td id="table-existing-annual" style="color: #ef4444;">₹233.6k</td>
+                                            <td id="table-hp-annual" style="color: var(--color-emerald-dark);">₹58.4k</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 12px; border-radius: 8px; text-align: center; margin-bottom: 15px;">
+                                    <div style="font-size: 0.75rem; font-weight: bold; color: #166534;">Estimated Annual Savings</div>
+                                    <div style="font-size: 1.3rem; font-weight: 900; color: #15803d;" id="output-annual-savings">₹175,200 / Yr</div>
+                                    <div style="font-size: 0.72rem; color: #166534; font-weight: bold;" id="output-payback">Payback: 1.1 Years</div>
+                                    <div style="font-size: 0.65rem; color: var(--color-text-muted); margin-top: 4px;" id="output-system-cost-info">*(Payback based on auto-calculated Heat Pump system cost: ₹2,00,000)</div>
+                                </div>
                             </div>
                         </div>
 
