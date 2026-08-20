@@ -21,37 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Lead Download Handler (Backup CSV Logger)
-    const setupDownloader = () => {
-        const downloader = document.getElementById('lead-downloader');
-        if (downloader) {
-            downloader.addEventListener('click', (e) => {
-                e.preventDefault();
-                const stored = localStorage.getItem('fyn_leads');
-                const leads = stored ? JSON.parse(stored) : [];
-                
-                if (leads.length === 0) {
-                    alert('No lead inquiries registered on this machine yet.');
-                    return;
-                }
-
-                let csv = 'Date,Name,Phone,Email,Vertical,Details,Status\n';
-                leads.forEach(l => {
-                    csv += `"${l.date}","${l.name}","${l.phone}","${l.email}","${l.vertical}","${l.details.replace(/"/g, '""')}","${l.status}"\n`;
-                });
-
-                const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-                const link = document.createElement('a');
-                link.href = URL.createObjectURL(blob);
-                link.setAttribute('download', 'fyn_leads_log.csv');
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            });
-        }
-    };
-
-    // 3. Form Validations & Inline Transitions
+    // 2. Form Validations & Inline Transitions
     const contactForm = document.getElementById('contact-form');
     const formStatePanel = document.getElementById('contact-form-state');
     const successStatePanel = document.getElementById('submitted-success-panel');
@@ -72,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const nameField = document.getElementById('form-name');
             const phoneField = document.getElementById('form-phone');
+            const addressField = document.getElementById('form-address');
             const emailField = document.getElementById('form-email');
             const verticalField = document.getElementById('form-vertical');
             const detailsField = document.getElementById('form-details');
@@ -88,6 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const cleanPhone = phoneField.value.replace(/\D/g, '');
             if (!cleanPhone || cleanPhone.length !== 10) {
                 document.getElementById('error-phone').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate Installation Address
+            if (!addressField.value.trim()) {
+                document.getElementById('error-address').style.display = 'block';
                 isValid = false;
             }
 
@@ -108,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 date: new Date().toISOString().split('T')[0],
                 name: nameField.value.trim(),
                 phone: '+91 ' + cleanPhone,
+                address: addressField.value.trim(),
                 email: emailField.value.trim() || 'N/A',
                 vertical: selectedVertical,
                 details: detailsField.value.trim() || 'N/A',
@@ -140,8 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 btnTriggerCalc.style.display = 'none';
             }
-
-            setupDownloader();
         });
     }
 
@@ -154,38 +130,16 @@ document.addEventListener('DOMContentLoaded', () => {
             if (selectedVertical === 'FYN Aqua') {
                 aquaWrapper.style.display = 'block';
                 energyWrapper.style.display = 'none';
-                
-                // Keep all fields completely empty first
                 resetCalculatorToBlank();
             } else if (selectedVertical === 'FYN Energy') {
                 aquaWrapper.style.display = 'none';
                 energyWrapper.style.display = 'block';
+                resetSolarToBlank();
             }
         });
     }
 
-    // 4. HEAT PUMP INTERACTIVE CALCULATOR ENGINE
-    const calcApp = document.getElementById('calc-app');
-    const calcUsers = document.getElementById('calc-users');
-    const calcLiters = document.getElementById('calc-liters');
-    const calcExisting = document.getElementById('calc-existing');
-    const calcState = document.getElementById('calc-state');
-    const calcRate = document.getElementById('calc-rate');
-    const calcRateLabel = document.getElementById('calc-rate-label');
-
-    const appMultipliers = {
-        hotel: 50,
-        hospital: 40,
-        hostel: 35,
-        apartment: 40,
-        restaurant: 15,
-        industrial: 25,
-        commercial: 10,
-        residential: 40,
-        other: 30
-    };
-
-    // Typical average domestic/commercial blended electricity tariff in India by State (₹/kWh)
+    // Typical average domestic/commercial electricity tariff in India by State (₹/kWh)
     const stateElectricityRates = {
         "Andhra Pradesh": 7.0,
         "Arunachal Pradesh": 5.5,
@@ -218,8 +172,29 @@ document.addEventListener('DOMContentLoaded', () => {
         "Delhi": 7.0
     };
 
+    // 4. HEAT PUMP INTERACTIVE CALCULATOR ENGINE
+    const calcApp = document.getElementById('calc-app');
+    const calcUsers = document.getElementById('calc-users');
+    const calcLiters = document.getElementById('calc-liters');
+    const calcExisting = document.getElementById('calc-existing');
+    const calcState = document.getElementById('calc-state');
+    const calcRate = document.getElementById('calc-rate');
+    const calcRateLabel = document.getElementById('calc-rate-label');
+
+    const appMultipliers = {
+        hotel: 50,
+        hospital: 40,
+        hostel: 35,
+        apartment: 40,
+        restaurant: 15,
+        industrial: 25,
+        commercial: 10,
+        residential: 40,
+        other: 30
+    };
+
     const fuelDefaultRates = {
-        electric: 8.0, // Used for existing system comparison rate calculation
+        electric: 8.0,
         diesel: 90.0,
         lpg: 95.0,
         firewood: 10.0
@@ -241,7 +216,6 @@ document.addEventListener('DOMContentLoaded', () => {
         calcRate.value = '';
         calcRateLabel.textContent = 'Electricity Cost (₹/kWh)';
         
-        // Show placeholder message and hide calculations
         document.getElementById('calc-placeholder-msg').style.display = 'block';
         document.getElementById('calc-outputs-wrapper').style.display = 'none';
     }
@@ -254,31 +228,26 @@ document.addEventListener('DOMContentLoaded', () => {
         const stateSelected = calcState.value;
         const rateVal = parseFloat(calcRate.value);
 
-        // Verify if all required fields are filled (non-empty)
         if (!app || !users || !dailyLiters || !existingSystem || !stateSelected || isNaN(rateVal)) {
             document.getElementById('calc-placeholder-msg').style.display = 'block';
             document.getElementById('calc-outputs-wrapper').style.display = 'none';
             return;
         }
 
-        // Hide placeholder and display outputs wrapper
         document.getElementById('calc-placeholder-msg').style.display = 'none';
         document.getElementById('calc-outputs-wrapper').style.display = 'block';
         
         const recommendedCapacity = Math.round(dailyLiters / 4);
         const hpElectricityUse = Math.round(dailyLiters * 0.01);
-        const calcElecCost = rateVal; // Use the manual/auto electricity rate
+        const calcElecCost = rateVal;
         const dailyHPCost = hpElectricityUse * calcElecCost;
 
-        // Auto-scale system cost estimate dynamically (cap min ₹80k, max ₹10L)
         const sysCostInput = Math.max(80000, recommendedCapacity * 800);
 
-        // Compare with selected fuel source rate
         let existingEnergyUse = dailyLiters * 0.04;
         let existingCost = 0;
         let existingEnergyLabel = '';
 
-        // For existing systems, determine comparative rate (e.g. if geyser, use selected state's rate; if diesel, use entered rate)
         if (existingSystem === 'electric') {
             existingCost = existingEnergyUse * calcElecCost;
             existingEnergyLabel = Math.round(existingEnergyUse) + ' kWh';
@@ -301,7 +270,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const annualSavings = dailySavings * 365;
         const paybackPeriod = annualSavings > 0 ? (sysCostInput / annualSavings).toFixed(1) : 'N/A';
 
-        // Update UI Outputs
         document.getElementById('output-capacity').textContent = recommendedCapacity + ' L/Hr Capacity';
         document.getElementById('output-consumption').textContent = 'Electricity: ' + hpElectricityUse + ' kWh / day';
         
@@ -320,7 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('output-system-cost-info').textContent = '*(Payback based on auto-calculated Heat Pump system cost: ₹' + Math.round(sysCostInput).toLocaleString('en-IN') + ')';
     }
 
-    // Attach Event Listeners to Calculator Controls
+    // Attach Event Listeners to Heat Pump Calculator Controls
     if (calcApp) {
         calcApp.addEventListener('change', () => {
             const app = calcApp.value;
@@ -354,8 +322,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const sys = calcExisting.value;
             if (!sys) return;
             calcRateLabel.textContent = fuelLabels[sys];
-            
-            // If system is electric, use selected state electricity tariff if chosen
             if (sys === 'electric' && calcState.value) {
                 calcRate.value = stateElectricityRates[calcState.value];
             } else {
@@ -370,9 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const state = calcState.value;
             if (state) {
                 const rate = stateElectricityRates[state] || 7.0;
-                // Auto-fill rate input
                 calcRate.value = rate;
-                // If existing system is also electric, trigger label/placeholder sync
                 if (calcExisting.value === 'electric' || !calcExisting.value) {
                     calcRateLabel.textContent = 'Electricity Cost (₹/kWh)';
                 }
@@ -385,7 +349,95 @@ document.addEventListener('DOMContentLoaded', () => {
         calcRate.addEventListener('input', recalculateHeatPump);
     }
 
-    // 5. Scroll Spy Navigation Highlight
+
+    // 5. SOLAR ROOFTOP POWER CALCULATOR ENGINE
+    const solarState = document.getElementById('solar-state');
+    const solarBill = document.getElementById('solar-bill');
+    const solarArea = document.getElementById('solar-area');
+    const solarRate = document.getElementById('solar-rate');
+
+    function resetSolarToBlank() {
+        solarState.selectedIndex = 0;
+        solarBill.value = '';
+        solarArea.value = '';
+        solarRate.value = '';
+        document.getElementById('solar-placeholder-msg').style.display = 'block';
+        document.getElementById('solar-outputs-wrapper').style.display = 'none';
+    }
+
+    function recalculateSolar() {
+        const state = solarState.value;
+        const bill = parseFloat(solarBill.value);
+        const area = parseFloat(solarArea.value);
+        const rate = parseFloat(solarRate.value);
+
+        // Verify if all required fields are filled (non-empty)
+        if (!state || isNaN(bill) || isNaN(area) || isNaN(rate) || bill <= 0 || area <= 0 || rate <= 0) {
+            document.getElementById('solar-placeholder-msg').style.display = 'block';
+            document.getElementById('solar-outputs-wrapper').style.display = 'none';
+            return;
+        }
+
+        document.getElementById('solar-placeholder-msg').style.display = 'none';
+        document.getElementById('solar-outputs-wrapper').style.display = 'block';
+
+        // 1. Calculate energy consumption based on monthly bill & rate
+        const monthlyKwh = bill / rate;
+        
+        // 2. Solar panels in India produce approx 4 kWh per kW capacity per day
+        const solarCapacityNeeded = (monthlyKwh / 30) / 4.0; 
+        
+        // 3. Solar panels require approx 100 sq ft per kW
+        const maxCapacityByArea = area / 100;
+        
+        // Capped by roof area, rounded to nearest 0.5 kW
+        let recommendedKw = Math.min(solarCapacityNeeded, maxCapacityByArea);
+        recommendedKw = Math.max(0.5, Math.round(recommendedKw * 2) / 2);
+
+        const areaNeeded = Math.round(recommendedKw * 100);
+        const monthlyGen = Math.round(recommendedKw * 4 * 30);
+        
+        // Standard high-quality rooftop solar system cost in India: ~₹65,000 per kW
+        const estimatedSolarCost = Math.round(recommendedKw * 65000);
+        
+        // Annual solar savings (cannot exceed their actual annual bill)
+        const annualBillCost = bill * 12;
+        const annualSolarGeneration = recommendedKw * 4 * 365;
+        const potentialAnnualSavings = annualSolarGeneration * rate;
+        const finalAnnualSavings = Math.min(annualBillCost, potentialAnnualSavings);
+
+        const paybackYears = finalAnnualSavings > 0 ? (estimatedSolarCost / finalAnnualSavings).toFixed(1) : 'N/A';
+
+        // Update UI Outputs
+        document.getElementById('solar-output-capacity').textContent = recommendedKw + ' kW Solar System';
+        document.getElementById('solar-output-area').textContent = 'Required Roof Area: ' + areaNeeded + ' Sq. Ft. (Capped by area input)';
+        
+        document.getElementById('solar-table-before-power').textContent = Math.round(monthlyKwh) + ' kWh';
+        document.getElementById('solar-table-before-bill').textContent = '₹' + Math.round(bill).toLocaleString('en-IN');
+        document.getElementById('solar-table-before-annual').textContent = '₹' + Math.round(annualBillCost).toLocaleString('en-IN');
+
+        document.getElementById('solar-output-savings').textContent = '₹' + Math.round(finalAnnualSavings).toLocaleString('en-IN') + ' / Yr';
+        document.getElementById('solar-output-payback').textContent = 'Payback: ' + paybackYears + ' Years';
+        document.getElementById('solar-output-cost-info').textContent = '*(Payback based on auto-calculated Solar system cost: ₹' + estimatedSolarCost.toLocaleString('en-IN') + ')';
+    }
+
+    if (solarState) {
+        solarState.addEventListener('change', () => {
+            const state = solarState.value;
+            if (state) {
+                const rate = stateElectricityRates[state] || 7.0;
+                solarRate.value = rate;
+            }
+            recalculateSolar();
+        });
+    }
+
+    if (solarBill) solarBill.addEventListener('input', recalculateSolar);
+    if (solarArea) solarArea.addEventListener('input', recalculateSolar);
+    if (solarRate) solarRate.addEventListener('input', recalculateSolar);
+
+
+    // 6. Scroll Spy Navigation Highlight
     const sections = document.querySelectorAll('section[id]');
     const navItems = document.querySelectorAll('.nav-links .nav-item');
 

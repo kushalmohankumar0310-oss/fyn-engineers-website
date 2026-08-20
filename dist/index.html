@@ -711,6 +711,11 @@
                                 <div class="form-error-msg" id="error-phone" style="display: none; color: #ef4444; font-size: 0.8rem; margin-top: 4px; font-weight: bold;">Please enter a valid 10-digit number.</div>
                             </div>
                             <div class="form-group">
+                                <label>Installation Address *</label>
+                                <input type="text" id="form-address" placeholder="e.g. Plot 42, Sector 63, Noida">
+                                <div class="form-error-msg" id="error-address" style="display: none; color: #ef4444; font-size: 0.8rem; margin-top: 4px; font-weight: bold;">Please enter the installation address.</div>
+                            </div>
+                            <div class="form-group">
                                 <label>Work Email Address <span style="font-size:0.75rem; color:var(--color-text-muted); font-weight:normal;">(Optional)</span></label>
                                 <input type="email" id="form-email" placeholder="name@company.com">
                             </div>
@@ -879,21 +884,111 @@
                         </div>
 
                         <!-- Energy Solar Calculator -->
-                        <div id="energy-calc-wrapper" style="display: none; text-align: center; padding: 20px 10px;">
-                            <span style="font-size: 2.5rem;">☀️</span>
-                            <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--color-primary-dark); margin-top: 8px;">Solar Power Calculator</h4>
-                            <p style="font-size: 0.85rem; color: var(--color-text-body); line-height: 1.5; margin: 10px 0 15px 0;">
-                                Our engineers are preparing a customized solar yield analysis and ROI estimation sheet for your facility!
-                            </p>
-                            <div style="background: var(--color-primary-light); padding: 10px; border-radius: var(--radius-sm); font-size: 0.8rem; font-weight: bold; color: var(--color-primary-dark);">
-                                Estimated 3-4 Year Payback Period on Solar Rooftop Systems.
+                        <div id="energy-calc-wrapper" style="display: none;">
+                            <h4 style="color: #16a34a; font-weight: 800; margin-bottom: 18px; text-align: center;">
+                                ☀️ Solar Power System Calculator
+                            </h4>
+                            
+                            <div style="background: #f8fafc; border: 1px solid var(--color-border); padding: 15px; border-radius: var(--radius-sm); margin-bottom: 20px;">
+                                <div class="form-group" style="margin-bottom: 10px;">
+                                    <label style="font-size: 0.8rem; font-weight: 700; color: var(--color-navy);">State / Location</label>
+                                    <select id="solar-state" style="padding: 8px; font-size: 0.85rem;">
+                                        <option value="" disabled selected>Select State</option>
+                                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                        <option value="Assam">Assam</option>
+                                        <option value="Bihar">Bihar</option>
+                                        <option value="Chhattisgarh">Chhattisgarh</option>
+                                        <option value="Goa">Goa</option>
+                                        <option value="Gujarat">Gujarat</option>
+                                        <option value="Haryana">Haryana</option>
+                                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                        <option value="Jharkhand">Jharkhand</option>
+                                        <option value="Karnataka">Karnataka</option>
+                                        <option value="Kerala">Kerala</option>
+                                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                        <option value="Maharashtra">Maharashtra</option>
+                                        <option value="Manipur">Manipur</option>
+                                        <option value="Meghalaya">Meghalaya</option>
+                                        <option value="Mizoram">Mizoram</option>
+                                        <option value="Nagaland">Nagaland</option>
+                                        <option value="Odisha">Odisha</option>
+                                        <option value="Punjab">Punjab</option>
+                                        <option value="Rajasthan">Rajasthan</option>
+                                        <option value="Sikkim">Sikkim</option>
+                                        <option value="Tamil Nadu">Tamil Nadu</option>
+                                        <option value="Telangana">Telangana</option>
+                                        <option value="Tripura">Tripura</option>
+                                        <option value="Uttarakhand">Uttarakhand</option>
+                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                        <option value="West Bengal">West Bengal</option>
+                                        <option value="Delhi">Delhi (UT)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin-bottom: 10px;">
+                                    <label style="font-size: 0.8rem; font-weight: 700; color: var(--color-navy);">Average Monthly Electricity Bill (₹)</label>
+                                    <input type="number" id="solar-bill" placeholder="e.g. 5000" min="100" style="padding: 8px; font-size: 0.85rem;">
+                                </div>
+                                <div class="form-group" style="margin-bottom: 10px;">
+                                    <label style="font-size: 0.8rem; font-weight: 700; color: var(--color-navy);">Rooftop Area Available (Sq. Ft.)</label>
+                                    <input type="number" id="solar-area" placeholder="e.g. 500" min="50" style="padding: 8px; font-size: 0.85rem;">
+                                </div>
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <label style="font-size: 0.8rem; font-weight: 700; color: var(--color-navy);">Grid Tariff Rate (₹/kWh)</label>
+                                    <input type="number" id="solar-rate" placeholder="Select state or enter manually" min="1" step="0.1" style="padding: 8px; font-size: 0.85rem;">
+                                </div>
+                            </div>
+
+                            <!-- Placeholder Info Message -->
+                            <div id="solar-placeholder-msg" style="text-align: center; padding: 40px 10px; color: var(--color-text-muted); font-weight: bold; background: #f8fafc; border: 1px dashed var(--color-border); border-radius: 8px; margin-bottom: 15px;">
+                                Please fill in all required inputs above to view estimated solar savings.
+                            </div>
+
+                            <!-- Solar Outputs (Hidden initially) -->
+                            <div id="solar-outputs-wrapper" style="display: none;">
+                                <div style="background: rgba(22, 163, 74, 0.08); padding: 12px; border-radius: var(--radius-sm); border-left: 4px solid #16a34a; margin-bottom: 15px;">
+                                    <div style="font-size: 0.72rem; font-weight: bold; color: #15803d; text-transform: uppercase;">Recommended Installation</div>
+                                    <div style="font-size: 1rem; font-weight: 800; color: var(--color-navy);" id="solar-output-capacity">5.0 kW Solar System</div>
+                                    <div style="font-size: 0.78rem; color: var(--color-text-body);" id="solar-output-area">Required Roof Area: 500 Sq. Ft.</div>
+                                </div>
+
+                                <table class="calc-table" style="font-size: 0.78rem; margin-bottom: 15px;">
+                                    <thead>
+                                        <tr>
+                                            <th>Metric</th>
+                                            <th>Before Solar</th>
+                                            <th>After Solar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Monthly Power Used</td>
+                                            <td id="solar-table-before-power">714 kWh</td>
+                                            <td>0 kWh (Solar Offset)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Monthly Bill Cost</td>
+                                            <td id="solar-table-before-bill">₹5,000</td>
+                                            <td style="color: #15803d; font-weight:bold;">₹0</td>
+                                        </tr>
+                                        <tr style="font-weight: bold;">
+                                            <td>Annual Power Cost</td>
+                                            <td id="solar-table-before-annual" style="color: #ef4444;">₹60,000</td>
+                                            <td style="color: #15803d;">₹0</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 12px; border-radius: 8px; text-align: center; margin-bottom: 15px;">
+                                    <div style="font-size: 0.75rem; font-weight: bold; color: #166534;">Estimated Annual Savings</div>
+                                    <div style="font-size: 1.3rem; font-weight: 900; color: #15803d;" id="solar-output-savings">₹60,000 / Yr</div>
+                                    <div style="font-size: 0.72rem; color: #166534; font-weight: bold;" id="solar-output-payback">Payback: 5.4 Years</div>
+                                    <div style="font-size: 0.65rem; color: var(--color-text-muted); margin-top: 4px;" id="solar-output-cost-info">*(Payback based on auto-calculated Solar system cost: ₹3,25,000)</div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Lead downloader link -->
-                        <div style="text-align: center; font-size: 0.7rem; color: var(--color-text-muted); margin-top: 15px;">
-                            * Lead saved. <a href="#" id="lead-downloader" style="color: var(--color-primary); text-decoration: underline; font-weight: bold;">Export Leads CSV</a>
-                        </div>
+
                     </div>
                 </div>
             </div>
