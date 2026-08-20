@@ -15,7 +15,7 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg">
     
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="styles.css?v=5.5">
+    <link rel="stylesheet" href="styles.css?v=5.6">
     
     <!-- Embedded Icon Styling to Override Caches -->
     <style>
@@ -693,47 +693,166 @@
                 </div>
 
                 <div class="contact-form-panel">
-                    <h3 style="margin-bottom: 20px;">Send Us Your Inquiry</h3>
-                    
-                    <div id="form-success" style="display: none; background: #d1fae5; color: #047857; padding: 16px; border-radius: 8px; margin-bottom: 20px; font-weight: bold;">
-                        ✓ Inquiry Submitted Successfully!
+                    <!-- State 1: Form Inputs -->
+                    <div id="contact-form-state">
+                        <h3 style="margin-bottom: 20px;">Send Us Your Inquiry</h3>
+                        <form id="contact-form" novalidate>
+                            <div class="form-group">
+                                <label>Full Name *</label>
+                                <input type="text" id="form-name" placeholder="e.g. Rahul Sharma">
+                                <div class="form-error-msg" id="error-name" style="display: none; color: #ef4444; font-size: 0.8rem; margin-top: 4px; font-weight: bold;">Please enter your name.</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number *</label>
+                                <div style="display: flex;">
+                                    <span style="background: #e6e6ea; border: 1.5px solid var(--color-border); border-right: none; padding: 12px 14px; border-radius: var(--radius-sm) 0 0 var(--radius-sm); font-weight: bold; color: var(--color-text-dark); display: flex; align-items: center; justify-content: center; font-size: 0.95rem;">+91</span>
+                                    <input type="tel" id="form-phone" placeholder="10-digit mobile number" style="border-radius: 0 var(--radius-sm) var(--radius-sm) 0; flex: 1; border-left: none;">
+                                </div>
+                                <div class="form-error-msg" id="error-phone" style="display: none; color: #ef4444; font-size: 0.8rem; margin-top: 4px; font-weight: bold;">Please enter a valid 10-digit number.</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Work Email Address <span style="font-size:0.75rem; color:var(--color-text-muted); font-weight:normal;">(Optional)</span></label>
+                                <input type="email" id="form-email" placeholder="name@company.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Service Vertical *</label>
+                                <select id="form-vertical">
+                                    <option value="" disabled selected>Select Service Vertical</option>
+                                    <option value="FYN Aqua">FYN Aqua (Water solutions)</option>
+                                    <option value="FYN Energy">FYN Energy (Rooftop Solar, Electrical and Power Solutions)</option>
+                                    <option value="AMC Support">AMC & Service Support</option>
+                                </select>
+                                <div class="form-error-msg" id="error-vertical" style="display: none; color: #ef4444; font-size: 0.8rem; margin-top: 4px; font-weight: bold;">Please select a vertical.</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Project Details <span style="font-size:0.75rem; color:var(--color-text-muted); font-weight:normal;">(Optional)</span></label>
+                                <textarea rows="4" id="form-details" placeholder="Describe your site details or specific requests..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-cta" style="width: 100%;">Request Quote & Consultation →</button>
+                        </form>
                     </div>
 
-                    <form id="contact-form" novalidate>
-                        <div class="form-group">
-                            <label>Full Name *</label>
-                            <input type="text" id="form-name" placeholder="e.g. Rahul Sharma">
-                            <div class="form-error-msg" id="error-name" style="display: none; color: #ef4444; font-size: 0.8rem; margin-top: 4px; font-weight: bold;">Please enter your name.</div>
-                        </div>
-                        <div class="form-group">
-                            <label>Phone Number *</label>
-                            <div style="display: flex;">
-                                <span style="background: #e6e6ea; border: 1.5px solid var(--color-border); border-right: none; padding: 12px 14px; border-radius: var(--radius-sm) 0 0 var(--radius-sm); font-weight: bold; color: var(--color-text-dark); display: flex; align-items: center; justify-content: center; font-size: 0.95rem;">+91</span>
-                                <input type="tel" id="form-phone" placeholder="10-digit mobile number" style="border-radius: 0 var(--radius-sm) var(--radius-sm) 0; flex: 1; border-left: none;">
+                    <!-- State 2: Submitted Success Card -->
+                    <div id="submitted-success-panel" style="display: none; text-align: center; padding: 30px 10px;">
+                        <svg viewBox="0 0 24 24" width="60" height="60" fill="none" stroke="var(--color-emerald)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px; display: inline-block;">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--color-navy); margin-bottom: 12px;">Inquiry Registered!</h3>
+                        <p style="font-size: 0.95rem; color: var(--color-text-body); line-height: 1.6; margin-bottom: 25px;">
+                            Thank you. Our consultants will contact you soon.
+                        </p>
+                        <button id="btn-trigger-calc" class="btn-cta" style="width: 100%;">Calculate Your Savings →</button>
+                    </div>
+
+                    <!-- State 3: Inline Calculator Container -->
+                    <div id="inline-calculator-panel" style="display: none;">
+                        <!-- Aqua Heat Pump Calculator -->
+                        <div id="aqua-calc-wrapper" style="display: none;">
+                            <h4 style="color: var(--color-primary); font-weight: 800; margin-bottom: 18px; text-align: center;">
+                                📊 Heat Pump Hot Water Calculator
+                            </h4>
+                            
+                            <div style="background: #f8fafc; border: 1px solid var(--color-border); padding: 15px; border-radius: var(--radius-sm); margin-bottom: 20px;">
+                                <div class="form-group" style="margin-bottom: 10px;">
+                                    <label style="font-size: 0.8rem; font-weight: 700; color: var(--color-navy);">Application Type</label>
+                                    <select id="calc-app" style="padding: 8px; font-size: 0.85rem;">
+                                        <option value="hotel">Hotel / Resort (50 L/person)</option>
+                                        <option value="hospital">Hospital (40 L/person)</option>
+                                        <option value="hostel">Hostel (35 L/person)</option>
+                                        <option value="apartment">Apartment (40 L/person)</option>
+                                        <option value="restaurant">Restaurant (15 L/person)</option>
+                                        <option value="industrial">Industrial Plant (25 L/person)</option>
+                                        <option value="commercial">Commercial Building (10 L/person)</option>
+                                        <option value="residential" selected>Residential Home (40 L/person)</option>
+                                        <option value="other">Other Application (30 L/person)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin-bottom: 10px;">
+                                    <label style="font-size: 0.8rem; font-weight: 700; color: var(--color-navy);">Number of Users</label>
+                                    <input type="number" id="calc-users" value="50" min="1" style="padding: 8px; font-size: 0.85rem;">
+                                </div>
+                                <div class="form-group" style="margin-bottom: 10px;">
+                                    <label style="font-size: 0.8rem; font-weight: 700; color: var(--color-navy);">Daily Hot Water (Liters)</label>
+                                    <input type="number" id="calc-liters" value="2000" min="10" style="padding: 8px; font-size: 0.85rem;">
+                                </div>
+                                <div class="form-group" style="margin-bottom: 10px;">
+                                    <label style="font-size: 0.8rem; font-weight: 700; color: var(--color-navy);">Existing Heating System</label>
+                                    <select id="calc-existing" style="padding: 8px; font-size: 0.85rem;">
+                                        <option value="electric" selected>Electric Geyser / Boiler</option>
+                                        <option value="diesel">Diesel Boiler</option>
+                                        <option value="lpg">LPG / Gas Boiler</option>
+                                        <option value="firewood">Firewood Boiler</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin-bottom: 10px;">
+                                    <label id="calc-rate-label" style="font-size: 0.8rem; font-weight: 700; color: var(--color-navy);">Electricity Cost (₹/kWh)</label>
+                                    <input type="number" id="calc-rate" value="8" min="1" step="0.1" style="padding: 8px; font-size: 0.85rem;">
+                                </div>
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <label style="font-size: 0.8rem; font-weight: 700; color: var(--color-navy);">Estimated Heat Pump Unit Price (₹)</label>
+                                    <input type="number" id="calc-system-cost" value="200000" min="10000" style="padding: 8px; font-size: 0.85rem;">
+                                </div>
                             </div>
-                            <div class="form-error-msg" id="error-phone" style="display: none; color: #ef4444; font-size: 0.8rem; margin-top: 4px; font-weight: bold;">Please enter a valid 10-digit number.</div>
-                        </div>
-                        <div class="form-group">
-                            <label>Work Email Address <span style="font-size:0.75rem; color:var(--color-text-muted); font-weight:normal;">(Optional)</span></label>
-                            <input type="email" id="form-email" placeholder="name@company.com">
-                        </div>
-                        <div class="form-group">
-                            <label>Service Vertical *</label>
-                            <select id="form-vertical">
-                                <option value="" disabled selected>Select Service Vertical</option>
-                                <option value="FYN Aqua">FYN Aqua (Water solutions)</option>
-                                <option value="FYN Energy">FYN Energy (Rooftop Solar, Electrical and Power Solutions)</option>
-                                <option value="AMC Support">AMC & Service Support</option>
-                            </select>
-                            <div class="form-error-msg" id="error-vertical" style="display: none; color: #ef4444; font-size: 0.8rem; margin-top: 4px; font-weight: bold;">Please select a vertical.</div>
-                        </div>
-                        <div class="form-group">
-                            <label>Project Details <span style="font-size:0.75rem; color:var(--color-text-muted); font-weight:normal;">(Optional)</span></label>
-                            <textarea rows="4" id="form-details" placeholder="Describe your site details or specific requests..."></textarea>
+
+                            <div style="background: var(--color-primary-light); padding: 12px; border-radius: var(--radius-sm); border-left: 4px solid var(--color-primary); margin-bottom: 15px;">
+                                <div style="font-size: 0.72rem; font-weight: bold; color: var(--color-primary-dark); text-transform: uppercase;">Recommendation</div>
+                                <div style="font-size: 1rem; font-weight: 800; color: var(--color-navy);" id="output-capacity">500 L/Hr Capacity</div>
+                                <div style="font-size: 0.78rem; color: var(--color-text-body);" id="output-consumption">Electricity: 20 kWh / day</div>
+                            </div>
+
+                            <table class="calc-table" style="font-size: 0.78rem; margin-bottom: 15px;">
+                                <thead>
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th>Existing</th>
+                                        <th>Heat Pump</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Daily Cost</td>
+                                        <td id="table-existing-daily">₹640</td>
+                                        <td id="table-hp-daily">₹160</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Monthly Cost</td>
+                                        <td id="table-existing-monthly">₹19,200</td>
+                                        <td id="table-hp-monthly">₹4,800</td>
+                                    </tr>
+                                    <tr style="font-weight: bold;">
+                                        <td>Annual Cost</td>
+                                        <td id="table-existing-annual" style="color: #ef4444;">₹233.6k</td>
+                                        <td id="table-hp-annual" style="color: var(--color-emerald-dark);">₹58.4k</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 12px; border-radius: 8px; text-align: center; margin-bottom: 15px;">
+                                <div style="font-size: 0.75rem; font-weight: bold; color: #166534;">Estimated Annual Savings</div>
+                                <div style="font-size: 1.3rem; font-weight: 900; color: #15803d;" id="output-annual-savings">₹175,200 / Yr</div>
+                                <div style="font-size: 0.72rem; color: #166534; font-weight: bold;" id="output-payback">Payback: 1.1 Years</div>
+                            </div>
                         </div>
 
-                        <button type="submit" class="btn-cta" style="width: 100%;">Request Quote & Consultation →</button>
-                    </form>
+                        <!-- Energy Solar Calculator -->
+                        <div id="energy-calc-wrapper" style="display: none; text-align: center; padding: 20px 10px;">
+                            <span style="font-size: 2.5rem;">☀️</span>
+                            <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--color-primary-dark); margin-top: 8px;">Solar Power Calculator</h4>
+                            <p style="font-size: 0.85rem; color: var(--color-text-body); line-height: 1.5; margin: 10px 0 15px 0;">
+                                Our engineers are preparing a customized solar yield analysis and ROI estimation sheet for your facility!
+                            </p>
+                            <div style="background: var(--color-primary-light); padding: 10px; border-radius: var(--radius-sm); font-size: 0.8rem; font-weight: bold; color: var(--color-primary-dark);">
+                                Estimated 3-4 Year Payback Period on Solar Rooftop Systems.
+                            </div>
+                        </div>
+
+                        <!-- Lead downloader link -->
+                        <div style="text-align: center; font-size: 0.7rem; color: var(--color-text-muted); margin-top: 15px;">
+                            * Lead saved. <a href="#" id="lead-downloader" style="color: var(--color-primary); text-decoration: underline; font-weight: bold;">Export Leads CSV</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -779,8 +898,8 @@
                 <div>
                     <h4 style="color: #ffffff; margin-bottom: 12px;">Headquarters</h4>
                     <p style="font-size: 0.85rem; color: #94a3b8;">Plot No. 42, Sector 63, Noida, UP 201301</p>
-                    <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 6px;">Ph: +91 98765 43210</p>
-                    <p style="font-size: 0.85rem; color: #94a3b8;">Email: info@fynengineers.com</p>
+                    <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 6px;">Ph: <a href="tel:+917411124647" style="color: #94a3b8; text-decoration: underline;">+91 74111 24647</a></p>
+                    <p style="font-size: 0.85rem; color: #94a3b8;">Email: <a href="mailto:fynengineer@gmail.com" style="color: #94a3b8; text-decoration: underline;">fynengineer@gmail.com</a></p>
                 </div>
             </div>
 
@@ -794,138 +913,6 @@
     <script src="siteContent.js"></script>
     <script src="app.js"></script>
 
-    <!-- CALCULATOR MODAL OVERLAY -->
-    <div id="calc-modal" class="modal-overlay" style="display: none;">
-        <div class="modal-content">
-            <button class="close-modal-btn" id="close-modal-btn">&times;</button>
-            
-            <div id="calc-success-header" class="text-center" style="margin-bottom: 25px;">
-                <div style="font-size: 3rem; color: var(--color-emerald); line-height: 1;">✓</div>
-                <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--color-navy); margin-top: 10px;">Inquiry Registered Successfully!</h3>
-                <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-top: 5px;">Our engineering team will contact you shortly.</p>
-            </div>
 
-            <!-- AQUA CALCULATOR -->
-            <div id="aqua-calc-wrapper" style="display: none;">
-                <div class="calc-divider" style="margin: 20px 0; border-top: 1.5px dashed var(--color-border);"></div>
-                <h4 class="calc-section-title" style="text-align: center; color: var(--color-primary); font-weight: 800; margin-bottom: 20px;">
-                    📊 Air Source Heat Pump Hot Water Calculator
-                </h4>
-                
-                <div class="calc-grid-layout">
-                    <!-- Inputs -->
-                    <div class="calc-inputs-panel">
-                        <div class="form-group">
-                            <label>Application Type</label>
-                            <select id="calc-app">
-                                <option value="hotel">Hotel / Resort (50 L/person)</option>
-                                <option value="hospital">Hospital (40 L/person)</option>
-                                <option value="hostel">Hostel (35 L/person)</option>
-                                <option value="apartment">Apartment (40 L/person)</option>
-                                <option value="restaurant">Restaurant (15 L/person)</option>
-                                <option value="industrial">Industrial Plant (25 L/person)</option>
-                                <option value="commercial">Commercial Building (10 L/person)</option>
-                                <option value="residential" selected>Residential Home (40 L/person)</option>
-                                <option value="other">Other Application (30 L/person)</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Number of Users / Occupants</label>
-                            <input type="number" id="calc-users" value="50" min="1">
-                        </div>
-                        <div class="form-group">
-                            <label>Daily Hot Water Requirement (Liters)</label>
-                            <input type="number" id="calc-liters" value="2000" min="10">
-                            <span style="font-size: 0.72rem; color: var(--color-text-muted); display: block; margin-top: 4px;">* Recalculates automatically or enter custom daily requirement</span>
-                        </div>
-                        <div class="form-group">
-                            <label>Existing Heating System</label>
-                            <select id="calc-existing">
-                                <option value="electric" selected>Electric Geyser / Boiler</option>
-                                <option value="diesel">Diesel Boiler</option>
-                                <option value="lpg">LPG / Gas Boiler</option>
-                                <option value="firewood">Firewood Boiler</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label id="calc-rate-label">Electricity Cost (₹/kWh)</label>
-                            <input type="number" id="calc-rate" value="8" min="1" step="0.1">
-                        </div>
-                        <div class="form-group">
-                            <label>Estimated Heat Pump Unit Price (₹)</label>
-                            <input type="number" id="calc-system-cost" value="200000" min="10000">
-                        </div>
-                    </div>
-
-                    <!-- Outputs -->
-                    <div class="calc-results-panel">
-                        <div class="result-highlight-card" style="background: var(--color-primary-light); padding: 15px; border-radius: var(--radius-sm); margin-bottom: 20px; border-left: 4px solid var(--color-primary);">
-                            <div style="font-size: 0.78rem; font-weight: bold; text-transform: uppercase; color: var(--color-primary-dark); letter-spacing: 0.5px;">Recommended Configuration</div>
-                            <div style="font-size: 1.15rem; font-weight: 800; color: var(--color-navy); margin-top: 4px;" id="output-capacity">500 Liters / Hour Capacity</div>
-                            <div style="font-size: 0.85rem; color: var(--color-text-body); margin-top: 2px;" id="output-consumption">Electricity Consumption: 20 kWh / day</div>
-                        </div>
-
-                        <div style="overflow-x: auto;">
-                            <table class="calc-table">
-                                <thead>
-                                    <tr>
-                                        <th>Metrics Comparison</th>
-                                        <th>Existing System</th>
-                                        <th>FYN Heat Pump</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Daily Energy Used</td>
-                                        <td id="table-existing-energy">80 kWh</td>
-                                        <td id="table-hp-energy">20 kWh</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Daily Operating Cost</td>
-                                        <td id="table-existing-daily">₹640</td>
-                                        <td id="table-hp-daily">₹160</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Monthly Operating Cost</td>
-                                        <td id="table-existing-monthly">₹19,200</td>
-                                        <td id="table-hp-monthly">₹4,800</td>
-                                    </tr>
-                                    <tr style="font-weight: bold; background: rgba(0,0,0,0.02);">
-                                        <td>Annual Operating Cost</td>
-                                        <td id="table-existing-annual" style="color: #ef4444;">₹233,600</td>
-                                        <td id="table-hp-annual" style="color: var(--color-emerald-dark);">₹58,400</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="text-center" style="margin-top: 20px; background: #f0fdf4; border: 1px solid #bbf7d0; padding: 15px; border-radius: 8px;">
-                            <div style="font-size: 0.85rem; font-weight: bold; color: #166534;">Estimated Annual Savings</div>
-                            <div style="font-size: 1.6rem; font-weight: 900; color: #15803d; margin: 4px 0;" id="output-annual-savings">₹175,200 / Year</div>
-                            <div style="font-size: 0.8rem; color: #166534; font-weight: bold;" id="output-payback">Estimated Payback Period: 1.1 Years</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ENERGY CALCULATOR -->
-            <div id="energy-calc-wrapper" style="display: none; text-align: center; padding: 20px 0;">
-                <div class="calc-divider" style="margin: 20px 0; border-top: 1.5px dashed var(--color-border);"></div>
-                <span style="font-size: 3rem;">☀️</span>
-                <h4 style="font-size: 1.25rem; font-weight: 800; color: var(--color-primary-dark); margin-top: 10px;">Solar Power Savings Calculator</h4>
-                <p style="font-size: 0.95rem; color: var(--color-text-body); max-width: 500px; margin: 10px auto 20px auto; line-height: 1.6;">
-                    Our engineers are preparing a customized solar yield analysis and ROI estimation spreadsheet for your facility!
-                </p>
-                <div style="background: var(--color-primary-light); padding: 15px; border-radius: var(--radius-sm); font-weight: bold; color: var(--color-primary-dark); max-width: 400px; margin: 0 auto;">
-                    Estimated 3-4 Year Payback Period on Solar Rooftop Systems.
-                </div>
-            </div>
-
-            <!-- MOCK DOWNLOAD / LOCAL PANEL (Optional helper for lead export) -->
-            <div style="margin-top: 25px; text-align: center; font-size: 0.72rem; color: var(--color-text-muted);">
-                * Lead details are saved. <a href="#" id="lead-downloader" style="color: var(--color-primary); text-decoration: underline; font-weight: bold;">Export Leads CSV</a> (For Admin Dashboard)
-            </div>
-        </div>
-    </div>
 </body>
 </html>

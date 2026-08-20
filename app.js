@@ -3,8 +3,6 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // A. GOOGLE SHEET WEB SCRIPTS INTEGRATION
-    // Provide your deployed web app URL here:
     const GOOGLE_SHEET_URL = "";
 
     // 1. Mobile Menu Drawer Toggle
@@ -24,41 +22,46 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 2. Lead Download Handler (Backup CSV Logger)
-    const downloader = document.getElementById('lead-downloader');
-    if (downloader) {
-        downloader.addEventListener('click', (e) => {
-            e.preventDefault();
-            const stored = localStorage.getItem('fyn_leads');
-            const leads = stored ? JSON.parse(stored) : [];
-            
-            if (leads.length === 0) {
-                alert('No lead inquiries registered on this machine yet.');
-                return;
-            }
+    const setupDownloader = () => {
+        const downloader = document.getElementById('lead-downloader');
+        if (downloader) {
+            downloader.addEventListener('click', (e) => {
+                e.preventDefault();
+                const stored = localStorage.getItem('fyn_leads');
+                const leads = stored ? JSON.parse(stored) : [];
+                
+                if (leads.length === 0) {
+                    alert('No lead inquiries registered on this machine yet.');
+                    return;
+                }
 
-            let csv = 'Date,Name,Phone,Email,Vertical,Details,Status\n';
-            leads.forEach(l => {
-                csv += `"${l.date}","${l.name}","${l.phone}","${l.email}","${l.vertical}","${l.details.replace(/"/g, '""')}","${l.status}"\n`;
+                let csv = 'Date,Name,Phone,Email,Vertical,Details,Status\n';
+                leads.forEach(l => {
+                    csv += `"${l.date}","${l.name}","${l.phone}","${l.email}","${l.vertical}","${l.details.replace(/"/g, '""')}","${l.status}"\n`;
+                });
+
+                const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.setAttribute('download', 'fyn_leads_log.csv');
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
             });
+        }
+    };
 
-            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.setAttribute('download', 'fyn_leads_log.csv');
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        });
-    }
-
-    // 3. Form Validations & Lead Dispatcher
+    // 3. Form Validations & Inline Transitions
     const contactForm = document.getElementById('contact-form');
-    const formSuccess = document.getElementById('form-success');
-    const calcModal = document.getElementById('calc-modal');
-    const closeModalBtn = document.getElementById('close-modal-btn');
+    const formStatePanel = document.getElementById('contact-form-state');
+    const successStatePanel = document.getElementById('submitted-success-panel');
+    const calcStatePanel = document.getElementById('inline-calculator-panel');
+    const btnTriggerCalc = document.getElementById('btn-trigger-calc');
     
     const aquaWrapper = document.getElementById('aqua-calc-wrapper');
     const energyWrapper = document.getElementById('energy-calc-wrapper');
+
+    let selectedVertical = '';
 
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
@@ -98,18 +101,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            selectedVertical = verticalField.value;
+
             // Prepare Lead Payload
             const leadData = {
                 date: new Date().toISOString().split('T')[0],
                 name: nameField.value.trim(),
                 phone: '+91 ' + cleanPhone,
                 email: emailField.value.trim() || 'N/A',
-                vertical: verticalField.value,
+                vertical: selectedVertical,
                 details: detailsField.value.trim() || 'N/A',
                 status: 'Not Contacted'
             };
 
-            // Save locally in mock localStorage first
+            // Save locally in mock localStorage
             const stored = localStorage.getItem('fyn_leads');
             const leads = stored ? JSON.parse(stored) : [];
             leads.push(leadData);
@@ -125,42 +130,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 }).catch(err => console.error('Google Sheet Post Error:', err));
             }
 
-            // Display success status & clear inputs
-            if (formSuccess) {
-                formSuccess.style.display = 'block';
-                setTimeout(() => { formSuccess.style.display = 'none'; }, 5000);
-            }
-            contactForm.reset();
+            // Transition from Form to Success Card
+            formStatePanel.style.display = 'none';
+            successStatePanel.style.display = 'block';
 
-            // Open Calculator Modal depending on service vertical selected
-            if (calcModal) {
-                // Initialize default users/liters inside inputs
-                if (leadData.vertical === 'FYN Aqua') {
-                    aquaWrapper.style.display = 'block';
-                    energyWrapper.style.display = 'none';
-                    // Populate default values
-                    document.getElementById('calc-users').value = 50;
-                    recalculateHeatPump();
-                } else if (leadData.vertical === 'FYN Energy') {
-                    aquaWrapper.style.display = 'none';
-                    energyWrapper.style.display = 'block';
-                } else {
-                    // AMC option does not open calculators
-                    return;
-                }
-                calcModal.style.display = 'flex';
+            // Show "Calculate Savings" CTA only for Aqua & Energy verticals
+            if (selectedVertical === 'FYN Aqua' || selectedVertical === 'FYN Energy') {
+                btnTriggerCalc.style.display = 'block';
+            } else {
+                btnTriggerCalc.style.display = 'none'; // AMC Support shows just success checkmark
             }
+
+            setupDownloader();
         });
     }
 
-    // Modal Close Triggers
-    if (closeModalBtn && calcModal) {
-        closeModalBtn.addEventListener('click', () => {
-            calcModal.style.display = 'none';
-        });
-        calcModal.addEventListener('click', (e) => {
-            if (e.target === calcModal) {
-                calcModal.style.display = 'none';
+    // "Calculate Your Savings" Click Trigger -> Transition to Inline Calculator
+    if (btnTriggerCalc) {
+        btnTriggerCalc.addEventListener('click', () => {
+            successStatePanel.style.display = 'none';
+            calcStatePanel.style.display = 'block';
+
+            if (selectedVertical === 'FYN Aqua') {
+                aquaWrapper.style.display = 'block';
+                energyWrapper.style.display = 'none';
+                document.getElementById('calc-users').value = 50;
+                recalculateHeatPump();
+            } else if (selectedVertical === 'FYN Energy') {
+                aquaWrapper.style.display = 'none';
+                energyWrapper.style.display = 'block';
             }
         });
     }
@@ -174,7 +172,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const calcRateLabel = document.getElementById('calc-rate-label');
     const calcSystemCost = document.getElementById('calc-system-cost');
 
-    // App constants for Liters/person mappings
     const appMultipliers = {
         hotel: 50,
         hospital: 40,
@@ -187,15 +184,13 @@ document.addEventListener('DOMContentLoaded', () => {
         other: 30
     };
 
-    // Default fuel unit prices
     const fuelDefaultRates = {
-        electric: 8.0,   // ₹ per kWh
-        diesel: 90.0,    // ₹ per Liter
-        lpg: 95.0,       // ₹ per kg
-        firewood: 10.0   // ₹ per kg
+        electric: 8.0,
+        diesel: 90.0,
+        lpg: 95.0,
+        firewood: 10.0
     };
 
-    // Fuel Labels
     const fuelLabels = {
         electric: 'Electricity Cost (₹/kWh)',
         diesel: 'Diesel Cost (₹/L)',
@@ -209,28 +204,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const app = calcApp.value;
         const users = parseInt(calcUsers.value) || 1;
         
-        // Auto-compute requirement unless custom edited
         let dailyLiters = parseInt(calcLiters.value);
         
-        // Heat Pump sizing outputs
-        const recommendedCapacity = Math.round(dailyLiters / 4); // L/hour capacity
-        const hpElectricityUse = Math.round(dailyLiters * 0.01); // 1 kWh per 100 L
-        const elecRate = 8.0; // Fixed local electric geyser rate multiplier
+        const recommendedCapacity = Math.round(dailyLiters / 4);
+        const hpElectricityUse = Math.round(dailyLiters * 0.01);
+        const elecRate = 8.0;
         const calcElecCost = parseFloat(calcRate.value) || elecRate;
         const dailyHPCost = hpElectricityUse * calcElecCost;
 
-        // Auto-scale heat pump system cost estimate dynamically
-        const estimatedUnitCost = recommendedCapacity * 800; // ₹800 capital cost coefficient per L/hr
+        const estimatedUnitCost = recommendedCapacity * 800;
         if (document.activeElement !== calcSystemCost) {
             calcSystemCost.value = Math.max(80000, Math.round(estimatedUnitCost));
         }
         const sysCostInput = parseInt(calcSystemCost.value) || 150000;
 
-        // Calculate Existing System baselines
         const existingSystem = calcExisting.value;
         const inputCostRate = parseFloat(calcRate.value) || 1.0;
         
-        let existingEnergyUse = dailyLiters * 0.04; // Baseline electric geyser is 4 kWh per 100 L (COP=1, ~90% eff)
+        let existingEnergyUse = dailyLiters * 0.04;
         let existingCost = 0;
         let existingEnergyLabel = '';
 
@@ -238,34 +229,26 @@ document.addEventListener('DOMContentLoaded', () => {
             existingCost = existingEnergyUse * inputCostRate;
             existingEnergyLabel = Math.round(existingEnergyUse) + ' kWh';
         } else if (existingSystem === 'diesel') {
-            // 1 Liter diesel yields ~7 kWh net thermal energy after boiler losses
             const dieselLitersUsed = existingEnergyUse / 7.0;
             existingCost = dieselLitersUsed * inputCostRate;
-            existingEnergyLabel = dieselLitersUsed.toFixed(1) + ' Liters';
+            existingEnergyLabel = dieselLitersUsed.toFixed(1) + ' L';
         } else if (existingSystem === 'lpg') {
-            // 1 kg LPG yields ~9.75 kWh net thermal energy after boiler losses
             const lpgKgUsed = existingEnergyUse / 9.75;
             existingCost = lpgKgUsed * inputCostRate;
             existingEnergyLabel = lpgKgUsed.toFixed(1) + ' kg';
         } else if (existingSystem === 'firewood') {
-            // 1 kg wood yields ~2.25 kWh net thermal energy after boiler losses
             const woodKgUsed = existingEnergyUse / 2.25;
             existingCost = woodKgUsed * inputCostRate;
             existingEnergyLabel = Math.round(woodKgUsed) + ' kg';
         }
 
-        // Apply savings values to UI elements
         const dailySavings = Math.max(0, existingCost - dailyHPCost);
         const monthlySavings = dailySavings * 30;
         const annualSavings = dailySavings * 365;
         const paybackPeriod = annualSavings > 0 ? (sysCostInput / annualSavings).toFixed(1) : 'N/A';
 
-        // Update UI Outputs
-        document.getElementById('output-capacity').textContent = recommendedCapacity + ' Liters / Hour Capacity';
-        document.getElementById('output-consumption').textContent = 'Electricity Consumption: ' + hpElectricityUse + ' kWh / day';
-        
-        document.getElementById('table-existing-energy').textContent = existingEnergyLabel;
-        document.getElementById('table-hp-energy').textContent = hpElectricityUse + ' kWh';
+        document.getElementById('output-capacity').textContent = recommendedCapacity + ' L/Hr Capacity';
+        document.getElementById('output-consumption').textContent = 'Electricity: ' + hpElectricityUse + ' kWh / day';
         
         document.getElementById('table-existing-daily').textContent = '₹' + Math.round(existingCost).toLocaleString('en-IN');
         document.getElementById('table-hp-daily').textContent = '₹' + Math.round(dailyHPCost).toLocaleString('en-IN');
@@ -273,11 +256,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('table-existing-monthly').textContent = '₹' + Math.round(existingCost * 30).toLocaleString('en-IN');
         document.getElementById('table-hp-monthly').textContent = '₹' + Math.round(dailyHPCost * 30).toLocaleString('en-IN');
         
-        document.getElementById('table-existing-annual').textContent = '₹' + Math.round(existingCost * 365).toLocaleString('en-IN');
-        document.getElementById('table-hp-annual').textContent = '₹' + Math.round(dailyHPCost * 365).toLocaleString('en-IN');
+        // Use shorter notation (e.g. 233.6k) to fit card layout perfectly
+        const formatK = (val) => (val >= 1000 ? (val / 1000).toFixed(1) + 'k' : val);
+        document.getElementById('table-existing-annual').textContent = '₹' + formatK(Math.round(existingCost * 365));
+        document.getElementById('table-hp-annual').textContent = '₹' + formatK(Math.round(dailyHPCost * 365));
 
-        document.getElementById('output-annual-savings').textContent = '₹' + Math.round(annualSavings).toLocaleString('en-IN') + ' / Year';
-        document.getElementById('output-payback').textContent = 'Estimated Payback Period: ' + paybackPeriod + ' Years';
+        document.getElementById('output-annual-savings').textContent = '₹' + Math.round(annualSavings).toLocaleString('en-IN') + ' / Yr';
+        document.getElementById('output-payback').textContent = 'Payback: ' + paybackPeriod + ' Years';
     }
 
     // Attach Event Listeners to Calculator Controls
@@ -348,7 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, scrollSpyOptions);
 
     sections.forEach(section => {
-        if (section.getAttribute('id') !== 'projects') { // Skip projects section scroll check since hidden
+        if (section.getAttribute('id') !== 'projects') {
             scrollSpyObserver.observe(section);
         }
     });
