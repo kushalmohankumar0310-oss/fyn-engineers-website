@@ -3,7 +3,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    const GOOGLE_SHEET_URL = "";
+    const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbzt7VNQlmV-_6NRd_b4lZS4LSg6GXaxcLvm2kukGDpHHzkrvijOcMEkH0I0IzsrgraN8Q/exec";
 
     // 1. Mobile Menu Drawer Toggle
     const menuToggle = document.getElementById('menu-toggle');
