@@ -460,7 +460,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         });
-    }, scrollSpyObserver);
+    }, scrollSpyOptions);
 
     sections.forEach(section => {
         if (section.getAttribute('id') !== 'projects') {
