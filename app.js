@@ -92,20 +92,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 status: 'Not Contacted'
             };
 
-            // Save locally in mock localStorage
-            const stored = localStorage.getItem('fyn_leads');
-            const leads = stored ? JSON.parse(stored) : [];
-            leads.push(leadData);
-            localStorage.setItem('fyn_leads', JSON.stringify(leads));
+            // Save locally in mock localStorage (wrapped in try-catch to prevent crashes in private windows or local files)
+            try {
+                const stored = localStorage.getItem('fyn_leads');
+                const leads = stored ? JSON.parse(stored) : [];
+                leads.push(leadData);
+                localStorage.setItem('fyn_leads', JSON.stringify(leads));
+            } catch (storageErr) {
+                console.warn('LocalStorage access is blocked or unavailable:', storageErr);
+            }
 
             // POST Lead to Google Sheet Webhook if configured
             if (GOOGLE_SHEET_URL) {
-                fetch(GOOGLE_SHEET_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(leadData)
-                }).catch(err => console.error('Google Sheet Post Error:', err));
+                try {
+                    fetch(GOOGLE_SHEET_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(leadData)
+                    }).catch(err => console.error('Google Sheet Post Error:', err));
+                } catch (fetchErr) {
+                    console.error('Fetch post call failed synchronously:', fetchErr);
+                }
             }
 
             // Transition from Form to Success Card
