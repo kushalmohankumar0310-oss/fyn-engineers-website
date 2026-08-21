@@ -55,8 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 isValid = false;
             }
 
-            // Validate Phone (Exactly 10 digits numeric)
-            const cleanPhone = phoneField.value.replace(/\D/g, '');
+            // Validate Phone & Normalize (Extract last 10 digits if user includes country code +91 or leading 0)
+            let cleanPhone = phoneField.value.replace(/\D/g, '');
+            if (cleanPhone.length === 12 && cleanPhone.startsWith('91')) {
+                cleanPhone = cleanPhone.slice(2);
+            } else if (cleanPhone.length === 11 && cleanPhone.startsWith('0')) {
+                cleanPhone = cleanPhone.slice(1);
+            }
+            
             if (!cleanPhone || cleanPhone.length !== 10) {
                 document.getElementById('error-phone').style.display = 'block';
                 isValid = false;
@@ -102,14 +108,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.warn('LocalStorage access is blocked or unavailable:', storageErr);
             }
 
-            // POST Lead to Google Sheet Webhook if configured
+            // POST Lead to Google Sheet Webhook if configured (URL-Encoded for native Google Apps Script parsing)
             if (GOOGLE_SHEET_URL) {
                 try {
+                    const postParams = new URLSearchParams();
+                    for (const key in leadData) {
+                        postParams.append(key, leadData[key]);
+                    }
+                    
                     fetch(GOOGLE_SHEET_URL, {
                         method: 'POST',
                         mode: 'no-cors',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(leadData)
+                        body: postParams
                     }).catch(err => console.error('Google Sheet Post Error:', err));
                 } catch (fetchErr) {
                     console.error('Fetch post call failed synchronously:', fetchErr);
