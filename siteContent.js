@@ -17,7 +17,8 @@ const siteContent = {
     established: "2020",
     phone: "+91 98765 43210",
     alternatePhone: "+91 120 4567 890",
-    email: "info@fynengineers.com",
+    email: "contact@fynengineers.com",
+    linkedin: "https://www.linkedin.com/company/fyn-engineers-pvt-ltd/",
     address: "Plot No. 42, Sector 63, Noida, UP 201301",
     whatsappNumber: "919876543210"
   },
